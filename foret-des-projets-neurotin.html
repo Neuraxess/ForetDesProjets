@@ -1,0 +1,2663 @@
+<meta charset="utf-8">
+<title>Forêt des projets Neuraxess</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Planche botanique : l'arbre occupe la scène, colonne des étapes clés à gauche, panneau de lecture à droite (dessous sur mobile) */
+:root{
+  --paper:#eef1ec; --panel:#f8faf7; --ink:#1f2a24; --muted:#5b6a61; --line:#d3dbd4;
+  --bark:#4a3b2c; --soil:#e3ddd0; --soil-line:#c9bfa9; --root:#7a6248;
+  --leaf:#4f8a3c; --fruit:#b23a48; --flower:#d9962a; --moss1:#56762a; --moss2:#86a43e; --moss3:#a9bf55; --lichen:#c9cfa4; --tit-blue:#2a78c8; --tit-yellow:#f4c430; --tit-green:#8fa847; --tit-dark:#1d2c3d; --tit-white:#fbfbf8; --water:#9cc8d8; --water-edge:#76abc0; --water-hi:#eef8fb; --kf-orange:#e0702a; --skin:#f0c49e; --sq:#c0662a; --sq-light:#f1c58f; --sq-dark:#6b3412; --au1:#c8742a; --au2:#d9a03a; --au3:#a5552a; --cactus:#5f9a52; --cactus-dark:#3e6c38; --baobab:#8a7766; --cfl:#e0609a; --cfl-light:#f5b4cf; --spine:#c4ab5e; --spine-base:#efe5c4; --figue:#b52f58; --cherry:#c8142e; --hib:#d3324a; --par-green:#3d9f4b; --par-green2:#2b7536; --par-red:#d6352b; --par-blue:#2a6cc4; --beak:#efe1c2; --pic-green:#7a9f38; --pic-dark:#4c6b22; --pic-red:#d02a2a; --pic-belly:#d5dea6; --koala:#98a0a5; --koala-light:#dfe2e4; --mk:#c99d62; --mk-light:#efdab0; --mk-dark:#5a3b1c; --lem:#9a9a96; --lem-light:#f2f1ec; --lem-dark:#262624; --lem-eye:#e8a21c; --pain:#e0aa1c; --pain-dark:#9c7210; --rose:#e26b8f; --rose-light:#f6b8cb; --rose-dark:#b03a63; --rbud:#c42149; --rosier:#5e7f3c; --rosier-dark:#3f5a28; --thorn:#8a3b2e; --bee:#f2bb1d; --bee-dark:#2a2118; --wing:#e8f3fb; --fee-dress:#a46ad6; --fee-wing:#b8e6f5; --fee-hair:#e9b949; --pansy:#5b3a9a; --pansy-mid:#9a72d6; --sap:#e3a325; --sap-dark:#9e6812; --sap-hi:#fde6a6; --pearl:#f7f3ea; --pearl-edge:#a99f8e; --ribbon:#d9638a; --card:#d42a2a; --card-dark:#9a1c1c; --card-beak:#f39a3e; --pad:#c9dc6c; --m0:#1f5f8b; --m1:#e0632f; --m2:#7a4fa3; --m3:#2e9a5a; --m4:#c49012; --m5:#c2185b; --on-line:#ffffff; --zone:#ead9a6; --accent:#2f6f73;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "Consolas", monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#121815; --panel:#18201c; --ink:#e4ebe6; --muted:#9aa89f; --line:#2b3530;
+  --bark:#b89d7d; --soil:#1e1b16; --soil-line:#3a3329; --root:#9c8165;
+  --leaf:#78b862; --fruit:#e0697a; --flower:#f0b955; --moss1:#6f9638; --moss2:#94b24a; --moss3:#b8cc64; --lichen:#cfd5ad; --tit-blue:#4a97e0; --tit-yellow:#f6cd45; --tit-green:#9fb857; --tit-dark:#1d2c3d; --tit-white:#fbfbf8; --water:#2c6276; --water-edge:#3d7d94; --water-hi:#9fd0e0; --kf-orange:#f08a45; --skin:#e8b88e; --sq:#d97b3c; --sq-light:#f3cc9b; --sq-dark:#5a2a0d; --au1:#d68440; --au2:#e2b04d; --au3:#b8673a; --cactus:#74b465; --cactus-dark:#4f8546; --baobab:#a8927e; --cfl:#ec79ad; --cfl-light:#f7c3da; --spine:#d6be72; --spine-base:#efe5c4; --figue:#d2486f; --cherry:#e2384f; --hib:#e44c62; --par-green:#55b862; --par-green2:#3b8f47; --par-red:#e5503f; --par-blue:#4d8ee0; --beak:#efe1c2; --pic-green:#93b94c; --pic-dark:#6a8b32; --pic-red:#e44545; --pic-belly:#dbe3b2; --koala:#aab2b7; --koala-light:#e3e6e8; --mk:#d8ae74; --mk-light:#f1dfba; --mk-dark:#4a2f14; --lem:#b0b0ab; --lem-light:#f2f1ec; --lem-dark:#1c1c1a; --lem-eye:#f0b33a; --pain:#ecbc36; --pain-dark:#b5891e; --rose:#ec7fa0; --rose-light:#f7c4d4; --rose-dark:#c24f76; --rbud:#e04068; --rosier:#78a050; --rosier-dark:#557a38; --thorn:#c26a5a; --bee:#f5c63a; --bee-dark:#1d1712; --wing:#dff0fa; --fee-dress:#b98ae6; --fee-wing:#a9def0; --fee-hair:#f0c75e; --pansy:#7a5ac0; --pansy-mid:#b597ea; --sap:#eab040; --sap-dark:#b07a20; --sap-hi:#fdeab8; --pearl:#f3eee4; --pearl-edge:#8f8676; --ribbon:#e57a9c; --card:#e24848; --card-dark:#b02c2c; --card-beak:#f5a956; --pad:#c2d665; --m0:#5aa7dc; --m1:#f08a5d; --m2:#b18be0; --m3:#5cc98a; --m4:#e6b93c; --m5:#ef6a9a; --on-line:#10161a; --zone:#4a4026; --accent:#6fb5b9; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#121815; --panel:#18201c; --ink:#e4ebe6; --muted:#9aa89f; --line:#2b3530;
+  --bark:#b89d7d; --soil:#1e1b16; --soil-line:#3a3329; --root:#9c8165;
+  --leaf:#78b862; --fruit:#e0697a; --flower:#f0b955; --moss1:#6f9638; --moss2:#94b24a; --moss3:#b8cc64; --lichen:#cfd5ad; --tit-blue:#4a97e0; --tit-yellow:#f6cd45; --tit-green:#9fb857; --tit-dark:#1d2c3d; --tit-white:#fbfbf8; --water:#2c6276; --water-edge:#3d7d94; --water-hi:#9fd0e0; --kf-orange:#f08a45; --skin:#e8b88e; --sq:#d97b3c; --sq-light:#f3cc9b; --sq-dark:#5a2a0d; --au1:#d68440; --au2:#e2b04d; --au3:#b8673a; --cactus:#74b465; --cactus-dark:#4f8546; --baobab:#a8927e; --cfl:#ec79ad; --cfl-light:#f7c3da; --spine:#d6be72; --spine-base:#efe5c4; --figue:#d2486f; --cherry:#e2384f; --hib:#e44c62; --par-green:#55b862; --par-green2:#3b8f47; --par-red:#e5503f; --par-blue:#4d8ee0; --beak:#efe1c2; --pic-green:#93b94c; --pic-dark:#6a8b32; --pic-red:#e44545; --pic-belly:#dbe3b2; --koala:#aab2b7; --koala-light:#e3e6e8; --mk:#d8ae74; --mk-light:#f1dfba; --mk-dark:#4a2f14; --lem:#b0b0ab; --lem-light:#f2f1ec; --lem-dark:#1c1c1a; --lem-eye:#f0b33a; --pain:#ecbc36; --pain-dark:#b5891e; --rose:#ec7fa0; --rose-light:#f7c4d4; --rose-dark:#c24f76; --rbud:#e04068; --rosier:#78a050; --rosier-dark:#557a38; --thorn:#c26a5a; --bee:#f5c63a; --bee-dark:#1d1712; --wing:#dff0fa; --fee-dress:#b98ae6; --fee-wing:#a9def0; --fee-hair:#f0c75e; --pansy:#7a5ac0; --pansy-mid:#b597ea; --sap:#eab040; --sap-dark:#b07a20; --sap-hi:#fdeab8; --pearl:#f3eee4; --pearl-edge:#8f8676; --ribbon:#e57a9c; --card:#e24848; --card-dark:#b02c2c; --card-beak:#f5a956; --pad:#c2d665; --m0:#5aa7dc; --m1:#f08a5d; --m2:#b18be0; --m3:#5cc98a; --m4:#e6b93c; --m5:#ef6a9a; --on-line:#10161a; --zone:#4a4026; --accent:#6fb5b9; color-scheme:dark }
+
+/* Un élément masqué reste masqué, même quand le fichier est ouvert directement depuis l'ordinateur */
+[hidden]{display:none !important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1280px;margin:0 auto;padding-block:24px 40px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+header{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,3.4vw,36px);line-height:1.1;margin:4px 0 6px;text-wrap:balance;max-width:28ch}
+.badge{display:inline-block;font-family:var(--f-mono);font-size:11px;padding:2px 8px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+.stats{display:flex;gap:20px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--f-display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.stat span{font-size:12.5px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted);margin-bottom:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend svg{width:18px;height:18px}
+/* Filtres d'affichage : cocher / décocher des catégories et des branches */
+.filtres{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px;margin:-2px 0 12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.filtres .ftl{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.fchip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 8px;border:1px solid var(--line);border-radius:99px;background:var(--paper);cursor:pointer;user-select:none;line-height:1.2}
+.fchip:has(input:not(:checked):not(:indeterminate)){color:var(--muted);background:transparent;text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--muted) 60%, transparent)}
+.fchip input{margin:0;accent-color:var(--accent)}
+.fchip:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.fbr{position:relative}
+.fbr > summary{list-style:none}
+.fbr > summary::-webkit-details-marker{display:none}
+.fbr > summary .car{font-size:10px;color:var(--muted);margin-left:2px}
+.fbr[open] > summary{border-color:var(--accent)}
+.fbrpop{position:absolute;z-index:20;top:calc(100% + 6px);left:0;min-width:280px;max-width:min(420px, calc(100vw - 32px));max-height:min(60vh, 460px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:10px}
+.fbrpop .facts{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.fbrpop .facts button{font:inherit;font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:inherit;cursor:pointer}
+.fbrrow{display:flex;align-items:center;gap:8px;padding:4px 0;border-top:1px solid color-mix(in srgb, var(--line) 60%, transparent)}
+.fbrrow label{display:flex;align-items:center;gap:7px;flex:1;min-width:0;cursor:pointer}
+.fbrrow label span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fbrrow input{accent-color:var(--accent)}
+.fbrrow.off label{color:var(--muted)}
+.fbrrow .seule{font:inherit;font-size:11.5px;padding:2px 7px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;flex:none}
+.fbrrow .seule:hover{color:inherit;border-color:var(--muted)}
+.fbrrow small{color:var(--muted);font-family:var(--f-mono);font-size:10.5px;flex:none}
+.freset{font:inherit;font-size:12.5px;padding:4px 10px;border:none;background:none;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+#arbre.hide-th [data-f~="th"], #arbre.hide-ref [data-f~="ref"], #arbre.hide-th.hide-ref [data-f~="rootbody"],
+#arbre.hide-jal [data-f~="jal"], #arbre.hide-fin [data-f~="fin"], #arbre.hide-val [data-f~="val"], #arbre.hide-rec [data-f~="rec"]{display:none}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.stage{position:relative;min-width:0}
+.stage svg{display:block;width:100%;height:auto;max-width:100%}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;position:sticky;top:calc(env(safe-area-inset-top, 0px) + 16px);min-width:0}
+.panel h2{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.25;margin:6px 0 8px;text-wrap:balance}
+.panel p{margin:0 0 10px}
+.panel dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:10px 0 0;font-size:14px}
+.panel dt{color:var(--muted)}
+.panel dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.panel ul{margin:4px 0 0;padding-left:18px}
+.panel a{color:var(--accent)}
+.kind{display:inline-flex;align-items:center;gap:6px}
+.kind i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.hint{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:12px}
+
+.tip{position:absolute;pointer-events:none;max-width:260px;background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:8px 11px;font-size:13px;line-height:1.35;box-shadow:0 6px 18px rgba(0,0,0,.12);z-index:5}
+.tip b{display:block;font-weight:600;margin:2px 0}
+.tip .m{color:var(--muted)}
+
+/* SVG */
+.axis text{font-family:var(--f-mono);font-size:12px;fill:var(--muted)}
+.axis line{stroke:var(--line);stroke-dasharray:2 5}
+.halo{paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
+.blabel{font-family:var(--f-display);font-size:15px;font-weight:500;fill:var(--ink)}
+.blabel.sub{font-size:13.5px}
+.yrs{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.rlabel{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.tlabel{font-family:var(--f-display);font-size:14px;font-weight:700;fill:var(--bark);paint-order:stroke;stroke:var(--soil);stroke-width:5px;stroke-linejoin:round}
+.jword{font-family:var(--f-display);font-size:14.5px;font-weight:700;fill:var(--ink)}
+.jdate{font-family:var(--f-mono);font-size:10.5px;fill:var(--muted)}
+.leader{stroke:var(--muted);stroke-width:1;stroke-dasharray:1 3;fill:none}
+.veil{fill:var(--paper);opacity:.55}
+.today{stroke:var(--muted);stroke-width:1.2;stroke-dasharray:6 4;fill:none}
+.todaytxt{font:500 11px var(--f-mono);fill:var(--muted)}
+.leaderR{stroke:var(--accent);stroke-width:1.3;stroke-dasharray:2 3;fill:none;opacity:.85}
+.node{cursor:pointer;outline:none}
+.node:hover .hl, .node:focus-visible .hl, .node.sel .hl{stroke:var(--ink);stroke-width:1.6}
+.node:focus-visible .ring, .node.sel .ring{opacity:1}
+.ring{opacity:0;fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:3 3}
+.hit{stroke:transparent;stroke-width:14;fill:none}
+.node:hover .root-body, .node.sel .root-body{fill:var(--bark)}
+.moss{transition:filter .15s ease}
+.node:hover .moss, .node.sel .moss{filter:brightness(1.18) saturate(1.2)}
+@media (prefers-reduced-motion: reduce){.moss{transition:none}}
+.bword{font-family:var(--f-display);font-size:12.5px;font-weight:700;fill:var(--ink)}
+.node:hover .jword, .node.sel .jword{fill:var(--accent)}
+
+/* Feuillages : couleurs normales, ou d'automne pour un projet ancien */
+#arbre{--cr1:var(--moss1); --cr2:var(--leaf); --cr3:var(--moss2); --cy1:var(--moss3); --wood:var(--bark)}
+#arbre.t-cactus{--wood:var(--cactus)}
+#arbre.t-baobab{--wood:var(--baobab)}
+#arbre.t-rosier{--wood:var(--rosier)}
+#arbre.autumn{--cr1:var(--au3); --cr2:var(--au1); --cr3:var(--au2); --cy1:var(--au2); --leaf:var(--au1); --cfl:var(--au1); --cfl-light:var(--au2); --rose:var(--au1); --rose-light:var(--au2); --rose-dark:var(--au3)}
+.autumn-note{font-size:13.5px;border-left:3px solid var(--au1);padding:4px 0 4px 10px;color:var(--muted)}
+
+/* Panneau Apparence */
+.tools{flex-wrap:wrap;justify-content:flex-end}
+#btn-app svg{flex:none}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,100vw);box-sizing:border-box;background:var(--panel);border-left:1px solid var(--line);
+  box-shadow:-10px 0 30px rgba(0,0,0,.12);z-index:30;overflow-y:auto;
+  padding:calc(env(safe-area-inset-top, 0px) + 16px) max(18px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 20px) 18px}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dhead h2{font-family:var(--f-display);font-size:20px;margin:0}
+.drawer h3{font:700 14px var(--f-display);margin:18px 0 8px}
+.dnote{font-size:13px;color:var(--muted);margin:6px 0 0}
+.ambs{display:grid;gap:8px;margin-top:10px}
+.amb{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:center;text-align:left;font:inherit;color:inherit;background:var(--paper);
+  border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+.amb:hover{border-color:var(--muted)}
+.amb[aria-checked="true"]{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent)}
+.amb:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.amb svg{width:96px;height:44px}
+.amb b{font-family:var(--f-display);font-size:15px;display:block}
+.amb span{font-size:12.5px;color:var(--muted);line-height:1.35}
+.amb .perso{display:inline-block;margin-left:6px;font:500 11px var(--f-mono);color:var(--accent)}
+.afields{display:grid;gap:10px}
+.afields .field select{font-size:14px}
+.dactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+/* Forêt des projets */
+.ftools{display:flex;gap:8px;flex-wrap:wrap}
+.flayout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start}
+@media (max-width:900px){.flayout{grid-template-columns:1fr}}
+.fstage{position:relative;min-width:0}
+.fstage svg{display:block;width:100%;height:auto;max-width:100%}
+.ftree{cursor:pointer;outline:none}
+.ftree .fhalo{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:4 4;opacity:0}
+.ftree:hover .fhalo, .ftree:focus-visible .fhalo{opacity:1}
+.ftree:hover .ftitle, .ftree:focus-visible .ftitle{fill:var(--accent)}
+.ftitle{font:700 15px var(--f-display);fill:var(--ink)}
+.fyears{font:500 11.5px var(--f-mono);fill:var(--muted)}
+.fcount{font:400 12px var(--f-body);fill:var(--muted)}
+.fitems{display:grid;gap:8px;margin-top:12px}
+.fitem{display:grid;gap:2px;text-align:left;font:inherit;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 11px;cursor:pointer}
+.fitem:hover{border-color:var(--accent)}
+.frow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:stretch}
+.fhide{font-size:12.5px;padding:6px 9px}
+.fitem.muted{opacity:.7}
+.fhidden{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+.fhidden summary{cursor:pointer;font-size:13.5px;color:var(--muted)}
+.fhidden summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fitem:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fitem b{font-family:var(--f-display);font-size:14.5px;line-height:1.25}
+.fitem span{font-size:12.5px;color:var(--muted)}
+.fstatus{font-size:13px;color:var(--muted);margin:10px 0 0}
+
+/* Boutons et mode édition */
+.tools{display:flex;gap:8px;align-items:center}
+.btn{font:600 13.5px/1.2 var(--f-body);padding:8px 12px;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:hover{border-color:var(--muted)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--fruit)}
+.btn.armed{background:var(--fruit);border-color:var(--fruit);color:var(--panel)}
+.layout.editing{grid-template-columns:minmax(0,1fr) minmax(0,480px)}
+.layout.editing .panel{display:none}
+.editor{background:var(--panel);border:1px solid var(--line);border-radius:10px;position:sticky;top:calc(env(safe-area-inset-top, 0px) + 16px);max-height:calc(100vh - 32px);overflow:auto;min-width:0}
+@media (max-width:900px){.layout.editing{grid-template-columns:1fr}.editor{position:static;max-height:none}}
+.ehead{padding:16px 18px 12px;display:grid;gap:10px}
+.ebtns{display:flex;flex-wrap:wrap;gap:6px}
+.estatus{margin:0;font-size:13px;color:var(--muted)}
+.estatus.dirty{color:var(--ink)}
+.estatus.dirty::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--flower);margin-right:6px}
+.ewarn{font-size:13px;border:1px solid var(--line);border-left:3px solid var(--flower);border-radius:6px;padding:8px 10px}
+.ewarn ul{margin:4px 0 0;padding-left:18px}
+#copy-out{width:100%;height:120px;font:12px var(--f-mono);box-sizing:border-box;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:6px}
+.etabs{display:flex;flex-wrap:wrap;gap:2px 4px;padding:0 18px;position:sticky;top:0;background:var(--panel);z-index:1;border-block:1px solid var(--line)}
+.etab{font:600 13px var(--f-body);border:0;background:none;color:var(--muted);padding:9px 6px 8px;border-bottom:2px solid transparent;cursor:pointer}
+.etab.on{color:var(--ink);border-bottom-color:var(--accent)}
+.etab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.etab small{font-family:var(--f-mono);font-weight:400;font-size:11px;margin-left:3px}
+.ebody{padding:12px 18px 20px;display:grid;gap:8px}
+.ehelp{margin:0 0 4px;font-size:13px;color:var(--muted)}
+.erow{border:1px solid var(--line);border-radius:8px;background:var(--paper);min-width:0}
+.erow[open]{background:var(--panel)}
+.erow.flash{outline:2px solid var(--accent)}
+.erow summary{display:flex;gap:10px;align-items:baseline;padding:8px 10px;cursor:pointer;list-style:none;min-width:0}
+.erow summary::-webkit-details-marker{display:none}
+.erow summary::before{content:"▸";color:var(--muted);font-size:11px;flex:none}
+.erow[open] summary::before{content:"▾"}
+.erow summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px}
+.ek{font-family:var(--f-mono);font-size:12px;color:var(--muted);flex:none}
+.et{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px 12px;padding:4px 10px 10px}
+.ebody > .fgrid{padding:0}
+.field{display:grid;gap:3px;min-width:0;align-content:start}
+.field.wide,.fcheck{grid-column:1/-1}
+.field label{font-size:12px;color:var(--muted)}
+.field input,.field select,.field textarea{font:14px/1.35 var(--f-body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 8px;width:100%;box-sizing:border-box;min-width:0}
+.field textarea{resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+.field input.bad{border-color:var(--fruit)}
+.field select:disabled{opacity:.75;cursor:not-allowed}
+.fnote{font-size:11.5px;color:var(--muted);line-height:1.3}
+.fcheck{display:flex;gap:8px;align-items:center;font-size:14px}
+.eactions{display:flex;justify-content:flex-end;padding:0 10px 10px}
+.btn.add{border-style:dashed;margin-top:4px}
+</style>
+
+<!--
+  Données du projet. Ce bloc se modifie avec le bouton « Modifier le projet » de la page, ou à la main.
+  themes         : regroupent les références (une racine maîtresse par thème)
+  references     : une racine chacune ; "poids" 1 à 3 règle l'épaisseur
+  jalons         : cernes sur le tronc ; "etape": true + "mot" = étape clé étiquetée
+  financements   : mousse et lichen sur le tronc ou une branche ("sur": "tronc" ou id de branche)
+  jalons         : "sur" (facultatif) = id de branche pour placer l'étape sur une ramification
+  branches       : projets dérivés ; "parent" = id d'une autre branche pour ramifier
+  valorisations  : type "article" = pomme (publication scientifique), "communication" = feuille (poster, oral, presse…),
+                   "autre" = fleur (autre information)
+  recrutements   : type "stagiaire" = mésange (nom, niveau, sujet, encadrant), "personnel" = écureuil (nom, poste, contrat) ;
+                   "date" = arrivée, "fin" = départ (vide = toujours là). Les anciens stagiaires placés dans valorisations y sont déplacés.
+-->
+<script type="application/json" id="projet">
+{
+ "foret": {
+  "titre": "Forêt des projets Neuraxess",
+  "resume": "Un arbre par projet de la plateforme. Cliquez sur un arbre, ou sur un projet ci-dessous, pour ouvrir sa vue détaillée."
+ },
+ "projets": [
+  {
+   "projet": {
+    "titre": "NEUROTIN : EEG haute résolution et neuromodulation dans l'acouphène chronique",
+    "porteur": "Plateforme Neuraxess",
+    "debut": "2016-01",
+    "maj": "2026-10",
+    "resume": "Projet fictif servant d'exemple. Il suit dix ans de recherche, de l'étude princeps aux projets dérivés.",
+    "exemple": true
+   },
+   "themes": [
+    {
+     "id": "t1",
+     "nom": "Électrophysiologie"
+    },
+    {
+     "id": "t2",
+     "nom": "Neuromodulation"
+    },
+    {
+     "id": "t3",
+     "nom": "Clinique et cognition"
+    }
+   ],
+   "references": [
+    {
+     "id": "r1",
+     "theme": "t1",
+     "court": "Laurent 2009",
+     "auteurs": "Laurent A., Petit M.",
+     "titre": "Oscillations gamma et perception fantôme auditive",
+     "revue": "Revue d'exemple",
+     "annee": 2009,
+     "poids": 3,
+     "apport": "Hypothèse centrale du projet"
+    },
+    {
+     "id": "r2",
+     "theme": "t1",
+     "court": "Okafor 2012",
+     "auteurs": "Okafor C. et al.",
+     "titre": "Cartographie EEG 256 voies du cortex auditif",
+     "revue": "Revue d'exemple",
+     "annee": 2012,
+     "poids": 2,
+     "apport": "Méthode d'acquisition"
+    },
+    {
+     "id": "r5",
+     "theme": "t1",
+     "court": "Haas 2013",
+     "auteurs": "Haas J., Lind K.",
+     "titre": "Localisation de sources en EEG dense",
+     "revue": "Revue d'exemple",
+     "annee": 2013,
+     "poids": 2,
+     "apport": "Analyse des sources"
+    },
+    {
+     "id": "r3",
+     "theme": "t2",
+     "court": "Tanaka 2010",
+     "auteurs": "Tanaka H. et al.",
+     "titre": "Stimulation transcrânienne et plasticité auditive",
+     "revue": "Revue d'exemple",
+     "annee": 2010,
+     "poids": 3,
+     "apport": "Choix de la neuromodulation"
+    },
+    {
+     "id": "r6",
+     "theme": "t2",
+     "court": "Brandt 2014",
+     "auteurs": "Brandt S. et al.",
+     "titre": "Essai contrôlé de tDCS dans l'acouphène",
+     "revue": "Revue d'exemple",
+     "annee": 2014,
+     "poids": 2,
+     "apport": "Calibrage des paramètres de stimulation"
+    },
+    {
+     "id": "r4",
+     "theme": "t3",
+     "court": "Siegel 2011",
+     "auteurs": "Siegel R.",
+     "titre": "Réseaux attentionnels et acouphène",
+     "revue": "Revue d'exemple",
+     "annee": 2011,
+     "poids": 1,
+     "apport": "Cadre théorique attentionnel"
+    },
+    {
+     "id": "r7",
+     "theme": "t3",
+     "court": "Moreau 2015",
+     "auteurs": "Moreau L. et al.",
+     "titre": "Questionnaires de handicap lié à l'acouphène",
+     "revue": "Revue d'exemple",
+     "annee": 2015,
+     "poids": 1,
+     "apport": "Critère de jugement clinique"
+    },
+    {
+     "id": "r8",
+     "theme": "t3",
+     "court": "Rossi 2015",
+     "auteurs": "Rossi G. et al.",
+     "titre": "Connectivité fonctionnelle et douleur chronique",
+     "revue": "Revue d'exemple",
+     "annee": 2015,
+     "poids": 1,
+     "apport": "Ouverture vers la douleur"
+    }
+   ],
+   "jalons": [
+    {
+     "date": "2016-01",
+     "titre": "Démarrage du projet",
+     "etape": true,
+     "mot": "Lancement"
+    },
+    {
+     "date": "2017-04",
+     "titre": "Avis favorable du CPP",
+     "etape": true,
+     "mot": "CPP"
+    },
+    {
+     "date": "2017-10",
+     "titre": "Premières inclusions",
+     "etape": true,
+     "mot": "Inclusions"
+    },
+    {
+     "date": "2018-09",
+     "titre": "Recrutement d'un ingénieur d'étude"
+    },
+    {
+     "date": "2020-03",
+     "titre": "Suspension des inclusions (crise sanitaire)"
+    },
+    {
+     "date": "2021-06",
+     "titre": "Fin des inclusions et gel de la base",
+     "etape": true,
+     "mot": "Gel base"
+    },
+    {
+     "date": "2024-01",
+     "titre": "Ouverture du pipeline aux autres équipes",
+     "etape": true,
+     "mot": "Ouverture"
+    },
+    {
+     "sur": "b2",
+     "date": "2021-01",
+     "titre": "Comité de suivi de thèse"
+    },
+    {
+     "sur": "b3",
+     "date": "2023-03",
+     "titre": "Promotion acceptée par la DRCI",
+     "etape": true,
+     "mot": "Promotion"
+    },
+    {
+     "sur": "b4",
+     "date": "2024-02",
+     "titre": "Premières inclusions de la cohorte",
+     "etape": true,
+     "mot": "Inclusions"
+    }
+   ],
+   "financements": [
+    {
+     "id": "f1",
+     "sur": "tronc",
+     "nom": "Appel à projets régional",
+     "financeur": "Région (exemple)",
+     "montant": "120 k€",
+     "debut": "2016-09",
+     "fin": "2019-08"
+    },
+    {
+     "id": "f2",
+     "sur": "tronc",
+     "nom": "Programme hospitalier de recherche",
+     "financeur": "Ministère (exemple)",
+     "montant": "350 k€",
+     "debut": "2019-01",
+     "fin": "2023-12"
+    },
+    {
+     "id": "f3",
+     "sur": "b2",
+     "nom": "Contrat doctoral",
+     "financeur": "École doctorale (exemple)",
+     "montant": "105 k€",
+     "debut": "2019-10",
+     "fin": "2022-09"
+    },
+    {
+     "id": "f4",
+     "sur": "b3",
+     "nom": "Appel à projets fondation",
+     "financeur": "Fondation (exemple)",
+     "montant": "80 k€",
+     "debut": "2023-01",
+     "fin": "2026-12"
+    }
+   ],
+   "branches": [
+    {
+     "id": "b1",
+     "nom": "Pilote fNIRS",
+     "titre": "Étude pilote fNIRS de l'asymétrie préfrontale",
+     "cote": "gauche",
+     "debut": "2018-02",
+     "fin": "2021-06"
+    },
+    {
+     "id": "b2",
+     "nom": "Thèse attention",
+     "titre": "Thèse : marqueurs EEG de l'attention auditive",
+     "cote": "droite",
+     "debut": "2019-10",
+     "fin": "2023-02"
+    },
+    {
+     "id": "b5",
+     "parent": "b2",
+     "nom": "Collab. ORL",
+     "titre": "Collaboration avec le service ORL",
+     "debut": "2021-03",
+     "fin": "2022-03"
+    },
+    {
+     "id": "b3",
+     "nom": "Transfert douleur",
+     "titre": "Transfert de la méthode vers la douleur chronique",
+     "cote": "gauche",
+     "debut": "2022-09",
+     "fin": null
+    },
+    {
+     "id": "b4",
+     "parent": "b3",
+     "nom": "Cohorte migraine",
+     "titre": "Cohorte migraine : signatures EEG partagées",
+     "debut": "2023-10",
+     "fin": "2025-09"
+    }
+   ],
+   "valorisations": [
+    {
+     "sur": "tronc",
+     "type": "communication",
+     "date": "2016-11",
+     "titre": "Protocole NEUROTIN : rationnel et design",
+     "lieu": "Congrès national (poster)"
+    },
+    {
+     "sur": "tronc",
+     "type": "communication",
+     "date": "2018-06",
+     "titre": "Résultats préliminaires EEG",
+     "lieu": "Congrès international (oral)"
+    },
+    {
+     "sur": "tronc",
+     "type": "article",
+     "date": "2019-05",
+     "titre": "Faisabilité de l'EEG 256 voies chez le patient acouphénique",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "tronc",
+     "type": "article",
+     "date": "2021-11",
+     "titre": "Signatures gamma de l'acouphène chronique",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "tronc",
+     "type": "article",
+     "date": "2022-05",
+     "titre": "Effet de la tDCS sur les oscillations auditives : essai randomisé",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "tronc",
+     "type": "autre",
+     "date": "2023-03",
+     "titre": "Conférence grand public, Semaine du Cerveau",
+     "lieu": "Besançon"
+    },
+    {
+     "sur": "tronc",
+     "type": "article",
+     "date": "2024-03",
+     "titre": "Suivi à 2 ans des patients stimulés",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "tronc",
+     "type": "communication",
+     "date": "2025-06",
+     "titre": "Bilan de dix ans de recherche",
+     "lieu": "Journée de la plateforme"
+    },
+    {
+     "sur": "tronc",
+     "type": "autre",
+     "date": "2026-04",
+     "titre": "Diffusion du pipeline d'analyse en logiciel libre",
+     "lieu": "Dépôt public"
+    },
+    {
+     "sur": "b1",
+     "type": "communication",
+     "date": "2019-03",
+     "titre": "fNIRS et acouphène : premiers enregistrements",
+     "lieu": "Colloque régional"
+    },
+    {
+     "sur": "b1",
+     "type": "article",
+     "date": "2020-10",
+     "titre": "Asymétrie préfrontale mesurée en fNIRS",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "b1",
+     "type": "communication",
+     "date": "2021-04",
+     "titre": "Couplage EEG-fNIRS",
+     "lieu": "Congrès international (poster)"
+    },
+    {
+     "sur": "b2",
+     "type": "communication",
+     "date": "2020-06",
+     "titre": "Attention auditive et potentiels évoqués",
+     "lieu": "École d'été (poster)"
+    },
+    {
+     "sur": "b2",
+     "type": "article",
+     "date": "2021-09",
+     "titre": "Marqueurs EEG de l'attention chez le patient acouphénique",
+     "auteurs": "Doctorant·e et al.",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "b2",
+     "type": "communication",
+     "date": "2022-06",
+     "titre": "Modèle attentionnel de l'acouphène",
+     "lieu": "Congrès international (oral)"
+    },
+    {
+     "sur": "b2",
+     "type": "autre",
+     "date": "2023-02",
+     "titre": "Soutenance de thèse",
+     "lieu": "Université de Franche-Comté"
+    },
+    {
+     "sur": "b5",
+     "type": "communication",
+     "date": "2021-11",
+     "titre": "Profils audiométriques et EEG",
+     "lieu": "Congrès ORL (poster)"
+    },
+    {
+     "sur": "b3",
+     "type": "communication",
+     "date": "2023-06",
+     "titre": "Transposition à la douleur chronique",
+     "lieu": "Congrès national (oral)"
+    },
+    {
+     "sur": "b3",
+     "type": "article",
+     "date": "2024-11",
+     "titre": "Signatures EEG partagées entre acouphène et douleur",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    },
+    {
+     "sur": "b3",
+     "type": "communication",
+     "date": "2025-11",
+     "titre": "Vers un essai de neuromodulation dans la douleur",
+     "lieu": "Colloque régional"
+    },
+    {
+     "sur": "b4",
+     "type": "communication",
+     "date": "2024-06",
+     "titre": "Migraine et acouphène : un réseau commun ?",
+     "lieu": "Congrès national (poster)"
+    },
+    {
+     "sur": "b4",
+     "type": "article",
+     "date": "2025-06",
+     "titre": "EEG haute résolution dans la migraine chronique",
+     "auteurs": "Équipe NEUROTIN",
+     "lieu": "Revue d'exemple"
+    }
+   ],
+   "recrutements": [
+    {
+     "sur": "tronc",
+     "type": "stagiaire",
+     "date": "2018-03",
+     "fin": "2018-08",
+     "titre": "Stage M2 : prétraitement des données EEG",
+     "nom": "Camille R.",
+     "niveau": "Master 2",
+     "encadrant": "Ingénieur de la plateforme"
+    },
+    {
+     "sur": "b1",
+     "type": "stagiaire",
+     "date": "2020-02",
+     "fin": "2020-06",
+     "titre": "Stage M1 : analyse des signaux fNIRS",
+     "nom": "Hugo L.",
+     "niveau": "Master 1"
+    },
+    {
+     "sur": "b3",
+     "type": "stagiaire",
+     "date": "2025-03",
+     "fin": "2025-08",
+     "titre": "Stage ingénieur : automatisation du pipeline",
+     "nom": "Inès M.",
+     "niveau": "École d'ingénieurs"
+    },
+    {
+     "sur": "tronc",
+     "type": "personnel",
+     "date": "2018-09",
+     "fin": "2021-08",
+     "nom": "Alex T.",
+     "titre": "Ingénieur d'études : acquisition et traitement EEG",
+     "contrat": "CDD ingénieur d'études",
+     "encadrant": "Coordinateur de la plateforme"
+    },
+    {
+     "sur": "b3",
+     "type": "personnel",
+     "date": "2023-04",
+     "nom": "Sam V.",
+     "titre": "Assistant de recherche clinique",
+     "contrat": "CDD ARC"
+    }
+   ]
+  }
+ ],
+ "apparence": {
+  "ambiance": "foret"
+ }
+}
+</script>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow" id="eyebrow">Arbre des projets · Neuraxess</div>
+      <h1 id="titre"></h1>
+      <span class="badge" id="badge">Données fictives d'exemple</span>
+    </div>
+    <div class="stats" id="stats"></div>
+    <div class="tools">
+      <button type="button" class="btn ghost" id="btn-back" hidden>← Forêt des projets</button>
+      <div class="ftools" id="ftools" hidden>
+        <label class="btn" for="ffile-in">Ajouter des projets…</label>
+        <input type="file" id="ffile-in" accept=".json,.html,.htm" multiple hidden>
+        <button type="button" class="btn" id="btn-fnew">Nouveau projet</button>
+        <button type="button" class="btn primary" id="btn-fsave">Enregistrer la forêt</button>
+      </div>
+      <button type="button" class="btn" id="btn-edit" aria-pressed="false">Modifier le projet</button>
+      <button type="button" class="btn" id="btn-app" aria-haspopup="dialog" aria-expanded="false" title="Paramètres d'apparence"><svg viewBox="-12 -12 24 24" width="16" height="16" aria-hidden="true"><g fill="currentColor"><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(0)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(45)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(90)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(135)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(180)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(225)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(270)"/><rect x="-2.2" y="-11" width="4.4" height="5" rx="1" transform="rotate(315)"/><circle r="7.4"/></g><circle r="3" fill="var(--panel)"/></svg> Apparence</button>
+    </div>
+  </header>
+
+  <div class="legend" id="legend-foret" aria-label="Légende de la forêt" hidden>
+    <span><svg viewBox="-12 -12 24 24"><path d="M-2,11 L-1,-6 L1,-6 L2,11Z" fill="var(--bark)"/><path d="M-8,11 H8" stroke="var(--soil-line)" stroke-width="2"/><path d="M6,-8 V10 M4,-6 L6,-9 L8,-6" stroke="var(--muted)" stroke-width="1.2" fill="none"/></svg>Hauteur : durée du projet</span>
+    <span><svg viewBox="-12 -12 24 24"><path d="M-7,11 L-2,-8 L2,-8 L7,11Z" fill="var(--bark)"/></svg>Tronc : activité (financements, valorisations, recrutements)</span>
+    <span id="legend-foret-fruit"><svg viewBox="-12 -12 24 24"><circle cx="-2" cy="-1" r="9" fill="var(--moss1)"/><circle cx="3" cy="2" r="3.2" fill="var(--fruit)"/></svg>Pommes : publications</span>
+    <span><svg viewBox="-12 -12 24 24"><circle cx="-3" cy="-2" r="7" fill="var(--au1)"/><circle cx="4" cy="2" r="6" fill="var(--au2)"/></svg>Feuillage d'automne : projet sans mise à jour depuis plus de deux ans</span>
+  </div>
+  <div class="legend" id="legend-arbre" aria-label="Légende de l'arbre"></div>
+  <div class="filtres" id="filtres" role="group" aria-label="Afficher ou masquer des éléments de l'arbre"></div>
+  <style id="filtre-br"></style>
+
+  <section class="flayout" id="forest" hidden aria-label="Forêt des projets">
+    <div class="fstage" id="fstage">
+      <svg id="foret" viewBox="0 0 1000 600" role="img" aria-label="Forêt des projets : un arbre par projet"></svg>
+      <div class="tip" id="ftip" hidden></div>
+    </div>
+    <aside class="panel" id="fpanel" aria-live="polite"></aside>
+  </section>
+
+  <div class="layout">
+    <div class="stage" id="stage">
+      <svg id="arbre" viewBox="0 0 1400 1000" role="img" aria-labelledby="titre"></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+    <section class="editor" id="editor" hidden aria-label="Édition de l'arbre">
+      <div class="ehead">
+        <div class="eyebrow">Mode édition</div>
+        <div class="ebtns">
+          <button type="button" class="btn primary" id="btn-save">Enregistrer la page</button>
+          <button type="button" class="btn" id="btn-json">Exporter le JSON</button>
+          <button type="button" class="btn" id="btn-copy">Copier le JSON</button>
+          <label class="btn" for="file-in">Importer…</label>
+          <input type="file" id="file-in" accept=".json,.html,.htm" hidden>
+          <button type="button" class="btn ghost danger" id="btn-new">Arbre vide</button>
+          <button type="button" class="btn ghost danger" id="btn-remove" hidden>Retirer de la forêt</button>
+        </div>
+        <p class="estatus" id="estatus">Chaque modification s'affiche aussitôt dans l'arbre. Cliquez sur un élément de l'arbre pour ouvrir sa fiche.</p>
+        <div class="ewarn" id="ewarn" hidden></div>
+        <textarea id="copy-out" hidden readonly aria-label="JSON à copier"></textarea>
+      </div>
+      <div id="ebody"></div>
+    </section>
+  </div>
+</div>
+
+<aside class="drawer" id="appdrawer" hidden role="dialog" aria-labelledby="app-title">
+  <div class="dhead">
+    <h2 id="app-title">Apparence</h2>
+    <button type="button" class="btn ghost" id="app-close" aria-label="Fermer le panneau Apparence">✕</button>
+  </div>
+  <div id="app-body"></div>
+</aside>
+
+<script>
+(function(){
+const SOURCE = '<!doctype html>\n' + document.documentElement.outerHTML;
+const NS = 'http://www.w3.org/2000/svg';
+const svg = document.getElementById('arbre');
+let items = {}, uid = 0, warnings = [];
+const view = 'arbre';   /* vue unique : l'arbre (rivière et métro retirés) */
+const TYPES_OK = ['article','communication','autre','stagiaire','personnel'];
+function normalize(d){
+  d = (d && typeof d === 'object') ? d : {};
+  d.projet = (d.projet && typeof d.projet === 'object') ? d.projet : {};
+  for (const k of ['themes','references','jalons','financements','branches','valorisations','recrutements']) if (!Array.isArray(d[k])) d[k] = [];
+  /* anciens fichiers : les stagiaires étaient rangés avec les valorisations */
+  const moved = d.valorisations.filter(v => v && (v.type === 'stagiaire' || v.type === 'personnel'));
+  if (moved.length){ d.recrutements.push(...moved); d.valorisations = d.valorisations.filter(v => !moved.includes(v)); }
+  return d;
+}
+/* Le bloc de données contient soit un projet, soit une forêt : {"foret": {...}, "projets": [ projet, projet… ]} */
+const RAW = JSON.parse(document.getElementById('projet').textContent);
+let FOREST = RAW && Array.isArray(RAW.projets) ? RAW : null, cur = -1;
+if (FOREST){
+  FOREST.foret = (FOREST.foret && typeof FOREST.foret === 'object') ? FOREST.foret : {};
+  FOREST.projets = FOREST.projets.map(normalize);
+}
+let D = FOREST ? (FOREST.projets[0] || normalize({projet:{titre:'Nouveau projet', debut:'2020-01', maj:today()}})) : normalize(RAW);
+function setD(nd){ D = nd; if (FOREST && cur >= 0) FOREST.projets[cur] = nd; }
+/* Activité portée par chaque branche, ramifications comprises : elle règle l'épaisseur automatique */
+function weights(D){
+  const own = {}, add = (id, w) => { if (id && id !== 'tronc') own[id] = (own[id] || 0) + w; };
+  D.financements.forEach(f => add(f.sur, 2 + Math.max(0, (f.fin ? toT(f.fin) : toT(D.projet.maj)) - toT(f.debut))));
+  D.valorisations.forEach(v => add(v.sur, v.type === 'article' ? 2 : v.type === 'personnel' ? 1.5 : 1));
+  D.jalons.forEach(j => add(j.sur, j.etape ? 1 : 0.5));
+  const tot = {}, seen = new Set();
+  const total = b => { if (b.id in tot) return tot[b.id]; if (seen.has(b.id)) return 0; seen.add(b.id);
+    return tot[b.id] = (own[b.id] || 0) + D.branches.filter(c => c.parent === b.id).reduce((a,c) => a + total(c), 0); };
+  D.branches.forEach(total);
+  return tot;
+}
+/* Épaisseur d'une branche : choisie dans la fiche, ou automatique selon l'activité.
+   scale = [fine, moyenne, épaisse, base, pente] ; cap = épaisseur maximale (celle de ce qui la porte) */
+function thick(b, wt, scale, cap){
+  const fixed = {fine: scale[0], moyenne: scale[1], epaisse: scale[2]}[b.epaisseur];
+  const w = b.epaisseur === 'tronc' ? cap : (fixed ?? scale[3] + scale[4]*Math.pow(wt[b.id] || 0, 0.8));
+  return Math.min(cap, w);
+}
+/* ===================== Apparence =====================
+   Trois ambiances, puis un réglage fin de chaque élément. Le choix est rangé dans le fichier :
+   dans une forêt, il s'applique à tous les arbres. */
+const AMBIANCES = {
+  foret:  {nom:'Forêt tempérée', desc:'Arbre feuillu, pommes, fleurs des champs, mésanges, écureuils et mousse.', arbre:'normal', fruit:'pomme', fleur:'champs', stagiaire:'mesange', recrue:'ecureuil', financement:'mousse'},
+  desert: {nom:'Désert', desc:'Cactus, figues de barbarie, fleurs de cactus, cardinaux, suricates et sève.', arbre:'cactus', fruit:'figue', fleur:'cactus', stagiaire:'cardinal', recrue:'suricate', financement:'seve'},
+  savane: {nom:'Savane', desc:'Baobab, fruits du baobab, hibiscus, perroquets, makis cattas et mousse.', arbre:'baobab', fruit:'pain', fleur:'hibiscus', stagiaire:'perroquet', recrue:'maki', financement:'mousse'},
+  jardin: {nom:'Jardin anglais féérique', desc:'Rosier, bourgeons de rose, pensées, abeilles, fées et guirlandes de perles.', arbre:'rosier', fruit:'bourgeon', fleur:'pensee', stagiaire:'abeille', recrue:'fee', financement:'perles'}
+};
+const APP_OPTS = {
+  arbre:       {label:'Arbre', items:[['normal','Arbre feuillu'],['cactus','Cactus'],['baobab','Baobab'],['rosier','Rosier']]},
+  fruit:       {label:'Fruit (publications)', items:[['pomme','Pomme'],['figue','Figue de barbarie'],['pain','Fruit du baobab'],['bourgeon','Bourgeon de rose']]},
+  fleur:       {label:'Fleur (autres informations)', items:[['champs','Fleur des champs'],['cactus','Fleur de cactus'],['hibiscus','Hibiscus'],['pensee','Pensée']]},
+  stagiaire:   {label:'Oiseau ou insecte (stagiaires)', items:[['mesange','Mésange'],['perroquet','Perroquet'],['cardinal','Cardinal rouge'],['abeille','Abeille']]},
+  recrue:      {label:'Animal ou personnage (personnel recruté)', items:[['ecureuil','Écureuil'],['suricate','Suricate'],['maki','Maki catta'],['fee','Fée']]},
+  financement: {label:'Financements', items:[['mousse','Mousse et lichen'],['seve','Coulée de sève'],['perles','Guirlande de perles']]}
+};
+const APP_ANCIENS = {stagiaire:{pic:'cardinal'}, recrue:{chat:'suricate', paresseux:'suricate', koala:'maki'}, fruit:{cerise:'pain'}};   /* anciens choix */
+const optName = (k, v) => ((APP_OPTS[k].items.find(i => i[0] === v)) || [v, v])[1];
+function appRaw(){ const host = FOREST || D; if (!host.apparence || typeof host.apparence !== 'object') host.apparence = {};
+  const a = host.apparence; for (const k in APP_ANCIENS) if (APP_ANCIENS[k][a[k]]) a[k] = APP_ANCIENS[k][a[k]];
+  return a; }
+function appResolved(){
+  const r = appRaw(), base = AMBIANCES[r.ambiance] || AMBIANCES.foret, out = {...base, ambiance: AMBIANCES[r.ambiance] ? r.ambiance : 'foret'};
+  for (const k in APP_OPTS) if (r[k] && APP_OPTS[k].items.some(i => i[0] === r[k])) out[k] = r[k];
+  return out;
+}
+/* Fleur de cactus (bouts de branche du cactus) : ouverte, ou en bouton si la branche est en cours */
+function cactusFlower(g, x, y, R, bud){
+  const f = fel('g', {class:'crown', transform:`translate(${x.toFixed(1)},${y.toFixed(1)})`}, g);
+  if (bud){
+    fel('ellipse', {cx:0, cy:-R*0.35, rx:R*0.32, ry:R*0.55, fill:'var(--cfl)'}, f);
+    fel('path', {d:`M${(-R*0.32).toFixed(1)},${(-R*0.2).toFixed(1)} Q0,${(R*0.25).toFixed(1)} ${(R*0.32).toFixed(1)},${(-R*0.2).toFixed(1)}`, fill:'var(--cactus-dark)'}, f);
+    return;
+  }
+  for (let a = 0; a < 360; a += 36) fel('ellipse', {rx:(R*0.2).toFixed(1), ry:(R*0.5).toFixed(1), transform:`rotate(${a}) translate(0,${(-R*0.42).toFixed(1)})`, fill:'var(--cfl)'}, f);
+  for (let a = 18; a < 360; a += 36) fel('ellipse', {rx:(R*0.15).toFixed(1), ry:(R*0.34).toFixed(1), transform:`rotate(${a}) translate(0,${(-R*0.28).toFixed(1)})`, fill:'var(--cfl-light)'}, f);
+  fel('circle', {r:(R*0.2).toFixed(1), fill:'var(--tit-yellow)'}, f);
+}
+/* Rose vue de dessus (bouts de branche du rosier) ; plus petite et plus pâle si la branche est en cours */
+function roseF(g, x, y, R, young){
+  const f = fel('g', {class:'crown', transform:`translate(${x.toFixed(1)},${y.toFixed(1)})`}, g), c = young ? 'var(--rose-light)' : 'var(--rose)';
+  for (let a = 0; a < 360; a += 72) fel('circle', {cx:(Math.cos(a*Math.PI/180)*R*0.42).toFixed(1), cy:(Math.sin(a*Math.PI/180)*R*0.42).toFixed(1), r:(R*0.55).toFixed(1), fill:c, stroke:'var(--rose-dark)', 'stroke-width':.5}, f);
+  fel('circle', {r:(R*0.6).toFixed(1), fill:c}, f);
+  fel('path', {d:`M${(-R*0.38).toFixed(1)},0 A${(R*0.38).toFixed(1)},${(R*0.38).toFixed(1)} 0 1 1 ${(R*0.2).toFixed(1)},${(R*0.32).toFixed(1)} M${(-R*0.16).toFixed(1)},${(-R*0.06).toFixed(1)} A${(R*0.2).toFixed(1)},${(R*0.2).toFixed(1)} 0 1 1 ${(R*0.06).toFixed(1)},${(R*0.18).toFixed(1)}`, stroke:'var(--rose-dark)', 'stroke-width':Math.max(.6, R*0.08).toFixed(1), fill:'none', 'stroke-linecap':'round'}, f);
+}
+/* Financements : trois représentations possibles le long du bois.
+   pts = axe du bois, ws = largeurs, side = flanc (+1 / -1), R = hasard reproductible */
+function nrmF(pts, i){ const a = pts[Math.max(i-1,0)], b = pts[Math.min(i+1,pts.length-1)]; let tx = b[0]-a[0], ty = b[1]-a[1]; const L = Math.hypot(tx,ty)||1; return [-ty/L, tx/L]; }
+function seveF(g, pts, ws, side, R){
+  const n = pts.length; if (n < 2) return;
+  const nrm = pts.map((_, i) => nrmF(pts, i)), grp = fel('g', {class:'moss'}, g);
+  const off = pts.map((p, i) => [p[0] + nrm[i][0]*side*ws[i]*0.3, p[1] + nrm[i][1]*side*ws[i]*0.3]);
+  const tw = i => Math.max(3, Math.min(9, ws[i]*0.3)) * Math.pow(Math.sin(Math.PI*Math.min(1, Math.max(0, i/(n-1)))), 0.35);
+  const band = (k, dx, dy) => { const L = [], Rr = [];
+    off.forEach((p, i) => { const w = tw(i)*k/2; L.push([p[0] + nrm[i][0]*w + dx, p[1] + nrm[i][1]*w + dy]); Rr.push([p[0] - nrm[i][0]*w + dx, p[1] - nrm[i][1]*w + dy]); });
+    return 'M' + L.concat(Rr.reverse()).map(q => q[0].toFixed(1) + ',' + q[1].toFixed(1)).join('L') + 'Z'; };
+  fel('path', {d:band(1, 0, 0), fill:'var(--sap)', stroke:'var(--sap-dark)', 'stroke-width':.7, opacity:.92}, grp);
+  fel('path', {d:band(0.32, -0.6, -0.8), fill:'var(--sap-hi)', opacity:.75}, grp);
+  let len = 0; for (let i = 1; i < n; i++) len += Math.hypot(pts[i][0] - pts[i-1][0], pts[i][1] - pts[i-1][1]);
+  const nd = Math.max(1, Math.round(len/38));
+  for (let k = 0; k < nd; k++){   /* gouttes qui perlent et coulent vers le bas */
+    const i = Math.min(n - 1, Math.max(0, Math.round((k + 0.3 + R()*0.4)/nd*(n - 1)))), p = off[i], w = tw(i)/2, h = 6 + R()*6;
+    const x = p[0], y = p[1] + w*0.4;
+    fel('path', {d:`M${(x - 2.2).toFixed(1)},${y.toFixed(1)} C${(x - 2.4).toFixed(1)},${(y + h*0.6).toFixed(1)} ${(x - 3.4).toFixed(1)},${(y + h).toFixed(1)} ${x.toFixed(1)},${(y + h + 2.6).toFixed(1)} C${(x + 3.4).toFixed(1)},${(y + h).toFixed(1)} ${(x + 2.4).toFixed(1)},${(y + h*0.6).toFixed(1)} ${(x + 2.2).toFixed(1)},${y.toFixed(1)}Z`, fill:'var(--sap)', stroke:'var(--sap-dark)', 'stroke-width':.6}, grp);
+    fel('ellipse', {cx:(x - 0.9).toFixed(1), cy:(y + h + 0.4).toFixed(1), rx:.8, ry:1.3, fill:'var(--sap-hi)', opacity:.9}, grp);
+  }
+}
+function perlesF(g, pts, ws, side, R){
+  const n = pts.length; if (n < 2) return;
+  const nrm = pts.map((_, i) => nrmF(pts, i)), grp = fel('g', {class:'moss'}, g);
+  let len = 0; const acc = [0]; for (let i = 1; i < n; i++){ len += Math.hypot(pts[i][0] - pts[i-1][0], pts[i][1] - pts[i-1][1]); acc.push(len); }
+  const atL = d => { let i = 1; while (i < n - 1 && acc[i] < d) i++; return i; };
+  /* points d'attache alternés d'un flanc à l'autre : la guirlande s'enroule autour du bois en festons */
+  const nb = Math.max(2, Math.round(len/30) + 1), att = [];
+  for (let k = 0; k < nb; k++){ const i = atL(len*k/(nb - 1)), sgn = (k % 2 ? 1 : -1)*side, w = ws[i]/2 + 1.5;
+    att.push([pts[i][0] + nrm[i][0]*sgn*w, pts[i][1] + nrm[i][1]*sgn*w]); }
+  const beads = [];
+  for (let k = 0; k < att.length - 1; k++){
+    const a = att[k], b = att[k+1], d = Math.hypot(b[0] - a[0], b[1] - a[1]), c = [(a[0] + b[0])/2, (a[1] + b[1])/2 + 5 + d*0.12];
+    fel('path', {d:`M${a[0].toFixed(1)},${a[1].toFixed(1)} Q${c[0].toFixed(1)},${c[1].toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}`, stroke:'var(--pearl-edge)', 'stroke-width':.6, fill:'none'}, grp);
+    const m = Math.max(3, Math.round(d/5.4));
+    for (let j = 0; j < m; j++){ const t = j/m, u = 1 - t; beads.push([u*u*a[0] + 2*u*t*c[0] + t*t*b[0], u*u*a[1] + 2*u*t*c[1] + t*t*b[1], j === 0]); }
+  }
+  beads.forEach(([x, y, knot]) => {
+    if (knot){ fel('circle', {cx:x.toFixed(1), cy:y.toFixed(1), r:2.6, fill:'var(--ribbon)', stroke:'var(--rose-dark)', 'stroke-width':.4}, grp); return; }
+    fel('circle', {cx:x.toFixed(1), cy:y.toFixed(1), r:2.4, fill:'var(--pearl)', stroke:'var(--pearl-edge)', 'stroke-width':.5}, grp);
+    fel('circle', {cx:(x - 0.8).toFixed(1), cy:(y - 0.8).toFixed(1), r:.7, fill:'#fff', opacity:.9}, grp); });
+}
+/* Dessin d'un élément selon l'apparence choisie ; origine = point d'accroche */
+function drawItem(g, type, A){
+  const E = fel;
+  if (type === 'article'){
+    if (A.fruit === 'figue'){
+      E('path', {d:'M0,-8 L0,-12', stroke:'var(--bark)', 'stroke-width':1.6}, g);
+      E('ellipse', {class:'hl', cx:0, cy:0, rx:6.8, ry:9.2, fill:'var(--figue)'}, g);
+      E('path', {d:'M-3.6,-8 L-1.6,-11 L0,-8.6 L1.6,-11 L3.6,-8Z', fill:'var(--pic-dark)'}, g);
+      [[-3,-3],[2.5,-4.5],[-1,2],[3.5,1.5],[-3.6,4.5],[1,6]].forEach(([x,y]) => E('circle', {cx:x, cy:y, r:.75, fill:'var(--tit-yellow)'}, g));
+      E('ellipse', {cx:-3.2, cy:-2, rx:1.6, ry:3, fill:'#fff', opacity:.35}, g);
+    } else if (A.fruit === 'pain'){
+      /* fruit du baobab (pain de singe) : long fruit velouté jaune doré, au bout d'une longue tige */
+      E('path', {d:'M0,-13 Q1.2,-9 0,-7', stroke:'var(--bark)', 'stroke-width':1.4, fill:'none'}, g);
+      E('ellipse', {class:'hl', cx:0, cy:2.5, rx:5.6, ry:10.5, fill:'var(--pain)', stroke:'var(--pain-dark)', 'stroke-width':.8}, g);
+      E('path', {d:'M-2.4,-5 Q-3.4,3 -1.6,10', stroke:'var(--pain-dark)', 'stroke-width':.6, fill:'none', opacity:.6}, g);
+      [[1.5,-3],[2.6,2],[1,6.5],[-1,0]].forEach(([x,y]) => E('circle', {cx:x, cy:y, r:.55, fill:'var(--pain-dark)', opacity:.55}, g));
+      E('ellipse', {cx:-2.2, cy:-1, rx:1.5, ry:4, fill:'#fff', opacity:.35}, g);
+    } else if (A.fruit === 'bourgeon'){
+      /* bourgeon de rose : bouton cramoisi serré dans ses sépales */
+      E('path', {d:'M0,-13 Q-1,-9 0,-5', stroke:'var(--rosier-dark)', 'stroke-width':1.5, fill:'none'}, g);
+      E('path', {class:'hl', d:'M0,-6 C-6,-4 -6,6 0,10 C6,6 6,-4 0,-6Z', fill:'var(--rbud)', stroke:'var(--rose-dark)', 'stroke-width':.6}, g);
+      E('path', {d:'M-1.2,-4 C-2,1 -1,6 0,9', stroke:'var(--rose-dark)', 'stroke-width':.7, fill:'none'}, g);
+      E('path', {d:'M0,-6 C-4,-6 -6,-2 -5.4,3 C-4,0 -2.6,-2.6 0,-3.6 C2.6,-2.6 4,0 5.4,3 C6,-2 4,-6 0,-6Z', fill:'var(--rosier)', stroke:'var(--rosier-dark)', 'stroke-width':.5}, g);
+      E('path', {d:'M0,-6 L-1.8,-10 M0,-6 L2,-10', stroke:'var(--rosier)', 'stroke-width':1.2, 'stroke-linecap':'round'}, g);
+    } else {
+      E('path', {d:'M0,-7 Q1,-11 0,-13', stroke:'var(--bark)', 'stroke-width':1.6, fill:'none'}, g);
+      E('path', {class:'hl', d:'M0,-6 C-4,-10 -11,-8 -10,0 C-9,7 -4,11 0,9 C4,11 9,7 10,0 C11,-8 4,-10 0,-6Z', fill:'var(--fruit)'}, g);
+      E('path', {d:'M1,-10 C4,-14 8,-13 9,-11 C6,-9 3,-9 1,-10Z', fill:'var(--leaf)'}, g);
+      E('ellipse', {cx:-4.5, cy:-1, rx:2, ry:3, fill:'#fff', opacity:.4}, g);
+    }
+  } else if (type === 'communication'){
+    if (A.arbre === 'cactus'){
+      /* jeune raquette de figuier de barbarie, claire et contourée pour ressortir sur le cactus */
+      E('path', {d:'M0,0 L3,0', stroke:'var(--cactus-dark)', 'stroke-width':2}, g);
+      E('ellipse', {class:'hl', cx:13, cy:0, rx:11, ry:7, fill:'var(--pad)', stroke:'var(--cactus-dark)', 'stroke-width':1.2}, g);
+      E('ellipse', {cx:10, cy:-2.6, rx:5, ry:2, fill:'#fff', opacity:.3}, g);
+      [[7,-2],[11,3],[15,-2.6],[19,1.6],[11,-4.6],[15,4.2]].forEach(([x,y]) => {
+        E('circle', {cx:x, cy:y, r:.9, fill:'var(--spine-base)', stroke:'var(--cactus-dark)', 'stroke-width':.35}, g);
+        E('path', {d:`M${x},${y} l1.8,-1.6 M${x},${y} l-1.6,-1.8`, stroke:'var(--cactus-dark)', 'stroke-width':.45, 'stroke-linecap':'round'}, g); });
+    } else if (A.arbre === 'rosier'){
+      /* feuille composée du rosier : cinq folioles dentelées */
+      E('path', {d:'M0,0 L24,0', stroke:'var(--rosier-dark)', 'stroke-width':1.1}, g);
+      [[5,-4.2,-45,4,2.5],[5,4.2,45,4,2.5],[13,-5,-38,5.2,3],[13,5,38,5.2,3],[25,0,0,6.6,3.9]].forEach(([x,y,a,rx,ry]) => {
+        E('ellipse', {class:'hl', cx:x, cy:y, rx, ry, transform:`rotate(${a} ${x} ${y})`, fill:'var(--leaf)', stroke:'var(--rosier-dark)', 'stroke-width':.6, 'stroke-dasharray':'1.6 .5'}, g);
+        E('path', {d:`M${x - rx*0.8},${y} L${x + rx*0.8},${y}`, transform:`rotate(${a} ${x} ${y})`, stroke:'var(--rosier-dark)', 'stroke-width':.4, opacity:.6}, g); });
+    } else if (A.arbre === 'baobab'){
+      E('path', {d:'M0,0 L7,0', stroke:'var(--bark)', 'stroke-width':1}, g);
+      for (let a = -64; a <= 64; a += 32) E('ellipse', {class:'hl', rx:7.5, ry:2.7, transform:`translate(7,0) rotate(${a}) translate(7.5,0)`, fill:'var(--leaf)'}, g);
+    } else {
+      E('path', {class:'hl', d:'M0,0 C7,-8 20,-8 27,0 C20,8 7,8 0,0Z', fill:'var(--leaf)'}, g);
+      E('path', {d:'M2,0 L24,0', stroke:'var(--paper)', 'stroke-width':.9, opacity:.6}, g);
+    }
+  } else if (type === 'stagiaire' && A.stagiaire === 'abeille'){
+    /* abeille posée : corps rayé jaune et noir, ailes translucides, antennes */
+    const b = E('g', {transform:'scale(1.55)'}, g);
+    E('path', {d:'M-3,-4 L-4,0 M0,-3.6 L0,0 M3,-4 L4,0', stroke:'var(--bee-dark)', 'stroke-width':.9, 'stroke-linecap':'round'}, b);
+    E('ellipse', {cx:-3, cy:-15, rx:4.6, ry:6.4, transform:'rotate(-25 -3 -15)', fill:'var(--wing)', stroke:'var(--bee-dark)', 'stroke-width':.5, opacity:.9}, b);
+    E('path', {d:'M-9.6,-8 L-12.4,-7.4 L-9.6,-6.6Z', fill:'var(--bee-dark)'}, b);
+    E('ellipse', {class:'hl', cx:-1, cy:-7.6, rx:8.8, ry:5.4, fill:'var(--bee)', stroke:'var(--bee-dark)', 'stroke-width':.7}, b);
+    [[-5.2,4.2],[-1.6,5.2],[2,5]].forEach(([x,h]) => E('path', {d:`M${x},${-7.6 - h} Q${x + 1.6},-7.6 ${x},${-7.6 + h}`, stroke:'var(--bee-dark)', 'stroke-width':2, fill:'none'}, b));
+    E('ellipse', {cx:3, cy:-15.6, rx:4, ry:6, transform:'rotate(22 3 -15.6)', fill:'var(--wing)', stroke:'var(--bee-dark)', 'stroke-width':.5, opacity:.9}, b);
+    E('circle', {class:'hl', cx:8.6, cy:-9, r:3.6, fill:'var(--bee-dark)'}, b);
+    E('circle', {cx:9.8, cy:-9.8, r:.9, fill:'var(--tit-white)'}, b);
+    E('path', {d:'M8.4,-12.2 Q8,-16 6,-17.4 M10,-12 Q11.6,-15.6 13.4,-16.4', stroke:'var(--bee-dark)', 'stroke-width':.7, fill:'none', 'stroke-linecap':'round'}, b);
+  } else if (type === 'stagiaire'){
+    const b = E('g', {transform:'scale(1.4)'}, g);
+    E('line', {x1:-1, y1:-4, x2:-2, y2:0, stroke:'var(--tit-dark)', 'stroke-width':1}, b);
+    E('line', {x1:2, y1:-4, x2:2.5, y2:0, stroke:'var(--tit-dark)', 'stroke-width':1}, b);
+    if (A.stagiaire === 'perroquet'){
+      E('path', {d:'M-4,-6 L-15,8 L-11.5,8.5 L-2,-3Z', fill:'var(--par-blue)'}, b);
+      E('path', {d:'M-3,-5 L-11,10 L-8.5,10 L-1,-3Z', fill:'var(--par-red)'}, b);
+      E('ellipse', {class:'hl', cx:0, cy:-10, rx:6.5, ry:9, transform:'rotate(-18 0 -10)', fill:'var(--par-green)', stroke:'var(--tit-dark)', 'stroke-width':.6}, b);
+      E('path', {d:'M-5,-14 C-1,-18 4,-13 2,-5 C-1,-4 -5,-7 -5,-14Z', fill:'var(--par-green2)'}, b);
+      E('path', {d:'M-4,-8 C-2,-6 0,-5 2,-5 C-1,-3 -4,-4 -5,-6Z', fill:'var(--par-blue)'}, b);
+      E('circle', {class:'hl', cx:4, cy:-20, r:5.4, fill:'var(--par-red)', stroke:'var(--tit-dark)', 'stroke-width':.6}, b);
+      E('circle', {cx:5.4, cy:-21, r:1.7, fill:'var(--tit-white)'}, b);
+      E('circle', {cx:5.6, cy:-21, r:.8, fill:'var(--tit-dark)'}, b);
+      E('path', {d:'M8.4,-21.4 C12.6,-21.4 12.8,-16 9.6,-15.4 C10.2,-17.2 9.6,-18.4 8,-18.2Z', fill:'var(--beak)', stroke:'var(--tit-dark)', 'stroke-width':.5}, b);
+    } else if (A.stagiaire === 'cardinal'){
+      /* cardinal rouge : huppe, masque noir autour du bec orangé */
+      E('path', {d:'M-3,-4 L-10,7 L-6.5,7.5 L-0.5,-2Z', fill:'var(--card-dark)', stroke:'var(--tit-dark)', 'stroke-width':.4}, b);
+      E('ellipse', {class:'hl', cx:0, cy:-10, rx:6.2, ry:9.2, transform:'rotate(-12 0 -10)', fill:'var(--card)', stroke:'var(--tit-dark)', 'stroke-width':.6}, b);
+      E('path', {d:'M-4.6,-14 C-2,-16 1,-12 0,-5 C-2,-5 -4.6,-9 -4.6,-14Z', fill:'var(--card-dark)'}, b);
+      E('path', {d:'M0.4,-22.4 L-4,-29.4 L4,-24.4Z', fill:'var(--card)', stroke:'var(--tit-dark)', 'stroke-width':.5}, b);
+      E('circle', {class:'hl', cx:3.6, cy:-20, r:5, fill:'var(--card)', stroke:'var(--tit-dark)', 'stroke-width':.6}, b);
+      E('path', {d:'M4.4,-22.2 C7.8,-22.4 9.6,-19.4 8.6,-16.4 C6.4,-15.6 4.6,-17.4 4.2,-19.4Z', fill:'var(--tit-dark)'}, b);
+      E('circle', {cx:5.6, cy:-20.6, r:.8, fill:'var(--tit-white)'}, b);
+      E('path', {d:'M7.8,-20.6 L12.2,-18.8 L7.8,-16.8Z', fill:'var(--card-beak)', stroke:'var(--tit-dark)', 'stroke-width':.4}, b);
+    } else {
+      /* mésange bleue : calotte et ailes bleues, joues blanches, trait sombre sur l'œil, ventre jaune */
+      E('path', {d:'M-6,-9 L-16,-6 L-15,-11Z', fill:'var(--tit-blue)', stroke:'var(--tit-dark)', 'stroke-width':.5}, b);
+      E('ellipse', {class:'hl', cy:-10, rx:8.5, ry:7, fill:'var(--tit-green)', stroke:'var(--tit-dark)', 'stroke-width':.6}, b);
+      E('ellipse', {cx:2.5, cy:-8, rx:5.5, ry:5.5, fill:'var(--tit-yellow)'}, b);
+      E('path', {d:'M-7,-12 C-3,-15 3,-13 3,-9 C0,-7 -4,-7 -7,-9Z', fill:'var(--tit-blue)'}, b);
+      E('path', {d:'M-5,-11 L1,-11', stroke:'var(--tit-white)', 'stroke-width':.8}, b);
+      E('circle', {class:'hl', cx:5, cy:-18, r:5.2, fill:'var(--tit-white)', stroke:'var(--tit-dark)', 'stroke-width':.6}, b);
+      E('path', {d:'M-0.2,-18.5 C0,-24 10,-24 10.2,-18.5 C7,-20 3,-20 -0.2,-18.5Z', fill:'var(--tit-blue)'}, b);
+      E('path', {d:'M0.5,-17.4 L10,-17.4', stroke:'var(--tit-dark)', 'stroke-width':1.2}, b);
+      E('ellipse', {cx:6, cy:-13.4, rx:2.4, ry:1.1, fill:'var(--tit-dark)'}, b);
+      E('circle', {cx:7.2, cy:-17.6, r:1, fill:'var(--tit-dark)'}, b);
+      E('path', {d:'M10,-17.8 L12.6,-17 L10,-16.2Z', fill:'var(--tit-dark)'}, b);
+    }
+  } else if (type === 'personnel'){
+    if (A.recrue === 'suricate'){
+      /* suricate dressé en sentinelle */
+      const q = E('g', {transform:'scale(1.8)'}, g);
+      E('path', {d:'M-2.5,-2 C-8,-1 -10,1 -11,-2', stroke:'var(--mk)', 'stroke-width':2.2, fill:'none', 'stroke-linecap':'round'}, q);
+      E('path', {d:'M-10,-1.4 L-11.4,-2.6', stroke:'var(--mk-dark)', 'stroke-width':2.2, 'stroke-linecap':'round'}, q);
+      E('ellipse', {cx:-2, cy:-0.6, rx:2.4, ry:1.2, fill:'var(--mk)', stroke:'var(--mk-dark)', 'stroke-width':.4}, q);
+      E('ellipse', {cx:2.4, cy:-0.6, rx:2.4, ry:1.2, fill:'var(--mk)', stroke:'var(--mk-dark)', 'stroke-width':.4}, q);
+      E('path', {class:'hl', d:'M-4.6,-2 C-5.6,-10 -4.4,-17 0,-19 C4.4,-17 5.6,-10 4.6,-2 C2,-0.6 -2,-0.6 -4.6,-2Z', fill:'var(--mk)', stroke:'var(--mk-dark)', 'stroke-width':.6}, q);
+      E('path', {d:'M-1,-3 C-2.4,-9 -1.4,-14 1,-16 C3.2,-13 3.6,-8 2.4,-3Z', fill:'var(--mk-light)'}, q);
+      E('path', {d:'M0.6,-14.4 C2.6,-14.8 4.4,-13.4 4.6,-12 M1,-13.4 C2.8,-13.6 4,-12.4 4,-11.4', stroke:'var(--mk-dark)', 'stroke-width':1.1, fill:'none', 'stroke-linecap':'round'}, q);
+      E('path', {class:'hl', d:'M-3.2,-20 C-3.6,-24.6 2,-26.4 4.6,-23.6 C6,-22.6 8.4,-22.4 9,-21.4 C8.6,-20.2 6,-19.6 4,-19.6 C1.4,-18.2 -2.6,-18 -3.2,-20Z', fill:'var(--mk)', stroke:'var(--mk-dark)', 'stroke-width':.6}, q);
+      E('ellipse', {cx:3, cy:-22.6, rx:1.6, ry:1.1, fill:'var(--mk-dark)'}, q);
+      E('circle', {cx:3.3, cy:-22.8, r:.4, fill:'var(--tit-white)'}, q);
+      E('circle', {cx:9, cy:-21.5, r:.75, fill:'var(--tit-dark)'}, q);
+      E('ellipse', {cx:-1.8, cy:-22.2, rx:1.2, ry:1, fill:'var(--mk-dark)'}, q);
+    } else if (A.recrue === 'maki'){
+      /* maki catta : longue queue annelée noir et blanc, masque noir, yeux orangés */
+      const q = E('g', {transform:'scale(1.35)'}, g);
+      const tail = 'M-4,-3 C-15,-3 -17,-15 -13,-25 C-11,-30 -6,-31 -5,-27';
+      E('path', {d:tail, stroke:'var(--lem-dark)', 'stroke-width':4.4, fill:'none', 'stroke-linecap':'round'}, q);
+      E('path', {d:tail, stroke:'var(--lem-light)', 'stroke-width':3.4, fill:'none', 'stroke-dasharray':'2.6 2.6', 'stroke-linecap':'butt'}, q);
+      E('ellipse', {cx:-2.6, cy:-0.6, rx:2.4, ry:1.3, fill:'var(--lem)', stroke:'var(--lem-dark)', 'stroke-width':.4}, q);
+      E('ellipse', {cx:3, cy:-0.6, rx:2.4, ry:1.3, fill:'var(--lem)', stroke:'var(--lem-dark)', 'stroke-width':.4}, q);
+      E('ellipse', {class:'hl', cx:0, cy:-8, rx:6.2, ry:7.6, fill:'var(--lem)', stroke:'var(--lem-dark)', 'stroke-width':.6}, q);
+      E('ellipse', {cx:1.8, cy:-7, rx:3.4, ry:5.4, fill:'var(--lem-light)'}, q);
+      E('path', {d:'M0.4,-20.4 L-1,-25.4 L3,-22.4Z M5.6,-22.4 L8.4,-25.2 L8.8,-20.6Z', fill:'var(--lem)', stroke:'var(--lem-dark)', 'stroke-width':.5}, q);
+      E('path', {class:'hl', d:'M-0.6,-18 C-1,-23 7,-24.4 9,-20 C10,-18.6 12.4,-17.4 12.6,-16 C11.4,-14.6 8,-14.4 6,-14 C3,-13 -0.4,-14.6 -0.6,-18Z', fill:'var(--lem-light)', stroke:'var(--lem-dark)', 'stroke-width':.6}, q);
+      E('path', {d:'M9.6,-17 C11,-16.6 12.2,-16.4 12.6,-16 C11.6,-15 10.4,-15 9.4,-15.4Z', fill:'var(--lem-dark)'}, q);
+      E('circle', {cx:3.4, cy:-18.6, r:2, fill:'var(--lem-dark)'}, q);
+      E('circle', {cx:7.4, cy:-18.6, r:1.9, fill:'var(--lem-dark)'}, q);
+      E('circle', {cx:3.6, cy:-18.6, r:1, fill:'var(--lem-eye)'}, q);
+      E('circle', {cx:7.5, cy:-18.6, r:.95, fill:'var(--lem-eye)'}, q);
+      E('path', {d:'M0,-21.2 C2,-22.8 6,-23 8.4,-21.4', stroke:'var(--lem-dark)', 'stroke-width':.9, fill:'none'}, q);
+    } else if (A.recrue === 'fee'){
+      /* fée : ailes irisées, robe, chignon doré, baguette étoilée */
+      const q = E('g', {transform:'scale(1.6)'}, g);
+      [[-5.6,-17,-28,6,9.6],[5.6,-17,28,6,9.6],[-4.6,-8.6,-50,3.6,5.6],[4.6,-8.6,50,3.6,5.6]].forEach(([x,y,a,rx,ry]) =>
+        E('ellipse', {cx:x, cy:y, rx, ry, transform:`rotate(${a} ${x} ${y})`, fill:'var(--fee-wing)', stroke:'var(--pansy)', 'stroke-width':.5, opacity:.85}, q));
+      E('path', {d:'M-1.4,-3 L-1.8,0 M1.4,-3 L1.8,0', stroke:'var(--skin)', 'stroke-width':1.3, 'stroke-linecap':'round'}, q);
+      E('path', {class:'hl', d:'M-6,-2.6 C-3,-1.2 3,-1.2 6,-2.6 L2,-13.6 L-2,-13.6Z', fill:'var(--fee-dress)', stroke:'var(--pansy)', 'stroke-width':.6}, q);
+      E('path', {d:'M-4.8,-4.4 C-2,-3.2 2,-3.2 4.8,-4.4', stroke:'var(--tit-white)', 'stroke-width':.7, fill:'none', opacity:.8}, q);
+      E('path', {d:'M1.8,-11.6 L7.6,-15.2', stroke:'var(--skin)', 'stroke-width':1.3, 'stroke-linecap':'round'}, q);
+      E('path', {d:'M7.4,-15 L10.4,-22', stroke:'var(--tit-dark)', 'stroke-width':.8}, q);
+      E('path', {d:'M10.8,-26.4 L11.7,-23.8 L14.4,-23.7 L12.3,-22.1 L13,-19.5 L10.8,-21 L8.6,-19.5 L9.3,-22.1 L7.2,-23.7 L9.9,-23.8Z', fill:'var(--tit-yellow)', stroke:'var(--pain-dark)', 'stroke-width':.4}, q);
+      E('circle', {cx:14.8, cy:-27, r:.7, fill:'var(--tit-yellow)'}, q); E('circle', {cx:6.6, cy:-25.6, r:.5, fill:'var(--tit-yellow)'}, q);
+      E('circle', {class:'hl', cx:0, cy:-17.4, r:3.8, fill:'var(--skin)', stroke:'var(--sq-dark)', 'stroke-width':.4}, q);
+      E('path', {d:'M-3.9,-17 C-4.6,-22 3.8,-23 4,-18.6 C2.4,-20.2 -1,-20.4 -3.9,-17Z', fill:'var(--fee-hair)'}, q);
+      E('circle', {cx:-1, cy:-21.8, r:2, fill:'var(--fee-hair)'}, q);
+      E('circle', {cx:1.4, cy:-17, r:.5, fill:'var(--tit-dark)'}, q);
+      E('circle', {cx:2.6, cy:-15.8, r:.7, fill:'var(--cfl)', opacity:.6}, q);
+    } else squirrelF(g, 0, 0, 1.35);
+  } else {
+    if (A.fleur === 'cactus'){
+      for (let a = 0; a < 360; a += 45) E('ellipse', {class:'hl', rx:2.6, ry:6, transform:`rotate(${a}) translate(0,-5)`, fill:'var(--cfl)'}, g);
+      for (let a = 22.5; a < 360; a += 45) E('ellipse', {rx:2, ry:4.2, transform:`rotate(${a}) translate(0,-3.4)`, fill:'var(--cfl-light)'}, g);
+      E('circle', {r:2.4, fill:'var(--tit-yellow)'}, g);
+    } else if (A.fleur === 'pensee'){
+      /* pensée : deux pétales violets en haut, deux mauves, un jaune rayé en bas */
+      [[-3.6,-4.6,-25],[3.6,-4.6,25]].forEach(([x,y,a]) => E('ellipse', {class:'hl', cx:x, cy:y, rx:4.2, ry:5.2, transform:`rotate(${a} ${x} ${y})`, fill:'var(--pansy)'}, g));
+      [[-5.4,1,-70],[5.4,1,70]].forEach(([x,y,a]) => E('ellipse', {cx:x, cy:y, rx:3.4, ry:4.6, transform:`rotate(${a} ${x} ${y})`, fill:'var(--pansy-mid)', stroke:'var(--pansy)', 'stroke-width':.4}, g));
+      E('ellipse', {cx:0, cy:4.6, rx:5.4, ry:4.4, fill:'var(--tit-yellow)', stroke:'var(--pansy)', 'stroke-width':.4}, g);
+      E('path', {d:'M0,1.6 L0,5.4 M-1.8,1.8 L-2.8,4.6 M1.8,1.8 L2.8,4.6', stroke:'var(--pansy)', 'stroke-width':.7, 'stroke-linecap':'round'}, g);
+      E('circle', {cx:0, cy:1, r:1.3, fill:'var(--tit-white)'}, g);
+    } else if (A.fleur === 'hibiscus'){
+      for (let a = 0; a < 360; a += 72) E('ellipse', {class:'hl', rx:5.2, ry:7.6, transform:`rotate(${a}) translate(0,-6.4)`, fill:'var(--hib)', stroke:'var(--par-red)', 'stroke-width':.4}, g);
+      E('circle', {r:2.2, fill:'var(--sq-dark)'}, g);
+      E('path', {d:'M0,0 L7,-9', stroke:'var(--tit-yellow)', 'stroke-width':1.4, 'stroke-linecap':'round'}, g);
+      E('circle', {cx:7.4, cy:-9.4, r:1.6, fill:'var(--tit-yellow)'}, g);
+    } else {
+      for (let a=0;a<360;a+=72) E('ellipse', {class:'hl', rx:4, ry:7, transform:`rotate(${a}) translate(0,-6)`, fill:'var(--flower)'}, g);
+      E('circle', {r:3, fill:'var(--bark)'}, g);
+    }
+  }
+}
+/* Écureuil : pattes en (x, y), tourné vers la droite */
+function squirrelF(g, x, y, s){
+  const q = fel('g', {transform:`translate(${x},${y}) scale(${s})`}, g);
+  fel('path', {class:'hl', d:'M-3,-3 C-13,-2 -17,-12 -13,-19 C-10,-25 -2,-26 -2,-20 C-2,-16 -7,-15 -7,-11 C-7,-7 -5,-5 -3,-3Z', fill:'var(--sq)', stroke:'var(--sq-dark)', 'stroke-width':.6}, q);
+  fel('path', {d:'M-12,-18 C-10,-22 -5,-23 -4,-20', stroke:'var(--sq-light)', 'stroke-width':1.2, fill:'none', 'stroke-linecap':'round'}, q);
+  fel('ellipse', {class:'hl', cx:1.5, cy:-7, rx:4.6, ry:6, fill:'var(--sq)', stroke:'var(--sq-dark)', 'stroke-width':.6}, q);
+  fel('ellipse', {cx:3.4, cy:-6.2, rx:2.2, ry:4, fill:'var(--sq-light)'}, q);
+  fel('circle', {class:'hl', cx:4.8, cy:-14.2, r:3.6, fill:'var(--sq)', stroke:'var(--sq-dark)', 'stroke-width':.6}, q);
+  fel('path', {d:'M3.2,-16.8 L3.8,-20.6 L5.6,-17.2Z', fill:'var(--sq-dark)'}, q);
+  fel('circle', {cx:6.1, cy:-14.8, r:.85, fill:'var(--tit-dark)'}, q);
+  fel('circle', {cx:8.3, cy:-13.6, r:.7, fill:'var(--tit-dark)'}, q);
+  fel('path', {d:'M4,-9 L6.8,-10.5', stroke:'var(--sq-dark)', 'stroke-width':1.3, 'stroke-linecap':'round'}, q);
+  fel('path', {d:'M-1,0 L-0.5,-2.5 M3.5,0 L3,-2.5', stroke:'var(--sq-dark)', 'stroke-width':1.4, 'stroke-linecap':'round'}, q);
+}
+/* Légende de l'arbre, construite selon l'apparence */
+function legendIcon(fn, vb, w, h){
+  const sv = document.createElementNS(NS, 'svg'); sv.setAttribute('viewBox', vb);
+  if (w) sv.setAttribute('style', `width:${w}px;height:${h}px`);
+  fn(sv); return sv;
+}
+function buildLegend(A){
+  const box = document.getElementById('legend-arbre'); box.replaceChildren();
+  const add = (icon, text) => { const sp = document.createElement('span'); sp.appendChild(icon); sp.appendChild(document.createTextNode(text)); box.appendChild(sp); };
+  const T = A.arbre;
+  add(legendIcon(s => fel('path', {d:'M-10 -6 C-2 -6 0 0 -2 10 M-2 -2 C4 0 8 4 9 10', stroke:'var(--root)', 'stroke-width':2.6, fill:'none'}, s), '-12 -12 24 24'), 'Racines : thématiques et références');
+  const woodC = T === 'cactus' ? 'var(--cactus)' : T === 'baobab' ? 'var(--baobab)' : T === 'rosier' ? 'var(--rosier)' : 'var(--bark)';
+  if (A.financement === 'seve') add(legendIcon(s => { fel('rect', {x:-6, y:-11, width:12, height:22, fill:woodC}, s);
+    const col = Array.from({length:9}, (_, i) => [0, -10 + i*2.2]); seveF(s, col, col.map(() => 12), -1, () => 0.5); }, '-12 -12 24 24'), 'Sève : période financée');
+  else if (A.financement === 'perles') add(legendIcon(s => { fel('rect', {x:-5, y:-11, width:10, height:22, fill:woodC}, s);
+    const col = Array.from({length:9}, (_, i) => [0, 9 - i*2.4]); perlesF(s, col, col.map(() => 10), 1, () => 0.5); }, '-12 -12 24 24'), 'Guirlande de perles : période financée');
+  else add(legendIcon(s => { fel('rect', {x:-6, y:-11, width:12, height:22, fill:woodC}, s);
+    [[-6,-6,2.6,'var(--moss2)'],[-4,-1,2.2,'var(--moss1)'],[-6.5,3,2.4,'var(--moss2)'],[-3,7,1.8,'var(--moss3)']].forEach(([x,y,r,c]) => fel('circle', {cx:x, cy:y, r, fill:c}, s));
+    fel('circle', {cx:1, cy:2, r:2.6, fill:'var(--lichen)', stroke:'var(--moss1)', 'stroke-width':.6}, s); }, '-12 -12 24 24'), 'Mousse : période financée');
+  add(legendIcon(s => { fel('rect', {x:-11, y:-11, width:12, height:22, fill:'var(--bark)'}, s); fel('ellipse', {cx:-5, rx:5, ry:2, fill:'none', stroke:'var(--paper)', 'stroke-width':2}, s);
+    fel('circle', {cx:1, r:2.6, fill:'var(--accent)'}, s); fel('path', {d:'M3 0 H12', stroke:'var(--accent)', 'stroke-dasharray':'2 2'}, s); }, '-12 -12 24 24'), 'Étape clé (nom dans la colonne de droite)');
+  if (T === 'cactus') add(legendIcon(s => cactusFlower(s, 0, 4, 11, false), '-12 -12 24 24'), "Fleur de cactus : fin d'une branche");
+  else if (T === 'rosier') add(legendIcon(s => roseF(s, 0, 0, 10, false), '-12 -12 24 24'), "Rose : fin d'une branche");
+  else add(legendIcon(s => { fel('path', {d:'M-12 8 L0 0', stroke: T === 'baobab' ? 'var(--baobab)' : 'var(--bark)', 'stroke-width':3}, s);
+    fel('circle', {cx:2, cy:-2, r:5, fill:'var(--moss1)'}, s); fel('circle', {cx:7, cy:-5, r:4.5, fill:'var(--leaf)'}, s); fel('circle', {cx:6, cy:2, r:4, fill:'var(--moss2)'}, s); }, '-12 -12 24 24'),
+    T === 'baobab' ? "Touffe : fin d'une branche" : "Feuillage : fin d'une branche");
+  add(legendIcon(s => drawItem(s, 'article', A), '-12 -15 24 26'), optName('fruit', A.fruit) + ' : publication scientifique');
+  add(legendIcon(s => drawItem(s, 'communication', A), T === 'communication' ? '' : (T === 'cactus' ? '-1 -12 27 24' : T === 'rosier' ? '-1 -12 34 24' : T === 'baobab' ? '-1 -12 24 24' : '-1 -12 29 24')),
+    (T === 'cactus' ? 'Jeune raquette' : T === 'rosier' ? 'Feuille de rosier' : T === 'baobab' ? 'Feuille de baobab' : 'Feuille') + ' : communication');
+  add(legendIcon(s => drawItem(s, 'autre', A), '-12 -12 24 24'), optName('fleur', A.fleur) + ' : autre information');
+  add(legendIcon(s => drawItem(s, 'stagiaire', A), A.stagiaire === 'abeille' ? '-22 -32 46 34' : '-24 -40 46 42', 24, 22), optName('stagiaire', A.stagiaire) + ' : stagiaire');
+  add(legendIcon(s => drawItem(s, 'personnel', A), A.recrue === 'suricate' ? '-22 -46 40 48' : A.recrue === 'maki' ? '-26 -46 46 48' : A.recrue === 'fee' ? '-20 -42 44 44' : '-24 -38 40 40', 22, 22), optName('recrue', A.recrue) + ' : personnel recruté');
+}
+function isAutumn(c){ return toT(today()) - toT(c.projet.maj) > 2 && !c.branches.some(b => !b.fin); }
+function each(arr, what, fn){
+  arr.forEach(o => { try { fn(o); } catch(err){
+    warnings.push(`${what} « ${o.titre || o.nom || o.id || '?'} » : dessin impossible, élément ignoré (${err.message}).`); } });
+}
+const W = 1120, WV = 1400, XC = 1172, G = 700, TOP = 70, CX = 590;
+
+const toT = s => { if(!s) return null; const [y,m] = s.split('-').map(Number); return y + ((m||1)-1)/12; };
+const MOIS = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+const fmt = s => { if(!s) return ''; const [y,m] = s.split('-').map(Number); return (m ? MOIS[m-1]+' ' : '') + y; };
+
+const okDate = s => typeof s === 'string' && /^\d{4}(-(0?[1-9]|1[0-2]))?$/.test(s.trim());
+function today(){ const n = new Date(); return n.getFullYear() + '-' + String(n.getMonth()+1).padStart(2,'0'); }
+
+/* Contrôle des données : écarte ce qui ne peut pas être dessiné et explique pourquoi */
+function clean(s){
+  const W = [], nm = o => o.titre || o.nom || o.court || o.id || '(sans titre)';
+  const p = {...s.projet};
+  if (!okDate(p.debut)){ W.push('Projet : date de début manquante ou invalide (format AAAA-MM).'); p.debut = (new Date().getFullYear()-1) + '-01'; }
+  if (!okDate(p.maj)){ W.push('Projet : date de mise à jour manquante ou invalide (format AAAA-MM).'); p.maj = today(); }
+  if (toT(p.maj) <= toT(p.debut)){ W.push('Projet : la mise à jour doit être postérieure au début.'); p.maj = (Math.floor(toT(p.debut))+1) + '-01'; }
+  if (!p.titre) p.titre = 'Projet sans titre';
+  const late = (d, what, o) => { if (okDate(d) && toT(d) > toT(p.maj)) W.push(`${what} « ${nm(o)} » : date postérieure à la mise à jour du projet.`); };
+
+  const byId = {}, br = [];
+  s.branches.forEach((b,i)=>{
+    if (!b.id){ W.push(`Branche n° ${i+1} : identifiant manquant, non dessinée.`); return; }
+    if (byId[b.id]){ W.push(`Branche « ${b.id} » : identifiant en double, non dessinée.`); return; }
+    if (!okDate(b.debut)){ W.push(`Branche « ${nm(b)} » : date de début manquante ou invalide, non dessinée.`); return; }
+    const c = {...b, __src:b, titre: b.titre || b.nom || b.id};
+    if (c.fin && !okDate(c.fin)){ W.push(`Branche « ${nm(b)} » : date de fin invalide, considérée comme en cours.`); c.fin = null; }
+    if (!c.fin) c.fin = null;
+    late(c.debut, 'Branche', c);
+    byId[c.id] = c; br.push(c);
+  });
+  br.forEach(c=>{ if (c.parent && !byId[c.parent]){ W.push(`Branche « ${nm(c)} » : branche de départ « ${c.parent} » introuvable, rattachée au tronc.`); delete c.parent; } });
+  br.forEach(c=>{ let x = c, n = 0; while (x && x.parent && n++ <= br.length){ x = byId[x.parent]; if (x === c){ W.push(`Branche « ${nm(c)} » : rattachement circulaire, rattachée au tronc.`); delete c.parent; break; } } });
+  br.forEach(c=>{ if (!c.parent && c.cote !== 'gauche') c.cote = 'droite'; });
+  const surOk = (o, what) => { const x = o.sur || 'tronc'; if (x === 'tronc' || byId[x]) return true;
+    W.push(`${what} « ${nm(o)} » : branche « ${x} » introuvable, non dessiné(e).`); return false; };
+
+  let themes = s.themes.filter(t => t && t.id);
+  const tids = new Set(themes.map(t=>t.id));
+  if (!themes.length) themes = [{id:null, nom:'Références'}];
+  const refs = s.references.filter(r=>{
+    const ok = tids.size ? tids.has(r.theme) : !r.theme;
+    if (!ok) W.push(`Référence « ${nm(r)} » : thème « ${r.theme || '?'} » introuvable, racine non dessinée.`);
+    return ok;
+  }).map(r => ({...r, __src:r, theme: tids.size ? r.theme : null, poids: Math.min(3, Math.max(1, Math.round(Number(r.poids)) || 1))}));
+
+  const jal = s.jalons.filter(j=>{
+    if (!okDate(j.date)){ W.push(`Jalon « ${nm(j)} » : date manquante ou invalide, non dessiné.`); return false; }
+    late(j.date, 'Jalon', j); return surOk(j, 'Jalon');
+  });
+  const fin = s.financements.filter(f=>{
+    if (!okDate(f.debut)){ W.push(`Financement « ${nm(f)} » : date de début manquante ou invalide, non dessiné.`); return false; }
+    late(f.debut, 'Financement', f); return surOk(f, 'Financement');
+  }).map(f => ({...f, __src:f, id: f.id || f.nom, sur: f.sur || 'tronc', fin: okDate(f.fin) ? f.fin : null}));
+  const val = s.valorisations.filter(v=>{
+    if (!okDate(v.date)){ W.push(`Valorisation « ${nm(v)} » : date manquante ou invalide, non dessinée.`); return false; }
+    late(v.date, 'Valorisation', v); return surOk(v, 'Valorisation');
+  }).map(v => (v.sur && TYPES_OK.includes(v.type) && v.titre) ? v : {...v, __src:v, sur: v.sur || 'tronc', type: TYPES_OK.includes(v.type) ? v.type : 'autre',
+      titre: v.titre || (v.nom ? 'Stage de ' + v.nom : '(sans titre)')});
+  /* recrutements : dessinés avec les valorisations (mésanges et écureuils) */
+  const rec = (s.recrutements || []).filter(r=>{
+    if (!okDate(r.date)){ W.push(`Recrutement « ${nm(r)} » : date d'arrivée manquante ou invalide, non dessiné.`); return false; }
+    late(r.date, 'Recrutement', r); return surOk(r, 'Recrutement');
+  }).map(r => ({...r, __src:r, sur: r.sur || 'tronc', type: r.type === 'personnel' ? 'personnel' : 'stagiaire',
+      titre: r.titre || (r.type === 'personnel' ? (r.nom ? 'Recrutement de ' + r.nom : 'Recrutement') : (r.nom ? 'Stage de ' + r.nom : 'Stage'))}));
+  val.push(...rec);
+
+  return {projet:p, themes, references:refs, jalons:jal, financements:fin, branches:br, valorisations:val, warnings:W};
+}
+
+function render(src){
+svg.replaceChildren();
+items = {}; uid = 0; selected = null; tip.hidden = true;
+const D = clean(src);
+warnings = D.warnings;
+FTAG = null;
+/* chaîne de branches (la branche et ses branches mères) : masquer une branche masque aussi ce qu'elle porte */
+const brById = {}; D.branches.forEach(b => brById[b.id] = b);
+const chainOf = id => { const out = []; let x = brById[id], n = 0; while (x && n++ < 50){ out.push('b:' + x.id); x = x.parent ? brById[x.parent] : null; } return out.join(' '); };
+const tagFor = (cat, sur) => cat + (sur && sur !== 'tronc' ? ' ' + chainOf(sur) : '');
+const WT = weights(D);
+const AP = appResolved(), TY = AP.arbre;
+const tNow = toT(D.projet.maj);
+/* Les dates de fin peuvent dépasser la mise à jour : la frise s'étend jusqu'à la plus lointaine (partie prévisionnelle) */
+const fins = [...D.branches.map(b => b.fin), ...D.financements.map(f => f.fin), ...D.valorisations.map(v => v.fin)].filter(okDate).map(toT);
+const tMax = Math.min(tNow + 15, Math.max(tNow, ...fins));
+const planned = d => okDate(d) && toT(d) > tNow;
+/* Une branche sans date de fin se prolonge jusqu'au dernier élément prévu qu'elle porte (financement, stage, étape) */
+function endT(b){
+  if (b.fin) return toT(b.fin);
+  let t = tNow;
+  D.financements.forEach(f => { if (f.sur === b.id && okDate(f.fin)) t = Math.max(t, toT(f.fin)); });
+  D.valorisations.forEach(v => { if (v.sur === b.id){ t = Math.max(t, toT(v.date)); if (okDate(v.fin)) t = Math.max(t, toT(v.fin)); } });
+  D.jalons.forEach(j => { if (j.sur === b.id) t = Math.max(t, toT(j.date)); });
+  return Math.min(t, tMax);
+}
+const goesOn = b => endT(b) > tNow + 0.01;
+const finTxt = b => b.fin ? b.fin.slice(0,4) + (planned(b.fin) ? ' (prévu)' : '') : (goesOn(b) ? 'en cours, prévu ' + Math.floor(endT(b)) : 'en cours');
+/* Partie à venir : voile clair et repère « aujourd'hui » */
+function futureVeil(g, x, y, w, h, lx, ly, lineD, anchor){
+  if (tMax <= tNow + 0.01) return;
+  el('rect', {x, y, width:w, height:h, class:'veil'}, g);
+  el('path', {class:'today', d:lineD}, g);
+  if (lx === null) return;
+  el('text', {class:'todaytxt halo', x:lx, y:ly, 'text-anchor':anchor || 'start'}, g).textContent = "Aujourd'hui · " + fmt(D.projet.maj) + (anchor === 'end' ? '  ▸ prévisionnel' : '  ▴ prévisionnel');
+  if (anchor === 'end-up') g.lastChild.setAttribute('text-anchor', 'end');
+}
+const t0 = Math.floor(toT(D.projet.debut));
+const t1 = tMax + 0.35;
+const yOf = t => G - 24 - (t - t0) / (t1 - t0) * (G - 24 - TOP);
+const yNow = yOf(tNow);
+
+function el(tag, attrs, parent){
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (FTAG) e.setAttribute('data-f', FTAG);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const bez = (p0,p1,p2,p3,t) => { const u=1-t; return [
+  u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0],
+  u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]]; };
+const sample = (P,n) => Array.from({length:n+1}, (_,i)=>bez(P[0],P[1],P[2],P[3],i/n));
+function normalAt(pts,i){
+  const a = pts[Math.max(i-1,0)], b = pts[Math.min(i+1,pts.length-1)];
+  let tx=b[0]-a[0], ty=b[1]-a[1]; const L=Math.hypot(tx,ty)||1; tx/=L; ty/=L;
+  return [-ty, tx];
+}
+function taper(pts, wf){
+  const L=[], R=[], n=pts.length;
+  pts.forEach((p,i)=>{ const nn=normalAt(pts,i), w=wf(i/(n-1))/2;
+    L.push((p[0]+nn[0]*w).toFixed(1)+','+(p[1]+nn[1]*w).toFixed(1));
+    R.push((p[0]-nn[0]*w).toFixed(1)+','+(p[1]-nn[1]*w).toFixed(1)); });
+  return 'M'+L.join('L')+'L'+R.reverse().join('L')+'Z';
+}
+const line = pts => 'M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join('L');
+function nearest(pts, y, from, to){
+  let bi = from, best = 1e9;
+  for (let i=from; i<=(to ?? pts.length-1); i++){ const d=Math.abs(pts[i][1]-y); if (d<best){best=d; bi=i;} }
+  return bi;
+}
+
+/* Registre des éléments interactifs */
+function nodeGroup(parent, info){
+  const k = 'n'+(uid++); items[k] = info;
+  return el('g', {class:'node', tabindex:'0', 'data-k':k, role:'button', 'aria-label': info.titre}, parent);
+}
+
+svg.classList.remove('autumn');
+svg.setAttribute('viewBox', `0 0 ${WV} 1000`);
+/* projet sans mise à jour depuis plus de deux ans et sans branche en cours : feuillage d'automne */
+svg.classList.toggle('autumn', isAutumn(D));
+['normal','cactus','baobab','rosier'].forEach(t => svg.classList.toggle('t-' + t, t === TY));
+buildLegend(AP);
+
+/* --- Axe du temps --- */
+const axis = el('g', {class:'axis'}, svg);
+for (let y = t0; y <= Math.floor(tMax); y++){
+  const yy = yOf(y);
+  el('line', {x1:56, x2:WV-10, y1:yy, y2:yy}, axis);
+  el('text', {x:12, y:yy+4}, axis).textContent = y;
+}
+
+/* --- Sol --- */
+el('rect', {x:0, y:G, width:WV, height:1000-G, fill:'var(--soil)'}, svg);
+el('line', {x1:0, x2:WV, y1:G, y2:G, stroke:'var(--soil-line)', 'stroke-width':2}, svg);
+
+/* --- Racines : une racine maîtresse par thème, puis une radicelle par référence --- */
+const refs = D.references, themes = D.themes || [{id:null, nom:'Références'}];
+const gRoots = el('g', {}, svg), gThemes = el('g', {}, svg);
+let cursor = 50; const span = W - 100;
+themes.forEach((th, ti)=>{
+  const rs = refs.filter(r => (r.theme ?? null) === th.id);
+  if (!rs.length) return;
+  const w = span * rs.length / refs.length, x0 = cursor; cursor += w;
+  const nx = x0 + w/2, ny = G + 100 + (ti%2)*28;
+  const sx = CX + (nx-CX)*0.05;
+  const P = [[sx,G+4],[sx+(nx-sx)*0.3, G+50],[nx-(nx-sx)*0.12, ny-50],[nx,ny]];
+  const sumP = rs.reduce((a,r)=>a+(r.poids||1),0);
+  const wMain = Math.min(30, 9 + sumP*2.2), wEnd = 7 + Math.max(...rs.map(r=>r.poids||1))*2;
+  rs.forEach((r,j)=>{
+    const f = rs.length>1 ? j/(rs.length-1) : .5;
+    const ex = w > 90 ? x0 + 45 + f*(w-90) : nx;
+    const ey = 878 + (j%2)*52;
+    const Q = [[nx,ny],[nx+(ex-nx)*0.15, ny+45],[ex, ey-60],[ex,ey]];
+    const pts = sample(Q,30), w0 = 3 + (r.poids||1)*2.6;
+    FTAG = 'ref';
+    const g = nodeGroup(gRoots, {kind:'ref', titre:r.titre, data:r});
+    el('path', {class:'root-body', d:taper(pts, s=>w0*(1-s)+1.2), fill:'var(--root)'}, g);
+    el('path', {class:'hit', d:line(pts)}, g);
+    el('circle', {class:'hl', cx:ex, cy:ey, r:3.5, fill:'var(--root)'}, g);
+    el('circle', {class:'ring', cx:ex, cy:ey, r:11}, g);
+    el('text', {class:'rlabel', x:ex, y:ey+19, 'text-anchor':'middle'}, g).textContent = r.court;
+  });
+  const pts = sample(P,40);
+  FTAG = 'rootbody';   /* racine maîtresse : masquée seulement si thèmes et références le sont */
+  const g = nodeGroup(gThemes, {kind:'theme', titre:th.nom, data:th, refs:rs});
+  el('path', {class:'root-body', d:taper(pts, s=>wMain*(1-s)+wEnd*s), fill:'var(--root)'}, g);
+  el('path', {class:'hit', d:line(pts)}, g);
+  FTAG = 'th';
+  const left = nx < CX;
+  el('text', {class:'tlabel', x: nx + (left ? -16 : 16), y: ny-4, 'text-anchor': left ? 'end' : 'start'}, g).textContent = th.nom;
+});
+
+FTAG = null;
+/* --- Tronc --- */
+function trunkAt(y){
+  const s = Math.min(1, Math.max(0, (G+14 - y) / (G+14 - yNow)));
+  if (TY === 'cactus') return {x: CX + 2*Math.sin(s*3), hw: 20 + 4*(1-s) + 12*Math.exp(-s*14), s};          /* colonne verte */
+  if (TY === 'rosier') return {x: CX + 7*Math.sin(s*5), hw: 8 + 6*(1-s) + 12*Math.exp(-s*12), s};   /* tige du rosier */
+  if (TY === 'baobab') return {x: CX + 4*Math.sin(s*3.4), hw: 26 + 30*Math.sin(Math.PI*Math.min(1, 0.12 + 0.8*s))*(1 - 0.45*s) + 18*Math.exp(-s*10), s};   /* tronc en bouteille */
+  return {x: CX + 9*Math.sin(s*4.2), hw: 7 + 20*(1-s) + 24*Math.exp(-s*12), s};
+}
+const tpts = [];
+for (let i=0;i<=60;i++){ const y = G+14 - (G+14-yNow)*i/60; tpts.push([trunkAt(y).x, y]); }
+const gLeaders = el('g', {}, svg);
+const gBranches = el('g', {}, svg);
+const gFuture = el('g', {}, svg);
+const gTrunk = el('g', {}, svg);
+el('path', {d: taper(tpts, s=>2*trunkAt(G+14-(G+14-yNow)*s).hw), fill:'var(--wood)'}, gTrunk);
+if (TY === 'cactus'){   /* côtes du cactus et sommet arrondi */
+  const tp = tpts[tpts.length-1], tw = trunkAt(tp[1]).hw;
+  el('ellipse', {cx:tp[0], cy:tp[1], rx:tw, ry:tw*0.7, fill:'var(--wood)'}, gTrunk);
+  [-0.55, 0, 0.55].forEach(f => el('path', {d: line(tpts.map(p => [p[0] + f*trunkAt(p[1]).hw, p[1]])), stroke:'var(--cactus-dark)', 'stroke-width':1.4, fill:'none', opacity:.55}, gTrunk));
+}
+if (TY === 'baobab') [-0.4, 0.15, 0.55].forEach((f, i) => el('path', {d: line(tpts.slice(4, 54).map(p => [p[0] + f*trunkAt(p[1]).hw + 3*Math.sin(p[1]/40 + i), p[1]])), stroke:'var(--paper)', 'stroke-width':1, fill:'none', opacity:.2}, gTrunk));
+/* épines du rosier, le long d'un tracé */
+function thorns(gp, pts, wf, step){
+  for (let i = 4, k = 0; i < pts.length - 3; i += step, k++){
+    const nn = normalAt(pts, i), sd = k % 2 ? 1 : -1, w = wf(i/(pts.length - 1))/2, p = pts[i];
+    const bx = p[0] + nn[0]*sd*w, by = p[1] + nn[1]*sd*w, tx = bx + nn[0]*sd*5 - 2, ty = by + nn[1]*sd*5 - 3;
+    el('path', {d:`M${(bx - 2.2).toFixed(1)},${(by + 0.6).toFixed(1)} L${tx.toFixed(1)},${ty.toFixed(1)} L${(bx + 2.2).toFixed(1)},${(by - 0.6).toFixed(1)}Z`, fill:'var(--thorn)'}, gp);
+  }
+}
+if (TY === 'rosier') thorns(gTrunk, tpts, y => 2*trunkAt(G + 14 - (G + 14 - yNow)*y).hw, 3);
+const gCrownT = el('g', {}, svg);   /* houppier du tronc, dessiné une fois les branches placées */
+const gVeins = el('g', {}, svg);
+
+/* --- Branches (récursives : une branche peut naître d'une autre) ---
+   Chaque branche essaie plusieurs longueurs et courbures, et deux places pour son nom ; elle garde
+   la première solution qui ne touche ni les branches déjà dessinées, ni leurs feuillages, ni leurs noms.
+   Les branches basses sont les plus longues, comme dans un vrai arbre. */
+const branches = {}; const sideIdx = {'-1':0, '1':0}, openIdx = {'-1':0, '1':0}, placed = [];
+const TW = [5, 13, 24, 3, 2.4];
+const SHRINK = TY === 'cactus' ? 0.62 : TY === 'baobab' ? 0.7 : TY === 'rosier' ? 0.85 : 1;   /* bras du cactus et branches du baobab plus courts */
+/* Le houppier du tronc est un obstacle pour les branches : elles le contournent */
+const RT = TY === 'cactus' ? 34 : TY === 'rosier' ? 48 : 62, topT = tpts[tpts.length-1];
+placed.push({id:'tronc', pts:[], wf: () => 0, dir:0, cr:{x: topT[0], y: topT[1] - RT*0.25, R: RT*1.05}, box:{x0:0, x1:0, y0:0, y1:0}});   /* épaisseurs : fine, moyenne, épaisse, base et pente de l'automatique */
+function labelBox(tip, R, dir, inner, lw){
+  if (!inner){
+    const tx = tip[0] + dir*(R*1.75 + 6);
+    return {tx, ty: tip[1] - 2, anchor: dir < 0 ? 'end' : 'start', x0: dir < 0 ? tx - lw : tx, x1: dir < 0 ? tx : tx + lw, y0: tip[1] - 15, y1: tip[1] + 17};
+  }
+  const tx = tip[0] - dir*8;
+  return {tx, ty: tip[1] - 22, anchor: dir < 0 ? 'start' : 'end', x0: dir < 0 ? tx : tx - lw, x1: dir < 0 ? tx + lw : tx, y0: tip[1] - 35, y1: tip[1] - 3};
+}
+const inBox = (bx, x, y, pad) => x > bx.x0 - pad && x < bx.x1 + pad && y > bx.y0 - pad && y < bx.y1 + pad;
+function labelFree(bx, pts){
+  if (bx.x0 < 8 || bx.x1 > XC - 40) return false;
+  for (let y = bx.y0; y <= bx.y1; y += 8){ const c = trunkAt(y); if (bx.x1 > c.x - c.hw - 4 && bx.x0 < c.x + c.hw + 4) return false; }
+  for (let i = 0; i < pts.length - 10; i += 2) if (inBox(bx, pts[i][0], pts[i][1], 4)) return false;
+  for (const o of placed){
+    for (let j = 0; j < o.pts.length; j += 2) if (inBox(bx, o.pts[j][0], o.pts[j][1], o.wf(j/(o.pts.length-1))/2 + 4)) return false;
+    if (bx.x1 > o.box.x0 && bx.x0 < o.box.x1 && bx.y1 > o.box.y0 && bx.y0 < o.box.y1) return false;
+    if (Math.hypot(Math.max(bx.x0 - o.cr.x, 0, o.cr.x - bx.x1), Math.max(bx.y0 - o.cr.y, 0, o.cr.y - bx.y1)) < o.cr.R) return false;
+  }
+  return true;
+}
+/* Place libre autour d'un tracé candidat : bois, feuillage du bout et noms des autres branches */
+function clearance(pts, wf, parentId, cr){
+  let best = Infinity, hits = 0; const n = pts.length, p0 = pts[0], near = (q) => Math.hypot(q[0] - p0[0], q[1] - p0[1]) < 70;
+  for (const o of placed){
+    const m = o.pts.length, isParent = o.id === parentId;
+    for (let i = 8; i < n; i += 2) for (let j = 8; j < m; j += 2){
+      if (isParent && (near(pts[i]) || near(o.pts[j]))) continue;   /* une ramification touche forcément sa branche mère à son départ */
+      const d = Math.hypot(pts[i][0] - o.pts[j][0], pts[i][1] - o.pts[j][1]) - (wf(i/(n-1)) + o.wf(j/(m-1)))/2;
+      if (d < best) best = d;
+    }
+    for (let j = isParent ? Math.floor(m*0.5) : 8; j < m; j += 2)
+      best = Math.min(best, Math.hypot(cr.x - o.pts[j][0], cr.y - o.pts[j][1]) - cr.R - o.wf(j/(m-1))/2 + 18);
+    let crosses = false;
+    for (let i = 8; i < n; i += 2){
+      best = Math.min(best, Math.hypot(o.cr.x - pts[i][0], o.cr.y - pts[i][1]) - o.cr.R - wf(i/(n-1))/2 + 18);
+      if (inBox(o.box, pts[i][0], pts[i][1], wf(i/(n-1))/2 + 4)) crosses = true;
+    }
+    if (crosses) hits++;
+  }
+  clearance.hits = hits;
+  return best;
+}
+function build(b){
+  if (branches[b.id]) return branches[b.id];
+  const parent = b.parent ? build(D.branches.find(x=>x.id===b.parent)) : null;
+  FTAG = 'br ' + chainOf(b.id);
+  const dir = b.cote ? (b.cote==='gauche' ? -1 : 1) : (parent ? parent.dir : 1);
+  const ys = yOf(toT(b.debut));
+  let p0, w0, pref, level;
+  if (parent){
+    const n = parent.pts.length, i = nearest(parent.pts, ys, 10, n-10);
+    p0 = parent.pts[i]; w0 = Math.max(3, thick(b, WT, TW, parent.wf(i/(n-1))*0.92)); pref = 190*SHRINK; level = parent.level+1;
+  } else {
+    const c = trunkAt(ys), k = sideIdx[dir]++;
+    p0 = [c.x + dir*c.hw*0.5, ys]; w0 = Math.max(3, thick(b, WT, TW, 2*c.hw*0.92)); pref = (300 - 55*(k % 3))*SHRINK; level = 0;
+  }
+  let ye = yOf(endT(b));
+  if (!b.fin) ye += 44*(openIdx[dir]++ % 3);   /* deux branches en cours du même côté n'arrivent pas au même endroit */
+  if (ye > p0[1] - 45) ye = p0[1] - 45;
+  const rise = p0[1] - ye;
+  const wc = Math.max(12, w0*0.55 + 10);
+  const wf = TY === 'cactus' ? (s => wc*(1 - 0.12*s)) : TY === 'baobab' ? (s => w0*1.25*(1 - 0.78*s) + 2) : TY === 'rosier' ? (s => w0*0.75*(1 - 0.55*s) + 1.6) : (s => w0*(1 - 0.7*s) + 1.6);
+  const Lmax = dir > 0 ? 930 - p0[0] : p0[0] - 160, Lmin = Math.min(110, Lmax);
+  const R = 17 + Math.min(17, w0*0.7), lw = Math.max(b.nom.length*8.3, 108);
+  const shape = TY === 'cactus'
+    ? (L, bend) => sample([p0,[p0[0]+dir*L*(0.75 + 0.2*bend), p0[1]+4],[p0[0]+dir*L, p0[1]-rise*0.12],[p0[0]+dir*L, ye]], 60)   /* bras en coude */
+    : (L, bend) => sample([p0,[p0[0]+dir*L*0.35, p0[1]-rise*0.05],[p0[0]+dir*L*bend, p0[1]-rise*0.5],[p0[0]+dir*L, ye]], 60);
+  let best = null;
+  outer:
+  for (const dL of [0, 40, -40, 80, -80, 120, -120, 160, -160, 200, 240]){
+    const L = Math.max(Lmin, Math.min(Lmax, pref + dL));
+    for (const bend of [0.72, 0.55, 0.88]){
+      const cand = shape(L, bend), t = cand[cand.length-1];
+      const cr = {x: t[0] + dir*R*0.45, y: t[1] - R*0.25, R: R*1.05};
+      const geo = clearance(cand, wf, parent && b.parent, cr), hits = clearance.hits;
+      for (const inner of [false, true]){
+        /* l'écart entre branches passe d'abord ; la place libre pour le nom départage ensuite */
+        const box = labelBox(t, R, dir, inner, lw), free = labelFree(box, cand);
+        const score = Math.min(geo, 40) + (free ? 15 : 0) - 20*hits - (inner ? 0.5 : 0);
+        if (!best || score > best.score) best = {score, pts:cand, cr, box};
+        if (geo >= 30 && free && !hits) break outer;   /* écart minimal entre deux branches, nom dégagé */
+      }
+    }
+  }
+  const {pts, cr, box} = best;
+  placed.push({id:b.id, pts, wf, dir, cr, box});
+  el('path', {d: taper(pts, wf), fill:'var(--wood)'}, gBranches);
+  const tipP = pts[pts.length-1];
+  if (TY === 'cactus'){
+    el('circle', {cx:tipP[0], cy:tipP[1], r:wf(1)/2, fill:'var(--wood)'}, gBranches);
+    el('path', {d: line(pts), stroke:'var(--cactus-dark)', 'stroke-width':1.2, fill:'none', opacity:.5}, gBranches);
+    cactusFlower(goesOn(b) ? gBranches : gCrownT, tipP[0], tipP[1] - wf(1)/2 + 2, Math.min(24, R*0.75), !b.fin || planned(b.fin));
+  } else if (TY === 'rosier'){
+    thorns(gBranches, pts, wf, 7);
+    roseCrown(goesOn(b) ? gBranches : gCrownT, tipP, dir, R, !b.fin || planned(b.fin), b.id);
+  } else crown(goesOn(b) ? gBranches : gCrownT, tipP, dir, R, !b.fin || planned(b.fin), b.id);
+  const g = nodeGroup(gLabels, {kind:'branche', titre:b.titre, data:b});
+  el('text', {class:'blabel halo hl' + (level ? ' sub' : ''), x:box.tx, y:box.ty, 'text-anchor':box.anchor}, g).textContent = b.nom;
+  el('text', {class:'yrs halo', x:box.tx, y:box.ty + 15, 'text-anchor':box.anchor}, g).textContent =
+    b.debut.slice(0,4) + ' → ' + finTxt(b);
+  return branches[b.id] = {pts, dir, wf, level};
+}
+/* Feuillage au bout de la branche : dense et foncé si la branche est terminée, plus clair et léger si elle est en cours */
+function crown(gp, tip, dir, R, young, seed){
+  const Rn = rng('crown' + seed), g = el('g', {class:'crown'}, gp);
+  const cx = tip[0] + dir*R*0.45, cy = tip[1] - R*0.25;
+  const cols = young ? ['var(--cy1)','var(--cr2)','var(--cr3)'] : ['var(--cr1)','var(--cr2)','var(--cr3)','var(--cr1)'];
+  const bao = TY === 'baobab';   /* baobab : touffes plates et clairsemées */
+  const n = Math.round((young ? 16 : 22) * Math.max(1, R/30) * (bao ? 0.8 : 1));
+  for (let i = 0; i < n; i++){
+    const a = Rn()*Math.PI*2, d = R*(bao ? 0.85 : 0.62)*Math.sqrt(Rn());
+    el('circle', {cx:(cx + Math.cos(a)*d*(bao ? 1.4 : 1.15)).toFixed(1), cy:(cy + Math.sin(a)*d*(bao ? 0.45 : 0.85)).toFixed(1),
+      r:(R*(bao ? 0.2 : young ? 0.3 : 0.34) + Rn()*R*(bao ? 0.12 : 0.2)).toFixed(1), fill:cols[Math.floor(Rn()*cols.length)], opacity: young ? .88 : .96}, g);
+  }
+  if (young) el('circle', {cx:cx + dir*R*0.75, cy:cy - R*0.5, r:4.2, fill:'none', stroke:'var(--leaf)', 'stroke-width':1.8}, g);
+}
+
+/* Bout de branche du rosier : feuillage léger et roses */
+function roseCrown(gp, tip, dir, R, young, seed){
+  const Rn = rng('rose' + seed), g = el('g', {class:'crown'}, gp);
+  const cx = tip[0] + dir*R*0.4, cy = tip[1] - R*0.25;
+  const cols = young ? ['var(--cy1)','var(--cr2)'] : ['var(--cr1)','var(--cr2)','var(--cr3)'];
+  for (let i = 0, n = Math.round((young ? 10 : 14) * Math.max(1, R/30)); i < n; i++){
+    const a = Rn()*Math.PI*2, d = R*0.7*Math.sqrt(Rn());
+    el('ellipse', {cx:(cx + Math.cos(a)*d*1.15).toFixed(1), cy:(cy + Math.sin(a)*d*0.8).toFixed(1), rx:(R*0.22 + Rn()*R*0.1).toFixed(1), ry:(R*0.14 + Rn()*R*0.06).toFixed(1),
+      transform:`rotate(${(Rn()*180).toFixed(0)} ${(cx + Math.cos(a)*d*1.15).toFixed(1)} ${(cy + Math.sin(a)*d*0.8).toFixed(1)})`, fill:cols[Math.floor(Rn()*cols.length)], opacity:.95}, g);
+  }
+  if (young){ roseF(g, cx, cy - R*0.1, R*0.42, true); return; }
+  roseF(g, cx, cy - R*0.05, R*0.5, false);
+  roseF(g, cx - dir*R*0.55, cy + R*0.25, R*0.34, false);
+  roseF(g, cx + dir*R*0.55, cy - R*0.35, R*0.3, false);
+  if (R > 40){ roseF(g, cx + R*0.15, cy + R*0.5, R*0.3, false); roseF(g, cx - R*0.75, cy - R*0.3, R*0.28, false); }
+}
+/* --- Mousse et lichen : périodes financées --- */
+function rng(seed){
+  let a = 0; for (const ch of String(seed)) a = (a*31 + ch.charCodeAt(0)) | 0;
+  return () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a>>>15, 1 | a);
+    t = t + Math.imul(t ^ t>>>7, 61 | t) ^ t; return ((t ^ t>>>14) >>> 0) / 4294967296; };
+}
+const MOSS = ['var(--moss1)','var(--moss1)','var(--moss2)','var(--moss2)','var(--moss3)'];
+function moss(g, pts, ws, side, R){
+  const n = pts.length; if (n < 2) return;
+  const nrm = pts.map((_,i)=>normalAt(pts,i));
+  let len = 0; for (let i=1;i<n;i++) len += Math.hypot(pts[i][0]-pts[i-1][0], pts[i][1]-pts[i-1][1]);
+  const at = f => { const x = f*(n-1), i = Math.min(n-2, Math.floor(x)), r = x-i;
+    return {p:[pts[i][0]*(1-r)+pts[i+1][0]*r, pts[i][1]*(1-r)+pts[i+1][1]*r], w:ws[i]*(1-r)+ws[i+1]*r, nn:nrm[i]}; };
+  const tufts = el('g', {class:'moss'}, g);
+  const count = Math.round(len * 1.7);
+  for (let k=0;k<count;k++){
+    const f = R(); if (R() > Math.pow(Math.sin(Math.PI*f), 0.5)) continue;
+    const {p,w,nn} = at(f);
+    const u = side * (1.1 - Math.pow(R(), 1.5) * 1.25);
+    const r = (1.1 + R()*2.6) * Math.min(1, 0.45 + w/30);
+    el('circle', {cx:(p[0]+nn[0]*u*w/2).toFixed(1), cy:(p[1]+nn[1]*u*w/2).toFixed(1), r:r.toFixed(1), fill:MOSS[Math.floor(R()*MOSS.length)]}, tufts);
+  }
+  const nl = Math.max(1, Math.round(len/30));
+  for (let k=0;k<nl;k++){
+    const f = 0.12 + R()*0.76, {p,w,nn} = at(f);
+    const u = side * (0.2 + R()*0.55), cx = p[0]+nn[0]*u*w/2, cy = p[1]+nn[1]*u*w/2;
+    const r = (2.4 + R()*2.4) * Math.min(1, 0.5 + w/30);
+    el('circle', {cx, cy, r, fill:'var(--lichen)', stroke:'var(--moss1)', 'stroke-width':.6}, tufts);
+    for (let a=0;a<5;a++){ const t = a*1.26 + R()*0.6;
+      el('circle', {cx:cx+Math.cos(t)*(r+1.6), cy:cy+Math.sin(t)*(r+1.6), r:0.9+R()*0.6, fill:'var(--lichen)'}, tufts); }
+  }
+}
+const gJalons = el('g', {}, svg);
+const gItems = el('g', {}, svg);
+const gLabels = el('g', {}, svg);
+D.branches.slice().sort((a,b) => toT(a.debut) - toT(b.debut)).forEach(build);
+FTAG = null;
+if (TY === 'cactus'){ cactusFlower(gCrownT, topT[0], topT[1] - 6, 30, false); cactusFlower(gCrownT, topT[0] - 22, topT[1] + 4, 14, true); cactusFlower(gCrownT, topT[0] + 20, topT[1] + 2, 14, true); }
+else if (TY === 'rosier') roseCrown(gCrownT, topT, 0, RT, false, 'tronc');
+else crown(gCrownT, topT, 0, TY === 'baobab' ? RT*1.15 : RT, false, 'tronc');
+futureVeil(gFuture, 0, 0, WV, yNow, null, 0, `M56,${yNow.toFixed(1)} H${XC - 30}`);
+
+const lanes = {};
+each((D.financements||[]).slice().sort((a,b)=>toT(a.debut)-toT(b.debut)), 'Financement', f=>{
+  FTAG = tagFor('fin', f.sur);
+  const list = lanes[f.sur] = lanes[f.sur] || [];
+  const a0 = toT(f.debut), a1 = f.fin ? toT(f.fin) : tNow;
+  let lane = 0;
+  while (list.some(o => o.lane===lane && o.a0 < a1 && a0 < o.a1)) lane++;
+  list.push({lane, a0, a1});
+  let pts, ws, side;
+  if (f.sur === 'tronc'){
+    const ya = yOf(a0), yb = yOf(Math.min(a1, tNow));
+    pts = Array.from({length:41}, (_,i)=>{ const y = ya + (yb-ya)*i/40; return [trunkAt(y).x, y]; });
+    ws = pts.map(p => 2*trunkAt(p[1]).hw);
+    side = lane % 2 ? 1 : -1;
+  } else {
+    const B = branches[f.sur]; if (!B) return;
+    const n = B.pts.length;
+    let i0 = nearest(B.pts, yOf(a0), 0), i1 = nearest(B.pts, yOf(Math.min(a1,tMax)), 0);
+    i0 = Math.min(i0, n-4); i1 = Math.min(n-1, Math.max(i1, i0+3));   /* au moins quelques points, même en bout de branche */
+    pts = B.pts.slice(i0, i1+1);
+    ws = pts.map((p,j) => B.wf((i0+j)/(n-1)));
+    const up = normalAt(pts, Math.floor(pts.length/2))[1] < 0 ? 1 : -1;
+    side = lane % 2 ? -up : up;
+  }
+  const g = nodeGroup(gVeins, {kind:'financement', titre:f.nom, data:f});
+  el('path', {d:taper(pts, s => ws[Math.round(s*(ws.length-1))] + 8), fill:'transparent'}, g);
+  (AP.financement === 'seve' ? seveF : AP.financement === 'perles' ? perlesF : moss)(g, pts, ws, side, rng(f.id || f.nom));
+});
+
+/* --- Jalons : cernes ; étapes clés reliées par des pointillés à la colonne de droite --- */
+FTAG = null;
+const steps = [];
+each(D.jalons, 'Jalon', j=>{
+  FTAG = tagFor('jal', j.sur);
+  const y = yOf(toT(j.date));
+  if (j.sur && j.sur !== 'tronc'){
+    const B = branches[j.sur]; if (!B) return;
+    const n = B.pts.length, i = nearest(B.pts, y, 4), p = B.pts[i], nn = normalAt(B.pts, i);
+    const w = B.wf(i/(n-1))/2 + 1.5, up = nn[1] < 0 ? 1 : -1;
+    const g = nodeGroup(gJalons, {kind: j.etape ? 'etape' : 'jalon', titre:j.titre, data:j});
+    el('line', {class:'hl', x1:p[0]+nn[0]*w, y1:p[1]+nn[1]*w, x2:p[0]-nn[0]*w, y2:p[1]-nn[1]*w, stroke:'var(--paper)', 'stroke-width': j.etape ? 2.6 : 1.4, opacity: j.etape ? 1 : .7}, g);
+    el('circle', {cx:p[0], cy:p[1], r:9, fill:'transparent'}, g);
+    if (j.etape){
+      el('circle', {cx:p[0], cy:p[1], r:3.2, fill:'var(--accent)', stroke:'var(--paper)', 'stroke-width':1.2}, g);
+      steps.push({x:p[0], y:p[1], j, g, tag:FTAG, on: (D.branches.find(b => b.id === j.sur) || {}).nom});
+    }
+    el('circle', {class:'ring', cx:p[0], cy:p[1], r:w+6}, g);
+    return;
+  }
+  const c = trunkAt(y);
+  const g = nodeGroup(gJalons, {kind: j.etape ? 'etape' : 'jalon', titre:j.titre, data:j});
+  el('rect', {x:c.x-c.hw, y:y-6, width:2*c.hw, height:12, fill:'transparent'}, g);
+  if (j.etape){
+    el('ellipse', {class:'hl', cx:c.x, cy:y, rx:c.hw-0.5, ry:3, fill:'none', stroke:'var(--paper)', 'stroke-width':2.6}, g);
+    el('circle', {cx:c.x + c.hw, cy:y, r:3.2, fill:'var(--accent)', stroke:'var(--paper)', 'stroke-width':1.2}, g);
+    steps.push({x:c.x + c.hw, y, j, g, tag:FTAG});
+  } else {
+    el('ellipse', {class:'hl', cx:c.x, cy:y, rx:c.hw-1, ry:2.2, fill:'none', stroke:'var(--paper)', 'stroke-width':1.3, opacity:.7}, g);
+  }
+  el('circle', {class:'ring', cx:c.x, cy:y, r:c.hw+6}, g);
+});
+
+FTAG = null;
+/* Colonne des étapes clés : une ligne par étape, sans chevauchement, dans l'ordre du temps */
+if (tMax > tNow + 0.01) steps.push({today:true, x: XC - 30, y: yNow});
+steps.sort((a,b) => a.y - b.y || (a.today ? 1 : -1));
+let prevY = 6;
+steps.forEach(st => { st.ly = Math.max(st.y, prevY + 36); prevY = st.ly; });
+for (let i = steps.length - 1, lim = G - 14; i >= 0; i--){ if (steps[i].ly > lim) steps[i].ly = lim; lim = steps[i].ly - 36; }
+const short = (t, n) => t.length > n ? t.slice(0, n - 1) + '…' : t;
+steps.forEach(st => {
+  FTAG = st.tag || null;
+  if (st.today){
+    el('path', {class:'today', d:`M${XC - 30},${st.y.toFixed(1)} L${XC - 10},${st.ly.toFixed(1)}`}, gFuture);
+    el('text', {class:'todaytxt halo', x:XC, y:st.ly + 1}, gLabels).textContent = "Aujourd'hui · " + fmt(D.projet.maj);
+    el('text', {class:'todaytxt halo', x:XC, y:st.ly + 14}, gLabels).textContent = '▴ au-dessus : prévisionnel';
+    return;
+  }
+  el('path', {class:'leaderR', d:`M${st.x.toFixed(1)},${st.y.toFixed(1)} H${XC - 30} L${XC - 10},${st.ly.toFixed(1)}`}, gLeaders);
+  el('circle', {cx:XC - 10, cy:st.ly, r:3, fill:'var(--accent)'}, st.g);
+  el('text', {class:'jword halo', x:XC, y:st.ly + 1}, st.g).textContent = short(st.j.mot || st.j.titre, 24);
+  el('text', {class:'jdate halo', x:XC, y:st.ly + 15}, st.g).textContent = fmt(st.j.date) + (st.on ? ' · ' + short(st.on, 16) : '');
+});
+
+/* --- Valorisations --- */
+FTAG = null;
+const counters = {};
+function drawShape(g, type){ drawItem(g, type, AP); }
+each(D.valorisations, 'Valorisation', v=>{
+  FTAG = tagFor(v.type === 'stagiaire' || v.type === 'personnel' ? 'rec' : 'val', v.sur);
+  const y = yOf(toT(v.date));
+  counters[v.sur] = (counters[v.sur]||0) + 1;
+  const odd = counters[v.sur] % 2 === 1;
+  let ax, ay, px, py, ang;
+  if (v.sur === 'tronc'){
+    const c = trunkAt(y), side = odd ? 1 : -1;
+    ax = c.x + side*(c.hw-2); ay = y;
+    px = c.x + side*(c.hw+30); py = y - 12;
+    ang = side>0 ? -25 : 205;
+  } else {
+    const B = branches[v.sur]; if (!B) return;
+    const bi = nearest(B.pts, y, 8);
+    const p = B.pts[bi], nn = normalAt(B.pts, bi);
+    const side = (v.type === 'stagiaire' || v.type === 'personnel') ? (nn[1] < 0 ? 1 : -1) : (odd ? -1 : 1);
+    ax = p[0]; ay = p[1];
+    px = p[0] + nn[0]*side*24; py = p[1] + nn[1]*side*24;
+    ang = Math.atan2(py-ay, px-ax)*180/Math.PI;
+  }
+  const g = nodeGroup(gItems, {kind:v.type, titre:v.titre, data:v});
+  el('line', {x1:ax, y1:ay, x2:px, y2:py, stroke: TY === 'cactus' ? 'var(--cactus-dark)' : TY === 'rosier' ? 'var(--rosier-dark)' : 'var(--bark)', 'stroke-width':1.8}, g);
+  let ox = px, oy = py, rot = 0, flip = '';
+  if (v.type === 'communication') rot = ang;
+  else if (v.type === 'article') oy = py + 13;
+  else if (v.type === 'stagiaire' || v.type === 'personnel') flip = px < ax ? ' scale(-1,1)' : '';
+  else { ox = px + Math.cos(ang*Math.PI/180)*6; oy = py + Math.sin(ang*Math.PI/180)*6; }
+  drawShape(el('g', {transform:`translate(${ox.toFixed(1)},${oy.toFixed(1)}) rotate(${rot.toFixed(0)})${flip}`}, g), v.type);
+  if (v.type === 'stagiaire' || v.type === 'personnel') oy -= 15;
+  el('circle', {class:'ring', cx:ox, cy:oy, r:17}, g);
+});
+
+FTAG = null;
+header(D);
+
+/* --- En-tête --- */
+function header(D){
+  document.getElementById('titre').textContent = D.projet.titre;
+  const nb = t => D.valorisations.filter(v=>v.type===t).length;
+  const stats = [[D.references.length,'références'],[(D.financements||[]).length,'financements'],[D.branches.length,'projets dérivés'],[nb('article'),'publications'],[nb('communication'),'communications'],[nb('stagiaire'),'stagiaires'],[nb('personnel'),'recrutements']];
+  document.getElementById('stats').innerHTML = stats.map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+  document.getElementById('badge').hidden = !D.projet.exemple;
+  document.getElementById('legend-arbre').hidden = false;
+  document.getElementById('legend-foret').hidden = true;
+  document.getElementById('eyebrow').textContent = FOREST ? (FOREST.foret.titre || 'Forêt des projets') + ' ›' : 'Arbre des projets · Neuraxess';
+}
+
+
+}
+
+/* --- Infobulle et panneau --- */
+const KIND = {
+  theme:{label:'Thématique', color:'var(--root)'},
+  ref:{label:'Référence fondatrice', color:'var(--root)'},
+  article:{label:'Publication scientifique', color:'var(--fruit)'},
+  stagiaire:{label:'Stagiaire', color:'var(--tit-blue)'},
+  personnel:{label:'Personnel recruté', color:'var(--sq)'},
+  communication:{label:'Communication', color:'var(--leaf)'},
+  autre:{label:'Autre information', color:'var(--flower)'},
+  branche:{label:'Projet dérivé', color:'var(--bark)'},
+  financement:{label:'Financement', color:'var(--moss2)'},
+  etape:{label:'Étape clé', color:'var(--ink)'},
+  jalon:{label:'Jalon', color:'var(--bark)'}
+};
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const periode = d => `${fmt(d.debut)} → ${d.fin ? fmt(d.fin) : 'en cours'}`;
+const brTitle = id => id==='tronc' ? 'Projet principal' : esc((D.branches.find(b=>b.id===id)||{}).titre);
+function metaLine(it){
+  const d = it.data;
+  switch(it.kind){
+    case 'theme': return `${it.refs.length} référence${it.refs.length>1?'s':''}`;
+    case 'ref': return `${esc(d.auteurs)} · ${d.annee}`;
+    case 'branche': return periode(d);
+    case 'financement': return `${esc(d.financeur)} · ${esc(d.montant||'')}`;
+    case 'etape': case 'jalon': return fmt(d.date);
+    case 'stagiaire': return `${esc(d.nom)} · ${esc(d.niveau)}`;
+    case 'personnel': return `${esc(d.nom)}${d.contrat ? ' · ' + esc(d.contrat) : ''}`;
+    default: return `${fmt(d.date)}${d.lieu ? ' · '+esc(d.lieu) : ''}`;
+  }
+}
+const stage = document.getElementById('stage'), tip = document.getElementById('tip');
+function showTip(node, evt){
+  const it = items[node.dataset.k];
+  tip.innerHTML = `<span class="kind" style="font-size:11.5px;color:var(--muted)"><i style="background:${KIND[it.kind].color}"></i>${KIND[it.kind].label}</span><b>${esc(it.titre)}</b><span class="m">${metaLine(it)}</span>`;
+  tip.hidden = false;
+  const sr = stage.getBoundingClientRect();
+  let x, y;
+  if (evt && evt.clientX){ x = evt.clientX - sr.left; y = evt.clientY - sr.top; }
+  else { const r = node.getBoundingClientRect(); x = r.left + r.width/2 - sr.left; y = r.top - sr.top; }
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = x + 14, top = y - th - 12;
+  if (left + tw > sr.width) left = x - tw - 14;
+  if (left < 0) left = 4;
+  if (top < 0) top = y + 18;
+  tip.style.left = left+'px'; tip.style.top = top+'px';
+}
+const panel = document.getElementById('panel');
+function intro(){
+  const etapes = D.jalons.filter(j=>j.etape).sort((a,b)=>toT(a.date)-toT(b.date))
+    .map(j=>`<li>${fmt(j.date)} : ${esc(j.titre)}${j.sur && j.sur!=='tronc' ? ` <span style="color:var(--muted)">(${esc((D.branches.find(b=>b.id===j.sur)||{}).nom)})</span>` : ''}</li>`).join('');
+  panel.innerHTML = `<div class="eyebrow">Le projet</div><h2>${esc(D.projet.titre)}</h2>
+  <p>${esc(D.projet.resume)}</p>
+  ${view === 'arbre' && isAutumn(clean(D)) ? `<p class="autumn-note">Feuillage d'automne : ce projet n'a pas été mis à jour depuis ${fmt(D.projet.maj)} et n'a plus de branche en cours. Avancez la date de mise à jour pour le faire reverdir.</p>` : ''}
+  <dl><dt>Porteur</dt><dd>${esc(D.projet.porteur)}</dd><dt>Début</dt><dd>${fmt(D.projet.debut)}</dd><dt>Mise à jour</dt><dd>${fmt(D.projet.maj)}</dd>
+  <dt>Étapes clés</dt><dd><ul>${etapes}</ul></dd></dl>
+  <div class="hint">Survolez un élément du dessin pour voir son détail, cliquez pour l'afficher ici. Le bouton « Modifier le projet » permet de le compléter, la roue « Apparence » de changer l'ambiance.</div>`;
+}
+function detail(it){
+  const d = it.data, rows = [];
+  const add = (k,v) => { if (v) rows.push(`<dt>${k}</dt><dd>${v}</dd>`); };
+  switch(it.kind){
+    case 'theme': add('Références', '<ul>'+it.refs.map(r=>`<li>${esc(r.court)} : ${esc(r.titre)}</li>`).join('')+'</ul>'); break;
+    case 'ref': add('Auteurs', esc(d.auteurs)); add('Revue', esc(d.revue)); add('Année', d.annee); add('Apport', esc(d.apport));
+      add('Thématique', esc((D.themes.find(t=>t.id===d.theme)||{}).nom)); add('Poids', '●'.repeat(d.poids||1)); break;
+    case 'branche': add('Période', periode(d)); if (d.parent) add('Issue de', brTitle(d.parent));
+      add('Valorisations', D.valorisations.filter(v=>v.sur===d.id).length);
+      { const subs = D.branches.filter(b=>b.parent===d.id); if (subs.length) add('Ramifications', subs.map(b=>esc(b.titre)).join('<br>')); } break;
+    case 'financement': add('Financeur', esc(d.financeur)); add('Montant', esc(d.montant)); add('Période', periode(d)); add('Rattachement', brTitle(d.sur)); break;
+    case 'etape': case 'jalon': add('Date', fmt(d.date)); add('Rattachement', brTitle(d.sur || 'tronc')); break;
+    case 'stagiaire': add('Stagiaire', esc(d.nom)); add('Niveau', esc(d.niveau)); add('Période', d.fin ? periode({debut:d.date, fin:d.fin}) : fmt(d.date));
+      add('Encadrement', esc(d.encadrant)); add('Rattachement', brTitle(d.sur)); break;
+    case 'personnel': add('Nom', esc(d.nom)); add('Contrat', esc(d.contrat)); add('Période', d.fin ? periode({debut:d.date, fin:d.fin}) : fmt(d.date) + ' → en poste');
+      add('Responsable', esc(d.encadrant)); add('Rattachement', brTitle(d.sur)); break;
+    default: add('Date', fmt(d.date)); add('Auteurs', esc(d.auteurs)); add(it.kind==='article'?'Revue':'Lieu', esc(d.lieu)); add('Rattachement', brTitle(d.sur));
+  }
+  if (d.lien) add('Lien', `<a href="${esc(d.lien)}" target="_blank" rel="noopener">${esc(d.lien)}</a>`);
+  panel.innerHTML = `<span class="kind eyebrow"><i style="background:${KIND[it.kind].color}"></i>${KIND[it.kind].label}</span>
+    <h2>${esc(it.titre)}</h2><dl>${rows.join('')}</dl>
+    <div class="hint"><a href="#" id="back">Revenir à la présentation du projet</a></div>`;
+  document.getElementById('back').addEventListener('click', e=>{ e.preventDefault(); select(null); });
+}
+let selected = null;
+function select(node){
+  if (node && editing){ goTo(items[node.dataset.k]); return; }
+  if (selected) selected.classList.remove('sel');
+  selected = node;
+  if (node){ node.classList.add('sel'); detail(items[node.dataset.k]); } else intro();
+}
+svg.addEventListener('pointermove', e=>{ const n = e.target.closest('.node'); if (n) showTip(n, e); else tip.hidden = true; });
+svg.addEventListener('pointerleave', ()=>{ tip.hidden = true; });
+svg.addEventListener('click', e=>{ const n = e.target.closest('.node'); select(n && n !== selected ? n : null); });
+svg.addEventListener('focusin', e=>{ const n = e.target.closest('.node'); if (n) showTip(n); });
+svg.addEventListener('focusout', ()=>{ tip.hidden = true; });
+svg.addEventListener('keydown', e=>{ if (e.key==='Enter' || e.key===' '){ const n = e.target.closest('.node'); if (n){ e.preventDefault(); select(n); } } });
+
+/* ===================== Mode édition ===================== */
+const editor = document.getElementById('editor'), ebody = document.getElementById('ebody');
+const layoutEl = document.querySelector('.layout'), btnEdit = document.getElementById('btn-edit');
+const statusEl = document.getElementById('estatus');
+let editing = false, tab = 'projet', dirty = false, timer = null, openRows = {};
+
+const TABS = [['projet','Projet'],['themes','Thèmes'],['references','Références'],['branches','Branches'],
+  ['jalons','Jalons'],['financements','Financements'],['valorisations','Valorisations'],['recrutements','Recrutement']];
+const TYPES = [['article','Publication scientifique (pomme)'],['communication','Communication (feuille)'],['autre','Autre information (fleur)']];
+const RTYPES = [['stagiaire','Stagiaire (mésange)'],['personnel','Personnel recruté (écureuil)']];
+const TYPE_COURT = {article:'Pomme', communication:'Feuille', autre:'Fleur', stagiaire:'Mésange', personnel:'Écureuil'};
+const HELP = {
+  themes: "Chaque thème forme une racine maîtresse. L'ordre de la liste donne l'ordre des racines, de gauche à droite.",
+  references: "Une racine par référence fondatrice. L'importance règle l'épaisseur de la radicelle.",
+  branches: "Un projet dérivé par branche. Pour une ramification, choisir la branche dont elle part. Fin vide = projet en cours. En automatique, une branche s'épaissit avec ce qu'elle porte : financements, valorisations, étapes et ramifications.",
+  jalons: "Un cerne sur le tronc ou sur une branche. Une étape clé est en plus reliée par des pointillés à son nom, dans la colonne de droite ; un jalon simple reste un cerne discret, visible au survol.",
+  financements: "Chaque financement se voit sur l'écorce pendant la période (mousse, sève ou guirlande de perles selon l'apparence). Fin vide = financement en cours.",
+  valorisations: "Pomme, feuille ou fleur, accrochée à la hauteur de sa date sur le tronc ou une branche.",
+  recrutements: "Les personnes accueillies sur le projet : stagiaires (mésanges) et personnel recruté (écureuils), posés à leur date d'arrivée sur le tronc ou une branche."
+};
+const ADD = {themes:'un thème', references:'une référence', branches:'une branche', jalons:'un jalon', financements:'un financement', valorisations:'une valorisation', recrutements:'un recrutement'};
+const isStage = v => v.type === 'stagiaire';
+const PROJET = [['masque','Masquer ce projet dans la forêt (il reste dans le fichier)','check', () => !!FOREST],['titre','Titre du projet','long'],['porteur','Porteur','text'],['debut','Début du projet (AAAA-MM)','date'],
+  ['maj','Dernière mise à jour (AAAA-MM)','date'],['resume','Présentation','long'],['exemple',"Données d'exemple (affiche un badge)",'check']];
+const FIELDS = {
+  themes: [['id','Identifiant','id'],['nom','Nom de la thématique','text']],
+  references: [['id','Identifiant','id'],['theme','Thème','theme'],['court','Étiquette sous la racine','text'],['poids','Importance','poids'],
+    ['titre','Titre','long'],['auteurs','Auteurs','text'],['revue','Revue','text'],['annee','Année','number'],
+    ['apport','Apport au projet','long'],['lien','Lien (DOI, URL)','text']],
+  branches: [['id','Identifiant','id'],['nom','Nom court (bout de branche)','text'],['cote','Côté','cote'],['parent','Part de','parent'],
+    ['titre','Intitulé complet','long'],['epaisseur','Épaisseur','epaisseur'],['debut','Début (AAAA-MM)','date'],['fin','Fin (vide = en cours)','datefin']],
+  jalons: [['sur','Placé sur','sur'],['date','Date (AAAA-MM)','date'],['titre','Description','long'],
+    ['etape','Étape clé : afficher son nom dans la colonne de droite','check'],
+    ['mot','Mot affiché à droite (vide = début de la description)','text']],
+  financements: [['id','Identifiant','id'],['sur','Placé sur','sur'],['nom',"Nom de l'appel ou du contrat",'long'],['financeur','Financeur','text'],
+    ['montant','Montant','text'],['debut','Début (AAAA-MM)','date'],['fin','Fin (vide = en cours)','datefin']],
+  recrutements: [['type','Type','rtype'],['sur','Placé sur','sur'],['nom','Nom','text'],
+    ['date', r => isStage(r) ? 'Début du stage (AAAA-MM)' : 'Arrivée (AAAA-MM)','date'],
+    ['fin', r => isStage(r) ? 'Fin du stage (AAAA-MM)' : 'Départ (vide = en poste)','datefin'],
+    ['titre', r => isStage(r) ? 'Sujet du stage' : 'Poste ou mission','long'],
+    ['niveau','Niveau (M1, M2, ingénieur…)','text', isStage],['contrat',"Contrat (CDD, ingénieur d'études…)",'text', r => !isStage(r)],
+    ['encadrant', r => isStage(r) ? 'Encadrement' : 'Responsable','text']],
+  valorisations: [['type','Type','type'],['sur','Placée sur','sur'],['date', v => isStage(v) ? 'Début du stage (AAAA-MM)' : 'Date (AAAA-MM)','date'],
+    ['fin','Fin du stage (AAAA-MM)','datefin', isStage],['titre','Titre','long'],['auteurs','Auteurs','text', v => v.type === 'article'],
+    ['lieu', v => v.type === 'article' ? 'Revue' : 'Lieu ou support','text', v => !isStage(v)],['nom','Nom du stagiaire','text', isStage],
+    ['niveau','Niveau','text', isStage],['encadrant','Encadrement','text', isStage],['lien','Lien (DOI, URL)','text', v => !isStage(v)]]
+};
+const REQUIRED = new Set(['titre','nom','court','debut','date','maj','sur','type','theme']);
+function newId(col, pre){ const used = new Set(D[col].map(o=>o.id)); let i = 1; while (used.has(pre+i)) i++; return pre+i; }
+const NEW = {
+  themes: () => ({id:newId('themes','t'), nom:''}),
+  references: () => ({id:newId('references','r'), theme:(D.themes[0]||{}).id || '', court:'', titre:'', poids:1}),
+  branches: () => ({id:newId('branches','b'), nom:'', titre:'', cote:'gauche', debut:D.projet.maj || '', fin:null}),
+  jalons: () => ({sur:'tronc', date:D.projet.maj || '', titre:'', etape:true}),
+  financements: () => ({id:newId('financements','f'), sur:'tronc', nom:'', debut:D.projet.maj || '', fin:null}),
+  valorisations: () => ({sur:'tronc', type:'article', date:D.projet.maj || '', titre:''}),
+  recrutements: () => ({sur:'tronc', type:'stagiaire', nom:'', date:D.projet.maj || '', titre:''})
+};
+function summary(col, o){
+  const per = o => `${o.debut || '?'} → ${o.fin || 'en cours'}`;
+  switch(col){
+    case 'themes': return [o.id || '?', o.nom || '(sans nom)'];
+    case 'references': return [o.court || o.id || '?', o.titre || '(sans titre)'];
+    case 'branches': return [o.id || '?', `${o.nom || '(sans nom)'} · ${per(o)}`];
+    case 'jalons': return [o.date || '?', (o.etape ? '★ ' : '') + (o.titre || '(sans description)')];
+    case 'financements': return [o.id || '?', `${o.nom || '(sans nom)'} · ${per(o)}`];
+    case 'recrutements': return [o.date || '?', `${TYPE_COURT[o.type] || '?'} · ${o.nom || o.titre || '(sans nom)'}${!o.fin && o.type === 'personnel' ? ' · en poste' : ''}`];
+    default: return [o.date || '?', `${TYPE_COURT[o.type] || '?'} · ${o.titre || '(sans titre)'}`];
+  }
+}
+function control(col, o, f, i){
+  const [key, lab, kind, when] = f;
+  if (when && !when(o)) return '';
+  const label = typeof lab === 'function' ? lab(o) : lab, v = o[key], fid = `f-${col}-${i}-${key}`;
+  const data = `id="${fid}" data-col="${col}" data-i="${i}" data-k="${key}" data-kind="${kind}"`;
+  const opt = (val, txt, sel) => `<option value="${esc(val)}"${sel ? ' selected' : ''}>${esc(txt)}</option>`;
+  const brOpts = (cur, excl) => D.branches.filter(b => b.id && b.id !== excl).map(b => opt(b.id, `${b.nom || b.id} (${b.id})`, b.id === cur)).join('');
+  let input;
+  switch(kind){
+    case 'long': input = `<textarea ${data} rows="2">${esc(v)}</textarea>`; break;
+    case 'date': input = `<input ${data} type="text" inputmode="numeric" placeholder="AAAA-MM" value="${esc(v)}"${v && !okDate(v) ? ' class="bad"' : ''}>`; break;
+    case 'datefin': input = `<input ${data} type="text" inputmode="numeric" placeholder="vide = en cours" value="${esc(v)}"${v && !okDate(v) ? ' class="bad"' : ''}>`; break;
+    case 'number': input = `<input ${data} type="number" value="${esc(v)}">`; break;
+    case 'poids': input = `<select ${data}>${[1,2,3].map(n => opt(n, ['','Faible','Moyenne','Forte'][n], (Number(v) || 1) === n)).join('')}</select>`; break;
+    case 'theme': input = `<select ${data}>${D.themes.some(t => t.id === v) ? '' : opt(v || '', v ? `${v} (introuvable)` : '— à choisir —', true)}${D.themes.map(t => opt(t.id, t.nom || t.id, t.id === v)).join('')}</select>`; break;
+    case 'sur': input = `<select ${data}>${opt('tronc', 'Le tronc (projet principal)', !v || v === 'tronc')}${brOpts(v)}${v && v !== 'tronc' && !D.branches.some(b => b.id === v) ? opt(v, `${v} (introuvable)`, true) : ''}</select>`; break;
+    case 'parent': input = `<select ${data}>${opt('', 'Le tronc', !v)}${brOpts(v, o.id)}</select>`; break;
+    case 'epaisseur': input = `<select ${data}>${[['','Automatique (selon l\'activité)'],['fine','Fine'],['moyenne','Moyenne'],['epaisse','Épaisse'],['tronc','Comme ce qui la porte']].map(([k,t]) => opt(k, t, (v || '') === k)).join('')}</select>`; break;
+    case 'cote': {
+      if (o.parent){
+        /* une ramification part du même côté que sa branche mère : on le montre sans pouvoir le changer ici */
+        let r = o, n = 0; while (r && r.parent && n++ < 20) r = D.branches.find(x => x.id === r.parent);
+        const side = r && r.cote === 'gauche' ? 'gauche' : 'droite', mere = (D.branches.find(x => x.id === o.parent) || {}).nom || o.parent;
+        input = `<select ${data} disabled>${opt('', (side === 'gauche' ? 'Gauche' : 'Droite') + ' (comme ' + mere + ')', true)}</select><small class="fnote">Pour la changer de côté, changez celui de la branche de départ, ou rattachez-la au tronc (« Part de »).</small>`;
+      } else input = `<select ${data}>${opt('gauche', 'Gauche', v === 'gauche')}${opt('droite', 'Droite', v !== 'gauche')}</select>`;
+      break;
+    }
+    case 'type': input = `<select ${data}>${TYPES.map(([k,t]) => opt(k, t, k === v)).join('')}</select>`; break;
+    case 'rtype': input = `<select ${data}>${RTYPES.map(([k,t]) => opt(k, t, k === v)).join('')}</select>`; break;
+    case 'check': return `<label class="fcheck" for="${fid}"><input type="checkbox" ${data}${v ? ' checked' : ''}> ${esc(label)}</label>`;
+    default: input = `<input ${data} type="text" value="${esc(v)}" data-old="${esc(v)}">`;
+  }
+  return `<div class="field${kind === 'long' ? ' wide' : ''}"><label for="${fid}">${esc(label)}</label>${input}</div>`;
+}
+function renderEditor(){
+  const count = k => k === 'projet' ? '' : `<small>${D[k].length}</small>`;
+  let h = `<div class="etabs" role="tablist">${TABS.map(([k,l]) => `<button type="button" role="tab" class="etab${k === tab ? ' on' : ''}" data-tab="${k}" aria-selected="${k === tab}">${l}${count(k)}</button>`).join('')}</div><div class="ebody">`;
+  if (tab === 'projet') h += `<div class="fgrid">${PROJET.map(f => control('projet', D.projet, f, 0)).join('')}</div>`;
+  else {
+    const open = openRows[tab] || (openRows[tab] = new Set());
+    h += `<p class="ehelp">${esc(HELP[tab])}</p>`;
+    h += D[tab].map((o,i) => { const [a,b] = summary(tab, o);
+      return `<details class="erow" data-i="${i}"${open.has(i) ? ' open' : ''}><summary><span class="ek">${esc(a)}</span><span class="et">${esc(b)}</span></summary>
+        <div class="fgrid">${FIELDS[tab].map(f => control(tab, o, f, i)).join('')}</div>
+        <div class="eactions"><button type="button" class="btn ghost danger" data-del="${i}">Supprimer</button></div></details>`; }).join('');
+    h += `<button type="button" class="btn add" data-add="${tab}">+ Ajouter ${ADD[tab]}</button>`;
+  }
+  ebody.innerHTML = h + '</div>';
+}
+function showWarnings(){
+  const box = document.getElementById('ewarn');
+  box.hidden = !warnings.length || !editing;
+  if (warnings.length) box.innerHTML = `<b>${warnings.length} point${warnings.length > 1 ? 's' : ''} à vérifier</b><ul>${warnings.map(w => `<li>${esc(w)}</li>`).join('')}</ul>`;
+}
+function setStatus(txt, isDirty){ statusEl.textContent = txt; statusEl.classList.toggle('dirty', !!isDirty); }
+function refresh(){
+  if (FOREST && cur < 0){ drawForest(); return; }
+  try { render(D); } catch(err){ FTAG = null; warnings = ["Le dessin a échoué (" + err.message + "). Annulez la dernière modification ou vérifiez les dates."]; }
+  FTAG = null;
+  showWarnings(); intro(); buildFiltres();
+}
+function changed(){
+  dirty = true; setStatus("Modifications non enregistrées. Pensez à enregistrer la page.", true);
+  clearTimeout(timer); timer = setTimeout(refresh, 180);
+}
+const objOf = el => el.dataset.col === 'projet' ? D.projet : D[el.dataset.col][Number(el.dataset.i)];
+function readVal(el){
+  const kind = el.dataset.kind, col = el.dataset.col;
+  if (kind === 'check') return el.checked || undefined;
+  const v = el.value.trim();
+  if (kind === 'number' || kind === 'poids') return v === '' ? undefined : Number(v);
+  if (kind === 'datefin') return v === '' ? (col === 'valorisations' ? undefined : null) : v;
+  return v === '' ? (REQUIRED.has(el.dataset.k) ? '' : undefined) : v;
+}
+function renameRefs(col, ov, nv){
+  if (col === 'themes') D.references.forEach(r => { if (r.theme === ov) r.theme = nv; });
+  if (col === 'branches'){
+    D.branches.forEach(b => { if (b.parent === ov) b.parent = nv; });
+    ['jalons','financements','valorisations','recrutements'].forEach(c => D[c].forEach(x => { if (x.sur === ov) x.sur = nv; }));
+  }
+}
+ebody.addEventListener('input', e => {
+  const el = e.target; if (!el.dataset || !el.dataset.k || el.dataset.kind === 'id') return;
+  const o = objOf(el), v = readVal(el);
+  /* une ramification rattachée au tronc garde le côté de son ancienne branche de départ */
+  if (el.dataset.col === 'branches' && el.dataset.k === 'parent' && !v && o.parent && !o.cote){
+    let r = o, n = 0; while (r && r.parent && n++ < 20) r = D.branches.find(x => x.id === r.parent);
+    o.cote = r && r.cote === 'gauche' ? 'gauche' : 'droite';
+  }
+  if (v === undefined) delete o[el.dataset.k]; else o[el.dataset.k] = v;
+  if (el.dataset.kind === 'date' || el.dataset.kind === 'datefin') el.classList.toggle('bad', !!el.value.trim() && !okDate(el.value.trim()));
+  const row = el.closest('.erow');
+  if (row){ const [a,b] = summary(el.dataset.col, o); row.querySelector('.ek').textContent = a; row.querySelector('.et').textContent = b; }
+  changed();
+});
+ebody.addEventListener('change', e => {
+  const el = e.target; if (!el.dataset || !el.dataset.k) return;
+  const kind = el.dataset.kind, col = el.dataset.col, o = objOf(el);
+  if (kind === 'id'){
+    const nv = el.value.trim(), ov = o.id;
+    if (!nv || nv === ov){ el.value = ov || ''; return; }
+    if (D[col].some(x => x !== o && x.id === nv)){ el.value = ov || ''; setStatus(`L'identifiant « ${nv} » existe déjà : choisissez-en un autre.`, true); return; }
+    o.id = nv; if (ov) renameRefs(col, ov, nv); renderEditor(); changed(); return;
+  }
+  if (['type','rtype','parent','check','theme','sur','cote'].includes(kind) || (el.dataset.k === 'nom' && (col === 'themes' || col === 'branches'))) renderEditor();
+});
+ebody.addEventListener('toggle', e => {
+  const r = e.target; if (!r.classList || !r.classList.contains('erow')) return;
+  const s = openRows[tab] || (openRows[tab] = new Set());
+  if (r.open) s.add(Number(r.dataset.i)); else s.delete(Number(r.dataset.i));
+}, true);
+function arm(btn, txt){
+  const old = btn.textContent; btn.classList.add('armed'); btn.textContent = txt;
+  setTimeout(() => { if (btn.isConnected){ btn.classList.remove('armed'); btn.textContent = old; } }, 3500);
+}
+ebody.addEventListener('click', e => {
+  const t = e.target.closest('[data-tab]');
+  if (t){ tab = t.dataset.tab; renderEditor(); ebody.querySelector('.etab.on')?.focus(); return; }
+  const a = e.target.closest('[data-add]');
+  if (a){
+    const col = a.dataset.add; D[col].push(NEW[col]()); const i = D[col].length - 1;
+    (openRows[col] || (openRows[col] = new Set())).add(i); renderEditor(); changed();
+    const row = ebody.querySelector(`.erow[data-i="${i}"]`);
+    if (row){ row.scrollIntoView({block:'nearest'}); row.querySelector('textarea, input[type="text"]')?.focus(); }
+    return;
+  }
+  const d = e.target.closest('[data-del]');
+  if (d){
+    if (!d.classList.contains('armed')){ arm(d, 'Confirmer la suppression'); return; }
+    D[tab].splice(Number(d.dataset.del), 1); openRows[tab] = new Set(); renderEditor(); changed();
+  }
+});
+function goTo(it){
+  if (!it) return;
+  const src = it.data.__src || it.data;
+  for (const col of ['themes','references','branches','jalons','financements','valorisations','recrutements']){
+    const i = D[col].indexOf(src);
+    if (i < 0) continue;
+    tab = col; (openRows[col] || (openRows[col] = new Set())).add(i); renderEditor();
+    const row = ebody.querySelector(`.erow[data-i="${i}"]`);
+    if (row){ row.scrollIntoView({block:'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+      row.classList.add('flash'); setTimeout(() => row.classList.remove('flash'), 1400); }
+    return;
+  }
+}
+function setEditing(on){
+  editing = on; layoutEl.classList.toggle('editing', on); editor.hidden = !on;
+  btnEdit.textContent = on ? "Fermer l'édition" : "Modifier le projet"; btnEdit.setAttribute('aria-pressed', String(on));
+  if (selected){ selected.classList.remove('sel'); selected = null; }
+  if (on){ renderEditor(); showWarnings(); } else intro();
+}
+btnEdit.addEventListener('click', () => setEditing(!editing));
+
+/* Enregistrer, exporter, importer */
+const json = () => JSON.stringify(FOREST || D, null, 2);
+const projJson = () => JSON.stringify(D, null, 2);
+const slug = s => (s || 'projet').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40).toLowerCase() || 'projet';
+const baseName = () => FOREST ? slug(FOREST.foret.titre || 'foret-des-projets') : 'arbre-' + slug(String(D.projet.titre || '').split(':')[0]);
+const projName = () => 'arbre-' + slug(String(D.projet.titre || '').split(':')[0]);
+/* Hors de claude.ai, un lien de téléchargement classique ; dans claude.ai, le service de téléchargement de la page */
+let dl = null;
+try { if (window.claude && window.claude.use) window.claude.use('downloads').then(x => { dl = x; }, () => {}); } catch(err){}
+function download(name, text, mime){
+  if (dl) return dl.save({filename: name, data: text}).then(() => true, err => {
+    if (err && err.code === 'declined') return false;
+    throw new Error(err && err.message || 'enregistrement impossible ici');
+  });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type: mime + ';charset=utf-8'})); a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  return Promise.resolve(true);
+}
+const failSave = err => setStatus(`Enregistrement impossible : ${err.message}. Utilisez « Copier le JSON ».`, true);
+function savePage(){
+  const data = json().replace(/<\//g, '<\\/');
+  const page = SOURCE.replace(/(<script type="application\/json" id="projet">)[\s\S]*?(<\/script>)/, (m, a, b) => a + '\n' + data + '\n' + b);
+  return download(baseName() + '.html', page, 'text/html').then(ok => {
+    if (!ok) return;
+    dirty = false;
+    const msg = `Page « ${baseName()}.html » enregistrée dans vos téléchargements. Elle remplace l'ancien fichier.`;
+    setStatus(msg); fstatus(msg);
+  }, err => { failSave(err); fstatus(`Enregistrement impossible : ${err.message}.`); });
+}
+document.getElementById('btn-save').addEventListener('click', savePage);
+document.getElementById('btn-json').addEventListener('click', () => {
+  download(projName() + '.json', projJson(), 'application/json').then(ok => {
+    if (ok) setStatus(`Fichier « ${projName()}.json » enregistré dans vos téléchargements.`, dirty);
+  }, failSave);
+});
+document.getElementById('btn-copy').addEventListener('click', () => {
+  const txt = projJson(), out = document.getElementById('copy-out');
+  const fallback = () => { out.hidden = false; out.value = txt; out.focus(); out.select();
+    setStatus('Copie automatique impossible : le JSON est sélectionné ci-dessous, faites Ctrl+C.', dirty); };
+  try { navigator.clipboard.writeText(txt).then(() => { out.hidden = true; setStatus('JSON copié dans le presse-papiers.', dirty); }, fallback); }
+  catch(err){ fallback(); }
+});
+document.getElementById('file-in').addEventListener('change', e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  f.text().then(txt => {
+    let src = txt;
+    if (/<script|<html/i.test(txt)){
+      const m = txt.match(/<script type="application\/json" id="projet">([\s\S]*?)<\/script>/);
+      if (!m) throw new Error("cette page ne contient pas de données d'arbre");
+      src = m[1];
+    }
+    const parsed = JSON.parse(src);
+    setD(normalize(Array.isArray(parsed.projets) ? parsed.projets[0] : parsed)); openRows = {}; tab = 'projet';
+    renderEditor(); changed();
+    setStatus(`« ${f.name} » importé. Enregistrez la page pour conserver cet arbre.`, true);
+  }).catch(err => setStatus(`Import impossible : ${err.message}.`, true))
+    .finally(() => { e.target.value = ''; });
+});
+document.getElementById('btn-new').addEventListener('click', e => {
+  const b = e.currentTarget;
+  if (!b.classList.contains('armed')){ arm(b, 'Confirmer : tout effacer'); return; }
+  setD(normalize({projet:{titre:'Nouveau projet', porteur:'Plateforme Neuraxess', debut:(new Date().getFullYear()) + '-01', maj:today(), resume:''}, apparence: FOREST ? undefined : D.apparence}));
+  openRows = {}; tab = 'projet'; renderEditor(); changed();
+  b.classList.remove('armed'); b.textContent = 'Arbre vide';
+});
+window.addEventListener('beforeunload', e => { if (dirty){ e.preventDefault(); e.returnValue = ''; } });
+
+/* ===================== Forêt des projets =====================
+   Un arbre miniature par projet : hauteur = durée, tronc = activité, pommes = publications,
+   feuillage d'automne = projet sans mise à jour depuis plus de deux ans. Un clic ouvre l'arbre détaillé. */
+const fsvg = document.getElementById('foret'), forestSec = document.getElementById('forest');
+const ftip = document.getElementById('ftip'), fpanel = document.getElementById('fpanel');
+const btnBack = document.getElementById('btn-back'), ftools = document.getElementById('ftools');
+const btnRemove = document.getElementById('btn-remove');
+let fstatusTxt = '', fOpenHidden = false;
+function fstatus(t){ fstatusTxt = t; const e = document.getElementById('fstatus'); if (e) e.textContent = t; }
+let FTAG = null;   /* étiquette de filtre posée sur les éléments en cours de dessin (catégorie, branches) */
+function fel(tag, attrs, parent){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (FTAG) e.setAttribute('data-f', FTAG); if (parent) parent.appendChild(e); return e; }
+function frng(seed){
+  let a = 0; for (const ch of String(seed)) a = (a*31 + ch.charCodeAt(0)) | 0;
+  return () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a>>>15, 1 | a);
+    t = t + Math.imul(t ^ t>>>7, 61 | t) ^ t; return ((t ^ t>>>14) >>> 0) / 4294967296; };
+}
+function metrics(d){
+  const c = clean(d), p = c.projet, t0 = toT(p.debut), tm = toT(p.maj);
+  const n = t => c.valorisations.filter(v => v.type === t).length;
+  const fin = c.financements.reduce((a,f) => a + 2 + Math.max(0, (f.fin ? Math.min(toT(f.fin), tm) : tm) - toT(f.debut)), 0);
+  const m = {c, t0, tm, age: Math.max(0.5, tm - t0), art:n('article'), com:n('communication'), aut:n('autre'),
+    sta:n('stagiaire'), per:n('personnel'), nfin:c.financements.length, nbr:c.branches.length, nref:c.references.length,
+    etapes: c.jalons.filter(j => j.etape).length, WT: weights(c)};
+  m.act = 2*m.art + m.com + m.aut + m.sta + 1.5*m.per + fin + m.etapes;
+  const now = toT(today());
+  m.autumn = isAutumn(c);
+  m.years = Math.floor(t0) + ' → ' + (m.autumn ? Math.floor(tm) : 'aujourd’hui');
+  return m;
+}
+function wrap(t, max){
+  const words = String(t).split(/\s+/), lines = [''];
+  words.forEach(w => { const L = lines[lines.length-1]; if ((L + ' ' + w).trim().length > max && L) lines.push(w); else lines[lines.length-1] = (L + ' ' + w).trim(); });
+  if (lines.length > 2){ lines.length = 2; lines[1] = lines[1].slice(0, max - 1) + '…'; }
+  return lines;
+}
+function crownF(g, cx, cy, R, cols, seed, n){
+  const r = frng(seed);
+  for (let i = 0; i < n; i++){
+    const a = r()*Math.PI*2, d = R*0.62*Math.sqrt(r());
+    fel('circle', {cx:(cx + Math.cos(a)*d*1.15).toFixed(1), cy:(cy + Math.sin(a)*d*0.85).toFixed(1), r:(R*0.33 + r()*R*0.2).toFixed(1), fill:cols[Math.floor(r()*cols.length)]}, g);
+  }
+}
+/* Fruit miniature (publications) selon l'apparence */
+let FRUIT = 'pomme', FIN = 'mousse';
+function miniFruit(g, x, y, f){
+  if (f === 'figue'){
+    fel('ellipse', {cx:x.toFixed(1), cy:y.toFixed(1), rx:3.8, ry:5.2, fill:'var(--figue)', stroke:'var(--panel)', 'stroke-width':.7}, g);
+    fel('circle', {cx:(x - 1).toFixed(1), cy:(y - 1).toFixed(1), r:.6, fill:'var(--tit-yellow)'}, g);
+    fel('circle', {cx:(x + 1.4).toFixed(1), cy:(y + 1.6).toFixed(1), r:.6, fill:'var(--tit-yellow)'}, g);
+  } else if (f === 'pain'){
+    fel('path', {d:`M${x.toFixed(1)},${(y - 9).toFixed(1)} V${(y - 5).toFixed(1)}`, stroke:'var(--bark)', 'stroke-width':.9}, g);
+    fel('ellipse', {cx:x.toFixed(1), cy:y.toFixed(1), rx:3.2, ry:5.6, fill:'var(--pain)', stroke:'var(--panel)', 'stroke-width':.7}, g);
+  } else if (f === 'bourgeon'){
+    fel('path', {d:`M${x.toFixed(1)},${(y - 4.4).toFixed(1)} C${(x - 4).toFixed(1)},${(y - 2).toFixed(1)} ${(x - 3).toFixed(1)},${(y + 4).toFixed(1)} ${x.toFixed(1)},${(y + 5).toFixed(1)} C${(x + 3).toFixed(1)},${(y + 4).toFixed(1)} ${(x + 4).toFixed(1)},${(y - 2).toFixed(1)} ${x.toFixed(1)},${(y - 4.4).toFixed(1)}Z`, fill:'var(--rbud)', stroke:'var(--panel)', 'stroke-width':.6}, g);
+    fel('path', {d:`M${(x - 3).toFixed(1)},${(y - 1).toFixed(1)} L${x.toFixed(1)},${(y - 4.6).toFixed(1)} L${(x + 3).toFixed(1)},${(y - 1).toFixed(1)}`, stroke:'var(--rosier)', 'stroke-width':1.3, fill:'none'}, g);
+  } else {
+    fel('circle', {cx:x.toFixed(1), cy:y.toFixed(1), r:4.6, fill:'var(--fruit)', stroke:'var(--panel)', 'stroke-width':.8}, g);
+    fel('path', {d:`M${x.toFixed(1)},${(y - 4.2).toFixed(1)} l1.5,-2.6`, stroke:'var(--bark)', 'stroke-width':1}, g);
+  }
+}
+/* Racines et mousse communes aux trois silhouettes */
+function miniRoots(g, m, wB){
+  const nr = Math.max(3, Math.min(9, m.nref));
+  for (let i = 0; i < nr; i++){
+    const x = -wB*1.5 + (3*wB)*i/(nr - 1);
+    fel('path', {d:`M${(x*0.3).toFixed(1)},0 Q${(x*0.75).toFixed(1)},6 ${(x*1.25).toFixed(1)},${(16 + 9*(i%2)).toFixed(1)}`, stroke:'var(--root)', 'stroke-width':2.4, fill:'none', 'stroke-linecap':'round'}, g);
+  }
+}
+function miniMoss(g, m, seed, wAt, yTop){
+  if (!m.nfin) return;
+  if (FIN !== 'mousse'){   /* sève ou guirlande : le long d'une colonne fictive sur le tronc */
+    const y1 = yTop*Math.min(0.85, 0.35 + 0.12*m.nfin), N = 24, col = Array.from({length:N}, (_, i) => [0, -4 + (y1 + 4)*i/(N - 1)]);
+    const ws = col.map(p => wAt(p[1])), R = frng('fin' + seed);
+    if (FIN === 'seve'){ seveF(g, col, ws.map(w => w*0.9), 1, R); if (m.nfin > 2) seveF(g, col.slice(4, 18), ws.slice(4, 18).map(w => w*0.9), -1, R); }
+    else perlesF(g, col, ws, 1, R);
+    return;
+  }
+  const rm = frng('moss' + seed), cnt = Math.min(90, 22*m.nfin), y1 = yTop*Math.min(0.85, 0.35 + 0.12*m.nfin);
+  for (let i = 0; i < cnt; i++){
+    const y = -4 + (y1 + 4)*rm(), w = wAt(y)/2, u = -(1.05 - Math.pow(rm(), 1.4)*1.3);
+    fel('circle', {cx:(u*w).toFixed(1), cy:y.toFixed(1), r:(1.3 + rm()*2.2).toFixed(1), fill:['var(--moss1)','var(--moss2)','var(--moss2)','var(--moss3)'][Math.floor(rm()*4)]}, g);
+  }
+  for (let i = 0; i < Math.min(5, m.nfin + 1); i++){
+    const y = -4 + (y1 + 4)*(0.15 + rm()*0.7), w = wAt(y)/2;
+    fel('circle', {cx:(-w*(0.2 + rm()*0.5)).toFixed(1), cy:y.toFixed(1), r:(2.4 + rm()*1.6).toFixed(1), fill:'var(--lichen)', stroke:'var(--moss1)', 'stroke-width':.5}, g);
+  }
+}
+/* Cactus miniature : colonne côtelée, un bras en coude par branche, fleurs au sommet des bras */
+function miniCactus(g, m, seed){
+  const r = frng('c' + seed), H = Math.min(360, 150 + 15*m.age), wc = Math.min(46, 22 + 1.6*Math.sqrt(m.act));
+  if (m.autumn) g.setAttribute('style', '--cfl:var(--au1);--cfl-light:var(--au2)');   /* projet ancien : fleurs fanées */
+  miniRoots(g, m, wc*0.8);
+  const tops = m.c.branches.filter(b => !b.parent).sort((a,b) => toT(a.debut) - toT(b.debut)), kidsOf = id => m.c.branches.filter(b => b.parent === id);
+  const side = {'-1':0, '1':0}, tips = [];
+  const endOf = b => b.fin ? Math.min(toT(b.fin), m.tm) : m.tm;
+  tops.forEach(b => {
+    const dir = b.cote === 'gauche' ? -1 : 1, k = side[dir]++;
+    const f0 = Math.min(0.8, Math.max(0.15, (toT(b.debut) - m.t0) / m.age)), y0 = -H*(0.22 + 0.5*f0) - 30*k;
+    const L = 44 - 16*(k % 3) + Math.min(10, 2*Math.sqrt(m.WT[b.id] || 0)), wa = Math.min(wc*0.8, 12 + 1.4*Math.sqrt(m.WT[b.id] || 0));
+    const y1 = Math.max(-H + 14, y0 - 34 - 70*Math.max(0, (endOf(b) - toT(b.debut)) / m.age)), x1 = dir*(wc/2 + L);
+    fel('path', {d:`M${(dir*wc*0.2).toFixed(1)},${y0.toFixed(1)} H${x1.toFixed(1)} V${y1.toFixed(1)}`, stroke:'var(--cactus)', 'stroke-width':wa.toFixed(1), fill:'none', 'stroke-linecap':'round', 'stroke-linejoin':'round'}, g);
+    fel('path', {d:`M${(dir*wc*0.4).toFixed(1)},${y0.toFixed(1)} H${x1.toFixed(1)} V${y1.toFixed(1)}`, stroke:'var(--cactus-dark)', 'stroke-width':1, fill:'none', opacity:.5}, g);
+    tips.push({x:x1, y:y1 - wa/2, open:!b.fin});
+    kidsOf(b.id).forEach((kd, j) => {
+      const ys = (y0 + y1)/2 - 10*j, xs = x1 + dir*(10 + 4*j);
+      fel('path', {d:`M${x1.toFixed(1)},${ys.toFixed(1)} H${xs.toFixed(1)} V${(ys - 20).toFixed(1)}`, stroke:'var(--cactus)', 'stroke-width':(wa*0.6).toFixed(1), fill:'none', 'stroke-linecap':'round', 'stroke-linejoin':'round'}, g);
+      tips.push({x:xs, y:ys - 20 - wa*0.3, open:!kd.fin, small:true});
+    });
+  });
+  fel('path', {class:'ftrunk', d:`M${(-wc/2 - 5).toFixed(1)},0 Q${(-wc/2).toFixed(1)},-4 ${(-wc/2).toFixed(1)},-12 V${(-H + wc/2).toFixed(1)} A${(wc/2).toFixed(1)},${(wc/2).toFixed(1)} 0 0 1 ${(wc/2).toFixed(1)},${(-H + wc/2).toFixed(1)} V-12 Q${(wc/2).toFixed(1)},-4 ${(wc/2 + 5).toFixed(1)},0Z`, fill:'var(--cactus)'}, g);
+  [-0.25, 0, 0.25].forEach(f => fel('path', {d:`M${(f*wc).toFixed(1)},-6 V${(-H + wc*0.6).toFixed(1)}`, stroke:'var(--cactus-dark)', 'stroke-width':1.2, opacity:.55}, g));
+  miniMoss(g, m, seed, () => wc, -H*0.9);
+  tips.forEach(t => cactusFlower(g, t.x, t.y, t.small ? 7 : 9, t.open));
+  cactusFlower(g, 0, -H - 2, 13, false);
+  const ra = frng('pommes' + seed), anchors = [{x:0, y:-H + 8, w:wc*0.45}, ...tips.map(t => ({x:t.x, y:t.y + 12, w:5}))];
+  for (let i = 0; i < Math.min(18, m.art); i++){ const a = anchors[i % anchors.length];
+    miniFruit(g, a.x + (ra() - 0.5)*2*a.w, a.y + ra()*26, FRUIT); }
+  return {top: -H - 30};
+}
+/* Rosier miniature : tiges épineuses en buisson, roses au bout de chaque tige */
+function miniRosier(g, m, seed){
+  const r = frng('r' + seed), au = m.autumn, H = Math.min(340, 150 + 14*m.age);
+  if (au) g.setAttribute('style', '--rose:var(--au1);--rose-light:var(--au2);--rose-dark:var(--au3)');   /* projet ancien : roses fanées */
+  const wB = Math.min(22, 8 + 1.2*Math.sqrt(m.act));
+  const wAt = y => wB*(1 - 0.5*Math.min(1, y/-H)) + 4*Math.exp(y/8);
+  miniRoots(g, m, wB*1.2);
+  const tops = m.c.branches.filter(b => !b.parent).sort((a,b) => toT(a.debut) - toT(b.debut)), kidsOf = id => m.c.branches.filter(b => b.parent === id);
+  const side = {'-1':0, '1':0}, tips = [];
+  const cane = (x0, y0, x1, y1, w, bend) => {
+    fel('path', {d:`M${x0.toFixed(1)},${y0.toFixed(1)} Q${(x0 + (x1 - x0)*0.2 + bend).toFixed(1)},${((y0 + y1)/2).toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`, stroke:'var(--rosier)', 'stroke-width':w.toFixed(1), fill:'none', 'stroke-linecap':'round'}, g);
+    for (let t = 0.25; t < 0.9; t += 0.22){ const x = x0 + (x1 - x0)*t + bend*0.5*Math.sin(Math.PI*t), y = y0 + (y1 - y0)*t, sd = (Math.round(t*10) % 2 ? 1 : -1);
+      fel('path', {d:`M${(x + sd*w/2).toFixed(1)},${(y - 1.4).toFixed(1)} l${(sd*3.4).toFixed(1)},-2.6 l${(-sd*1.2).toFixed(1)},3.6Z`, fill:'var(--thorn)'}, g); }
+  };
+  tops.forEach(b => {
+    const dir = b.cote === 'gauche' ? -1 : 1, k = side[dir]++;
+    const f0 = Math.min(0.8, Math.max(0.1, (toT(b.debut) - m.t0) / m.age)), y0 = -H*(0.15 + 0.45*f0);
+    const x1 = dir*(40 + 28*k + Math.min(16, 3*Math.sqrt(m.WT[b.id] || 0))), y1 = -H*(0.62 + 0.25*f0) + 14*(k % 2);
+    const w = Math.min(wB*0.75, 3 + 1.1*Math.pow(m.WT[b.id] || 0, 0.5));
+    cane(dir*1, y0, x1, y1, w, dir*-8);
+    tips.push({x:x1, y:y1, R:22 + Math.min(10, w*1.5), open:!b.fin});
+    kidsOf(b.id).forEach((kd, j) => { const sx = x1*0.55, sy = y0 + (y1 - y0)*0.55, ex = x1 + dir*(16 + 8*j), ey = y1 + 20 + 8*j;
+      cane(sx, sy, ex, ey, Math.max(2, w*0.6), dir*4); tips.push({x:ex, y:ey, R:15, open:!kd.fin}); });
+  });
+  if (!tops.length){ cane(0, -20, -36, -H*0.7, 4, 8); cane(0, -20, 38, -H*0.66, 4, -8); tips.push({x:-36, y:-H*0.7, R:22}, {x:38, y:-H*0.66, R:22}); }
+  /* tige principale */
+  const N = 24, L = [], Rr = [];
+  for (let i = 0; i <= N; i++){ const y = -H*i/N, w = wAt(y)/2, sx = 4*Math.sin(i/N*5); L.push(`${(sx - w).toFixed(1)},${y.toFixed(1)}`); Rr.push(`${(sx + w).toFixed(1)},${y.toFixed(1)}`); }
+  fel('path', {class:'ftrunk', d:'M' + L.join('L') + 'L' + Rr.reverse().join('L') + 'Z', fill:'var(--rosier)'}, g);
+  for (let i = 2; i < N - 1; i += 2){ const y = -H*i/N, w = wAt(y)/2, sd = i % 4 ? 1 : -1, sx = 4*Math.sin(i/N*5);
+    fel('path', {d:`M${(sx + sd*w).toFixed(1)},${(y - 1.6).toFixed(1)} l${(sd*4).toFixed(1)},-3 l${(-sd*1.4).toFixed(1)},4.4Z`, fill:'var(--thorn)'}, g); }
+  miniMoss(g, m, seed, wAt, -H*0.9);
+  tips.push({x:4*Math.sin(5), y:-H, R:30});
+  for (let i = 3; i < N - 2; i += 3){ const y = -H*i/N, sx = 4*Math.sin(i/N*5), sd = i % 2 ? 1 : -1;   /* feuilles le long de la tige */
+    fel('ellipse', {cx:(sx + sd*(wAt(y)/2 + 5)).toFixed(1), cy:(y - 2).toFixed(1), rx:5.5, ry:2.8, transform:`rotate(${sd*-30} ${(sx + sd*(wAt(y)/2 + 5)).toFixed(1)} ${(y - 2).toFixed(1)})`, fill: au ? 'var(--au1)' : 'var(--leaf)'}, g); }
+  /* feuillage et roses */
+  const leafC = au ? ['var(--au3)','var(--au1)','var(--au2)'] : ['var(--moss1)','var(--leaf)','var(--moss2)'];
+  tips.forEach(t => { for (let i = 0; i < 22; i++){ const a = r()*Math.PI*2, d = t.R*0.75*Math.sqrt(r()), x = t.x + Math.cos(a)*d*1.2, y = t.y + Math.sin(a)*d*0.8;
+    fel('ellipse', {cx:x.toFixed(1), cy:y.toFixed(1), rx:(t.R*0.3).toFixed(1), ry:(t.R*0.18).toFixed(1), transform:`rotate(${(r()*180).toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})`, fill:leafC[Math.floor(r()*3)]}, g); } });
+  tips.forEach(t => { roseF(g, t.x, t.y - 2, t.R*0.4, t.open && !au); if (t.R > 14){ roseF(g, t.x - t.R*0.55, t.y + t.R*0.3, t.R*0.28, false); roseF(g, t.x + t.R*0.55, t.y + t.R*0.15, t.R*0.26, false); } if (t.R > 25) roseF(g, t.x + t.R*0.1, t.y - t.R*0.5, t.R*0.25, false); });
+  const ra = frng('pommes' + seed);
+  for (let i = 0; i < Math.min(18, m.art); i++){ const t = tips[i % tips.length];
+    miniFruit(g, t.x + (ra() - 0.5)*t.R*1.6, t.y + t.R*0.5 + ra()*14, FRUIT); }
+  return {top: Math.min(...tips.map(t => t.y - t.R)) - 18};
+}
+/* Baobab miniature : tronc en bouteille, branches courtes en couronne, houppier plat */
+function miniBaobab(g, m, seed){
+  const r = frng('b' + seed), au = m.autumn, H = Math.min(330, 150 + 13*m.age), Tt = H*0.68;
+  const wB = Math.min(88, 36 + 3.8*Math.sqrt(m.act)), wTop = wB*0.48;
+  const wAt = y => { const f = Math.min(1, Math.max(0, y/-Tt)); return wTop + (wB - wTop)*Math.sin(Math.PI*(0.5 + 0.5*Math.pow(f, 1.2))) + 8*Math.exp(y/8); };
+  miniRoots(g, m, wB*0.55);
+  const tops = m.c.branches.filter(b => !b.parent).sort((a,b) => toT(a.debut) - toT(b.debut)), kidsOf = id => m.c.branches.filter(b => b.parent === id);
+  const side = {'-1':0, '1':0}, lobes = [];
+  const arms = tops.length ? tops : [{id:'_a', cote:'gauche'}, {id:'_b', cote:'droite'}];
+  arms.forEach(b => {
+    const dir = b.cote === 'gauche' ? -1 : 1, k = side[dir]++;
+    const x0 = dir*wTop*0.25, y0 = -Tt + 6, x1 = dir*(26 + 24*k + Math.min(14, 3*Math.sqrt(m.WT[b.id] || 0))), y1 = -Tt - 26 - 10*(k % 2);
+    const bw = Math.min(16, 5 + 1.6*Math.pow(m.WT[b.id] || 0, 0.6));
+    fel('path', {d:`M${x0.toFixed(1)},${y0.toFixed(1)} Q${(x1*0.55).toFixed(1)},${(y0 - 6).toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`, stroke:'var(--baobab)', 'stroke-width':bw.toFixed(1), fill:'none', 'stroke-linecap':'round'}, g);
+    [-1, 1].forEach(t => fel('path', {d:`M${x1.toFixed(1)},${y1.toFixed(1)} l${(dir*8 + t*6).toFixed(1)},${(-10 - 3*t).toFixed(1)}`, stroke:'var(--baobab)', 'stroke-width':(bw*0.45).toFixed(1), 'stroke-linecap':'round'}, g));
+    lobes.push({x:x1 + dir*6, y:y1 - 10, R:16 + Math.min(10, bw)});
+    kidsOf(b.id).forEach((kd, j) => { const ex = x1 + dir*(18 + 8*j), ey = y1 - 8 - 6*j;
+      fel('path', {d:`M${(x1*0.7).toFixed(1)},${((y0 + y1)/2).toFixed(1)} L${ex.toFixed(1)},${ey.toFixed(1)}`, stroke:'var(--baobab)', 'stroke-width':(bw*0.55).toFixed(1), 'stroke-linecap':'round'}, g);
+      lobes.push({x:ex, y:ey - 6, R:12}); });
+  });
+  const N = 28, L = [], Rr = [];
+  for (let i = 0; i <= N; i++){ const y = -Tt*i/N, w = wAt(y)/2; L.push(`${(-w).toFixed(1)},${y.toFixed(1)}`); Rr.push(`${w.toFixed(1)},${y.toFixed(1)}`); }
+  fel('path', {class:'ftrunk', d:'M' + L.join('L') + 'L' + Rr.reverse().join('L') + 'Z', fill:'var(--baobab)'}, g);
+  for (let i = 0; i < 3; i++){ const x = (i - 1)*wB*0.2;
+    fel('path', {d:`M${x.toFixed(1)},-4 Q${(x*1.2 + 3).toFixed(1)},${(-Tt*0.5).toFixed(1)} ${(x*0.5).toFixed(1)},${(-Tt*0.92).toFixed(1)}`, stroke:'var(--paper)', 'stroke-width':.9, opacity:.2, fill:'none'}, g); }
+  miniMoss(g, m, seed, wAt, -Tt);
+  /* houppier plat et clairsemé */
+  const rx = Math.min(132, Math.max(...lobes.map(l => Math.abs(l.x) + l.R), 60)), cy = -Tt - 36, ry = 22;
+  const dark = au ? ['var(--au3)','var(--au1)'] : ['var(--moss1)','var(--leaf)'], mid = au ? ['var(--au1)','var(--au2)'] : ['var(--leaf)','var(--moss2)'], light = au ? ['var(--au2)'] : ['var(--moss3)','var(--moss2)'];
+  const blob = (x, y, rad, cols) => fel('circle', {cx:x.toFixed(1), cy:y.toFixed(1), r:rad.toFixed(1), fill:cols[Math.floor(r()*cols.length)]}, g);
+  for (let i = 0; i < 46; i++){ const a = r()*Math.PI*2, d = Math.sqrt(r()); blob(Math.cos(a)*d*rx*0.9, cy + Math.sin(a)*d*ry + 4, 8 + r()*7, dark); }
+  lobes.forEach(l => { for (let i = 0; i < 7; i++){ const a = r()*Math.PI*2, d = l.R*0.6*Math.sqrt(r()); blob(l.x + Math.cos(a)*d*1.3, l.y + Math.sin(a)*d*0.5, l.R*(0.32 + r()*0.15), mid); } });
+  for (let i = 0; i < 40; i++){ const a = r()*Math.PI*2, d = Math.sqrt(r()); blob(Math.cos(a)*d*rx*0.85, cy + Math.sin(a)*d*ry*0.8, 7 + r()*6, mid); }
+  for (let i = 0; i < 18; i++){ const a = Math.PI*(1.05 + r()*0.8), d = Math.sqrt(r())*0.8; blob(Math.cos(a)*d*rx, cy + Math.sin(a)*d*ry - 3, 4 + r()*5, light); }
+  const ra = frng('pommes' + seed);
+  for (let i = 0; i < Math.min(18, m.art); i++){ const a = ra()*Math.PI*2, d = Math.sqrt(ra())*0.85;
+    miniFruit(g, Math.cos(a)*d*rx*0.9, cy + Math.sin(a)*d*ry + 6, FRUIT); }
+  return {top: cy - ry - 30};
+}
+function miniTree(g, m, seed){
+  /* Silhouette d'arbre : tronc évasé, charpentières qui montent dans un houppier ovale,
+     dont chaque branche du projet forme un lobe. Hauteur = durée ; tronc et houppier = activité. */
+  const r = frng('t' + seed), au = m.autumn;
+  const Ht = Math.min(380, 170 + 15*m.age), Tt = Ht*0.44;
+  const tops = m.c.branches.filter(b => !b.parent).sort((a,b) => toT(a.debut) - toT(b.debut)), kidsOf = id => m.c.branches.filter(b => b.parent === id);
+  const Cw = Math.min(268, 116 + 8*Math.sqrt(m.act) + 14*tops.length), Ch = Math.min(Ht - Tt + 40, Cw*0.86);
+  const ccy = -(Ht - Ch/2), rx = Cw/2, ry = Ch/2;
+  const wB = Math.min(46, 12 + 2.4*Math.sqrt(m.act)), wT = Math.max(5, wB*0.34), topY = ccy + Ch*0.08;
+  const wAt = y => { const f = Math.min(1, Math.max(0, y/topY)); return wT + (wB - wT)*Math.pow(1 - f, 1.7); };
+  const dark = au ? ['var(--au3)','var(--au3)','var(--au1)'] : ['var(--moss1)','var(--moss1)','var(--leaf)'];
+  const mid = au ? ['var(--au1)','var(--au2)','var(--au1)'] : ['var(--leaf)','var(--moss2)','var(--moss1)'];
+  const light = au ? ['var(--au2)','var(--lichen)'] : ['var(--moss2)','var(--moss3)'];
+  /* racines de surface : une par référence (au moins trois) */
+  const nr = Math.max(3, Math.min(9, m.nref));
+  for (let i = 0; i < nr; i++){
+    const x = -wB*1.5 + (3*wB)*i/(nr - 1);
+    fel('path', {d:`M${(x*0.3).toFixed(1)},0 Q${(x*0.75).toFixed(1)},6 ${(x*1.25).toFixed(1)},${(16 + 9*(i%2)).toFixed(1)}`, stroke:'var(--root)', 'stroke-width':2.4, fill:'none', 'stroke-linecap':'round'}, g);
+  }
+  /* charpentières : une par branche du projet, chacune finit en lobe du houppier */
+  const lobes = [], side = {'-1':0, '1':0}, nSide = {'-1':tops.filter(b => b.cote === 'gauche').length, '1':tops.filter(b => b.cote !== 'gauche').length};
+  const bw0 = b => Math.max(2.4, 2.4 + 1.5*Math.pow(m.WT[b.id] || 0, 0.6));
+  tops.forEach(b => {
+    const dir = b.cote === 'gauche' ? -1 : 1, k = side[dir]++, n = Math.max(1, nSide[dir]);
+    const f0 = Math.min(0.9, Math.max(0.35, (toT(b.debut) - m.t0) / m.age)), y0 = -Tt*(0.55 + 0.4*f0);
+    const ang = (dir < 0 ? Math.PI : 0) - dir*(0.32 + 0.55*(k + 0.5)/n);          /* de l'horizontale vers le haut */
+    const tx = dir*Math.abs(Math.cos(ang))*rx*0.86, ty = ccy - Math.sin(Math.abs(ang))*ry*0.78;
+    const bw = Math.min(wAt(y0)*0.7, bw0(b));
+    fel('path', {d:`M${(dir*wAt(y0)*0.2).toFixed(1)},${y0.toFixed(1)} Q${(tx*0.45).toFixed(1)},${(y0 - 8).toFixed(1)} ${tx.toFixed(1)},${ty.toFixed(1)}`,
+      stroke:'var(--bark)', 'stroke-width':bw.toFixed(1), fill:'none', 'stroke-linecap':'round'}, g);
+    lobes.push({x:tx, y:ty, R: 22 + Math.min(20, bw*2.2)});
+    kidsOf(b.id).forEach((kd, j) => {
+      const sx = tx*0.62, sy = y0 + (ty - y0)*0.55, ex = tx + dir*(14 + 10*j), ey = ty - 26 - 12*j;
+      fel('path', {d:`M${sx.toFixed(1)},${sy.toFixed(1)} Q${(sx + dir*10).toFixed(1)},${(sy - 20).toFixed(1)} ${ex.toFixed(1)},${ey.toFixed(1)}`,
+        stroke:'var(--bark)', 'stroke-width':Math.max(1.8, bw*0.55).toFixed(1), fill:'none', 'stroke-linecap':'round'}, g);
+      lobes.push({x:ex, y:ey, R:16 + Math.min(10, bw)});
+    });
+  });
+  /* tronc évasé à la base, légèrement sinueux */
+  const N = 28, L = [], Rr = [];
+  for (let i = 0; i <= N; i++){
+    const y = topY*i/N, w = wAt(y)/2 + 7*Math.exp(-(-y)/9), sx = 3*Math.sin(i/N*3.2);
+    L.push(`${(sx - w).toFixed(1)},${y.toFixed(1)}`); Rr.push(`${(sx + w).toFixed(1)},${y.toFixed(1)}`);
+  }
+  fel('path', {class:'ftrunk', d:'M' + L.join('L') + 'L' + Rr.reverse().join('L') + 'Z', fill:'var(--bark)'}, g);
+  for (let i = 0; i < 3; i++){   /* veines de l'écorce */
+    const x = (i - 1)*wB*0.18;
+    fel('path', {d:`M${x.toFixed(1)},-4 Q${(x*0.6 + 2).toFixed(1)},${(topY*0.4).toFixed(1)} ${(x*0.3).toFixed(1)},${(topY*0.8).toFixed(1)}`, stroke:'var(--paper)', 'stroke-width':.8, opacity:.18, fill:'none'}, g);
+  }
+  /* mousse et lichen (ou sève, ou guirlande) : sur un flanc du tronc, plus fourni avec le nombre de financements */
+  miniMoss(g, m, seed, wAt, topY);
+  /* houppier : ombre, masse, lumière ; ovale général et lobes des branches */
+  const inEll = () => { const a = r()*Math.PI*2, d = Math.sqrt(r()); return [Math.cos(a)*d*rx*0.82, ccy + Math.sin(a)*d*ry*0.8]; };
+  const rim = () => { const a = r()*Math.PI*2, d = 0.72 + r()*0.2; return [Math.cos(a)*d*rx, ccy + Math.sin(a)*d*ry]; };
+  const blob = (x, y, rad, colsA, op) => fel('circle', {cx:x.toFixed(1), cy:y.toFixed(1), r:rad.toFixed(1), fill:colsA[Math.floor(r()*colsA.length)], opacity:op}, g);
+  for (let i = 0; i < 56; i++){ const [x,y] = rim(); blob(x, y + 5, 11 + r()*9, dark, 1); }
+  lobes.forEach(l => { for (let i = 0; i < 10; i++){ const a = r()*Math.PI*2, d = l.R*0.6*Math.sqrt(r()); blob(l.x + Math.cos(a)*d, l.y + Math.sin(a)*d + 4, l.R*(0.32 + r()*0.18), dark, 1); } });
+  for (let i = 0; i < 70; i++){ const [x,y] = inEll(); blob(x, y, 10 + r()*10, mid, 1); }
+  lobes.forEach(l => { for (let i = 0; i < 9; i++){ const a = r()*Math.PI*2, d = l.R*0.55*Math.sqrt(r()); blob(l.x + Math.cos(a)*d, l.y + Math.sin(a)*d, l.R*(0.3 + r()*0.16), mid, 1); } });
+  for (let i = 0; i < 34; i++){ const a = Math.PI*(1.05 + r()*0.7), d = Math.sqrt(r())*0.78;
+    blob(Math.cos(a)*d*rx, ccy + Math.sin(a)*d*ry - 4, 5 + r()*7, light, .9); }
+  /* pommes : publications */
+  const ra = frng('pommes' + seed);
+  for (let i = 0; i < Math.min(20, m.art); i++){
+    const a = ra()*Math.PI*2, d = Math.sqrt(ra())*0.78, x = Math.cos(a)*d*rx, y = ccy + Math.sin(a)*d*ry;
+    miniFruit(g, x, y, FRUIT);
+  }
+  const topLobe = Math.min(ccy - ry, ...lobes.map(l => l.y - l.R));
+  return {top: topLobe - 12};
+}
+function drawForest(){
+  if (!FOREST) return;
+  fsvg.replaceChildren();
+  const AF = appResolved(); FRUIT = AF.fruit; FIN = AF.financement;
+  const fl = document.getElementById('legend-foret-fruit');
+  if (fl){ fl.replaceChildren(legendIcon(sv => miniFruit(sv, 0, 1, FRUIT), '-8 -9 16 16'), document.createTextNode(optName('fruit', FRUIT).replace(/^(\S+)/, '$1s') + ' : publications')); }
+  const all = FOREST.projets.map((d, i) => ({i, d, m: metrics(d)})).sort((a,b) => a.m.t0 - b.m.t0 || a.i - b.i);
+  const list = all.filter(it => !it.d.projet.masque), hiddenList = all.filter(it => it.d.projet.masque);
+  const n = Math.max(1, list.length), per = n <= 4 ? n : Math.ceil(n / Math.ceil(n / 4)), rows = Math.ceil(n / per);
+  const SW = 300, RH = 600, W = Math.max(3, per)*SW + 40, Hs = rows*RH + 10;   /* au moins trois emplacements : peu d'arbres ne sont pas agrandis */
+  fsvg.setAttribute('viewBox', `0 0 ${W} ${Hs}`);
+  for (let r = 0; r < rows; r++){
+    const gy = r*RH + 430;
+    fel('rect', {x:0, y:gy, width:W, height:160, fill:'var(--soil)'}, fsvg);
+    fel('line', {x1:0, x2:W, y1:gy, y2:gy, stroke:'var(--soil-line)', 'stroke-width':2}, fsvg);
+  }
+  list.forEach((it, k) => {
+    const r = Math.floor(k / per), col = k % per, rowN = Math.min(per, n - r*per);
+    const cx = 20 + (W - 40 - rowN*SW)/2 + SW*(col + 0.5), gy = r*RH + 430;
+    const g = fel('g', {class:'ftree', tabindex:'0', role:'button', 'data-i':it.i, transform:`translate(${cx.toFixed(1)},${gy})`,
+      'aria-label': `Ouvrir l'arbre du projet ${it.m.c.projet.titre}`}, fsvg);
+    const sk = it.d.projet.titre || it.i, gt = fel('g', {}, g);
+    const t = AF.arbre === 'cactus' ? miniCactus(gt, it.m, sk) : AF.arbre === 'baobab' ? miniBaobab(gt, it.m, sk) : AF.arbre === 'rosier' ? miniRosier(gt, it.m, sk) : miniTree(gt, it.m, sk);
+    fel('rect', {class:'fhalo', x:-SW/2 + 10, y:Math.max(-420, t.top - 6), width:SW - 20, height:-Math.max(-420, t.top - 6) + 150, rx:12}, g);
+    const lines = wrap(it.m.c.projet.titre, 30);
+    lines.forEach((l, j) => fel('text', {class:'ftitle', x:0, y:60 + j*18, 'text-anchor':'middle'}, g).textContent = l);
+    const y2 = 60 + lines.length*18 + 2;
+    fel('text', {class:'fyears', x:0, y:y2, 'text-anchor':'middle'}, g).textContent = it.m.years;
+    const parts = [it.m.art && `${it.m.art} publication${it.m.art > 1 ? 's' : ''}`, it.m.nfin && `${it.m.nfin} financement${it.m.nfin > 1 ? 's' : ''}`,
+      (it.m.sta + it.m.per) && `${it.m.sta + it.m.per} recrue${it.m.sta + it.m.per > 1 ? 's' : ''}`].filter(Boolean);
+    fel('text', {class:'fcount', x:0, y:y2 + 18, 'text-anchor':'middle'}, g).textContent = parts.join(' · ') || 'projet à compléter';
+    fel('rect', {x:-SW/2 + 10, y:-430, width:SW - 20, height:590, fill:'transparent'}, g);
+    it.g = g;
+  });
+  /* en-tête et panneau */
+  document.getElementById('titre').textContent = FOREST.foret.titre || 'Forêt des projets';
+  document.getElementById('eyebrow').textContent = 'Forêt des projets · Neuraxess';
+  document.getElementById('badge').hidden = !FOREST.foret.exemple;
+  const tot = k => list.reduce((a, it) => a + it.m[k], 0);
+  const stats = [[list.length,'projets'],[tot('nbr'),'projets dérivés'],[tot('nfin'),'financements'],[tot('art'),'publications'],[tot('com'),'communications'],[tot('sta') + tot('per'),'recrutements']];
+  document.getElementById('stats').innerHTML = stats.map(([v,l]) => `<div class="stat"><b>${v}</b><span>${l}</span></div>`).join('');
+  fpanel.innerHTML = `<div class="eyebrow">La forêt</div><h2>${esc(FOREST.foret.titre || 'Forêt des projets')}</h2>
+    <p>${esc(FOREST.foret.resume || 'Un arbre par projet de la plateforme. Cliquez sur un arbre, ou sur un projet ci-dessous, pour ouvrir sa vue détaillée.')}</p>
+    <div class="fitems">${list.map(it => `<div class="frow"><button type="button" class="fitem" data-open="${it.i}"><b>${esc(it.m.c.projet.titre)}</b><span>${esc(it.m.years)} · ${it.m.art} publ. · ${it.m.nfin} financ. · ${it.m.sta + it.m.per} recr.</span></button><button type="button" class="btn ghost fhide" data-hide="${it.i}" title="Masquer ce projet dans la forêt">Masquer</button></div>`).join('') || '<p class="fstatus">Tous les projets sont masqués.</p>'}</div>
+    ${hiddenList.length ? `<details class="fhidden"${fOpenHidden ? ' open' : ''}><summary>Projets masqués (${hiddenList.length})</summary><div class="fitems">${hiddenList.map(it => `<div class="frow"><button type="button" class="fitem muted" data-open="${it.i}"><b>${esc(it.m.c.projet.titre)}</b><span>${esc(it.m.years)} · masqué dans la forêt</span></button><button type="button" class="btn ghost fhide" data-show="${it.i}" title="Réafficher ce projet dans la forêt">Afficher</button></div>`).join('')}</div></details>` : ''}
+    <p class="fstatus" id="fstatus">${esc(fstatusTxt)}</p>
+    <div class="hint">« Ajouter des projets » accepte les fichiers d'arbre (.html) ou leurs données (.json). Un projet qui porte le même titre qu'un projet existant le remplace.</div>`;
+}
+function showForest(){
+  if (!FOREST) return;
+  if (editing) setEditing(false);
+  cur = -1; tip.hidden = true;
+  forestSec.hidden = false; layoutEl.hidden = true; btnBack.hidden = true; ftools.hidden = false;
+  btnEdit.hidden = true;
+  document.getElementById('legend-arbre').hidden = true;
+  document.getElementById('filtres').hidden = true;
+  document.getElementById('legend-foret').hidden = false;
+  drawForest();
+}
+function openProject(i){
+  cur = i; D = FOREST.projets[i]; ftip.hidden = true;
+  forestSec.hidden = true; layoutEl.hidden = false; btnBack.hidden = false; ftools.hidden = true;
+  btnEdit.hidden = false;
+  openRows = {}; tab = 'projet';
+  if (filtreDe !== i){ FILTRE.cats.clear(); FILTRE.br.clear(); filtreDe = i; }   /* chaque arbre s'ouvre en entier */
+  refresh();
+  if (editing) renderEditor();
+  window.scrollTo(0, 0);
+}
+/* ===================== Filtres d'affichage =====================
+   Cocher / décocher des catégories, ou des branches une à une. Une branche décochée disparaît avec
+   tout ce qu'elle porte (financements, valorisations, stagiaires, personnel, étapes) et ses ramifications.
+   C'est un réglage de lecture : il n'est pas enregistré dans le fichier. */
+const FILTRE = {cats: new Set(), br: new Set()};
+let filtreDe = null, brOpen = false;
+const FCATS = [['th','Thèmes'],['ref','Références'],['br','Branches'],['jal','Jalons'],['fin','Financements'],['val','Valorisations'],['rec','Recrutements']];
+function applyFiltres(){
+  ['th','ref','jal','fin','val','rec'].forEach(c => svg.classList.toggle('hide-' + c, FILTRE.cats.has(c)));
+  document.getElementById('filtre-br').textContent = [...FILTRE.br].map(id => `#arbre [data-f~="b:${String(id).replace(/["\\]/g, '\\$&')}"]{display:none}`).join('\n');
+  tip.hidden = true;
+}
+function buildFiltres(){
+  const box = document.getElementById('filtres');
+  if (FOREST && cur < 0){ box.hidden = true; return; }
+  box.hidden = false;
+  const brs = (D.branches || []).filter(b => b && b.id), byId = {}; brs.forEach(b => byId[b.id] = b);
+  [...FILTRE.br].forEach(id => { if (!byId[id]) FILTRE.br.delete(id); });   /* branche supprimée entre-temps */
+  const hiddenBy = b => { let x = b, n = 0; while (x && n++ < 50){ if (FILTRE.br.has(x.id)) return x; x = x.parent ? byId[x.parent] : null; } return null; };
+  const nVis = brs.filter(b => !hiddenBy(b)).length;
+  /* ordre : branches du tronc par date, chaque ramification sous sa branche mère */
+  const kids = id => brs.filter(b => (b.parent || null) === id && (id === null || byId[id])).sort((a,b) => String(a.debut).localeCompare(String(b.debut)));
+  const rows = []; const walk = (id, lvl) => kids(id).forEach(b => { rows.push([b, lvl]); walk(b.id, lvl + 1); });
+  walk(null, 0); brs.forEach(b => { if (!rows.some(r => r[0] === b)) rows.push([b, 0]); });   /* rattachements invalides */
+  const chip = (c, t) => `<label class="fchip"><input type="checkbox" data-fcat="${c}"${FILTRE.cats.has(c) ? '' : ' checked'}> ${t}</label>`;
+  const any = FILTRE.cats.size || FILTRE.br.size;
+  box.innerHTML = `<span class="ftl">Afficher</span>` + FCATS.map(([c, t]) => c !== 'br' ? chip(c, t) :
+    `<details class="fbr"${brOpen ? ' open' : ''}><summary class="fchip"><input type="checkbox" id="fbr-all"${nVis ? ' checked' : ''} aria-label="Toutes les branches"> Branches <small>${nVis}/${brs.length}</small><span class="car" aria-hidden="true">▾</span></summary>
+      <div class="fbrpop" role="group" aria-label="Branches à afficher">
+        <div class="facts"><button type="button" data-fbr="tout">Toutes</button><button type="button" data-fbr="rien">Aucune</button></div>
+        ${rows.map(([b, lvl]) => { const by = hiddenBy(b), own = FILTRE.br.has(b.id), off = !!by && !own;
+          return `<div class="fbrrow${by ? ' off' : ''}" style="padding-left:${lvl*18}px"><label title="${esc(b.nom || b.titre || b.id)}"><input type="checkbox" data-fb="${esc(b.id)}"${by ? '' : ' checked'}${off ? ' disabled' : ''}><span>${lvl ? '↳ ' : ''}${esc(b.nom || b.titre || b.id)}</span></label><small>${esc(String(b.debut || '').slice(0,4))}</small><button type="button" class="seule" data-seule="${esc(b.id)}" title="Ne montrer que cette branche (et celles qui la portent)">seule</button></div>`; }).join('') || '<p class="fstatus">Ce projet n\'a pas encore de branche.</p>'}
+      </div></details>`) .join('') + (any ? `<button type="button" class="freset" id="freset">Tout afficher</button>` : '');
+  const all = document.getElementById('fbr-all'); if (all) all.indeterminate = nVis > 0 && nVis < brs.length;
+  applyFiltres();
+}
+document.getElementById('filtres').addEventListener('click', e => {
+  const t = e.target;
+  if (t.id === 'fbr-all'){ e.stopPropagation(); }   /* la case « toutes » ne déplie pas la liste */
+  const brs = (D.branches || []).filter(b => b && b.id);
+  if (t.dataset.fbr === 'tout'){ FILTRE.br.clear(); buildFiltres(); }
+  else if (t.dataset.fbr === 'rien'){ brs.forEach(b => FILTRE.br.add(b.id)); buildFiltres(); }
+  else if (t.dataset.seule){
+    const keep = new Set(), byId = {}; brs.forEach(b => byId[b.id] = b);
+    let x = byId[t.dataset.seule], n = 0; while (x && n++ < 50){ keep.add(x.id); x = x.parent ? byId[x.parent] : null; }   /* la branche et celles qui la portent */
+    const under = id => { let y = byId[id], k = 0; while (y && k++ < 50){ if (y.id === t.dataset.seule) return true; y = y.parent ? byId[y.parent] : null; } return false; };
+    FILTRE.br.clear(); brs.forEach(b => { if (!keep.has(b.id) && !under(b.id)) FILTRE.br.add(b.id); });
+    buildFiltres();
+  } else if (t.id === 'freset'){ FILTRE.cats.clear(); FILTRE.br.clear(); buildFiltres(); }
+});
+document.getElementById('filtres').addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.fcat){ if (t.checked) FILTRE.cats.delete(t.dataset.fcat); else FILTRE.cats.add(t.dataset.fcat); }
+  else if (t.dataset.fb){ if (t.checked) FILTRE.br.delete(t.dataset.fb); else FILTRE.br.add(t.dataset.fb); }
+  else if (t.id === 'fbr-all'){ const brs = (D.branches || []).filter(b => b && b.id); if (t.checked) FILTRE.br.clear(); else brs.forEach(b => FILTRE.br.add(b.id)); }
+  else return;
+  buildFiltres();
+  const back = t.dataset.fb ? `[data-fb="${CSS.escape(t.dataset.fb)}"]` : t.dataset.fcat ? `[data-fcat="${t.dataset.fcat}"]` : t.id ? '#' + t.id : null;
+  if (back){ const n = document.querySelector('#filtres ' + back); if (n) n.focus(); }   /* garder le focus clavier */
+});
+document.getElementById('filtres').addEventListener('toggle', e => { if (e.target.classList.contains('fbr')) brOpen = e.target.open; }, true);
+document.addEventListener('click', e => { const d = document.querySelector('#filtres .fbr[open]'); if (d && !d.contains(e.target)){ d.open = false; brOpen = false; } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape'){ const d = document.querySelector('#filtres .fbr[open]'); if (d){ d.open = false; brOpen = false; d.querySelector('summary').focus(); } } });
+/* ===================== Panneau Apparence ===================== */
+const drawer = document.getElementById('appdrawer'), appBody = document.getElementById('app-body'), btnApp = document.getElementById('btn-app');
+let appMsg = '';
+function ambPreview(key){
+  const A = {...AMBIANCES[key]}, sv = document.createElementNS(NS, 'svg');
+  sv.setAttribute('viewBox', '0 0 96 44'); sv.setAttribute('aria-hidden', 'true');
+  /* silhouette de l'arbre de l'ambiance */
+  if (A.arbre === 'cactus'){
+    fel('path', {d:'M14,42 V12 M14,30 H6 V20 M14,24 H22 V14', stroke:'var(--cactus)', 'stroke-width':6, 'stroke-linecap':'round', 'stroke-linejoin':'round', fill:'none'}, sv);
+    cactusFlower(sv, 14, 10, 7, false);
+  } else if (A.arbre === 'rosier'){
+    fel('path', {d:'M15,42 Q13,28 15,16 M15,30 Q9,24 7,18 M15,26 Q21,22 24,15', stroke:'var(--rosier)', 'stroke-width':3, 'stroke-linecap':'round', fill:'none'}, sv);
+    [[7,17,6],[24,14,6],[15,12,7]].forEach(([x,y,R]) => { fel('circle', {cx:x, cy:y + 2, r:R*0.9, fill:'var(--moss1)'}, sv); roseF(sv, x, y, R*0.8, false); });
+  } else if (A.arbre === 'baobab'){
+    fel('path', {d:'M8,42 C7,30 10,22 12,16 L18,16 C20,22 23,30 22,42Z', fill:'var(--baobab)'}, sv);
+    fel('ellipse', {cx:15, cy:12, rx:14, ry:5, fill:'var(--moss1)'}, sv);
+  } else {
+    fel('path', {d:'M13,42 L14,22 L17,22 L18,42Z', fill:'var(--bark)'}, sv);
+    [[15,13,9,'var(--moss1)'],[9,17,6,'var(--leaf)'],[21,17,6,'var(--moss2)']].forEach(([x,y,r,c]) => fel('circle', {cx:x, cy:y, r, fill:c}, sv));
+  }
+  drawItem(fel('g', {transform:'translate(42,26) scale(.9)'}, sv), 'article', A);
+  drawItem(fel('g', {transform:'translate(62,40) scale(.62)'}, sv), 'stagiaire', A);
+  drawItem(fel('g', {transform:'translate(84,40) scale(.68)'}, sv), 'personnel', A);
+  return sv;
+}
+function renderDrawer(){
+  const raw = appRaw(), A = appResolved(), custom = Object.keys(APP_OPTS).some(k => raw[k] && raw[k] !== AMBIANCES[A.ambiance][k]);
+  const scope = FOREST ? "Ces choix sont enregistrés dans le fichier de la forêt et s'appliquent à tous ses arbres." : "Ces choix sont enregistrés dans le fichier de l'arbre.";
+  appBody.innerHTML = `<p class="dnote">${scope}</p>
+    <h3>Ambiance</h3>
+    <div class="ambs" role="radiogroup" aria-label="Ambiance"></div>
+    <h3>Réglage détaillé</h3>
+    <div class="afields">${Object.keys(APP_OPTS).map(k => `<div class="field"><label for="app-${k}">${esc(APP_OPTS[k].label)}</label>
+      <select id="app-${k}" data-app="${k}">${APP_OPTS[k].items.map(([v,t]) => `<option value="${v}"${A[k] === v ? ' selected' : ''}>${esc(t)}</option>`).join('')}</select></div>`).join('')}</div>
+    <p class="dnote">Les feuilles des communications et les bouts de branche suivent le type d'arbre : feuilles et feuillages pour l'arbre feuillu, jeunes raquettes et fleurs pour le cactus, feuilles palmées et touffes pour le baobab, feuilles de rosier et roses pour le rosier.</p>
+    <p class="dnote" id="app-status">${esc(appMsg)}</p>
+    <div class="dactions"><button type="button" class="btn primary" id="app-save">${FOREST ? 'Enregistrer la forêt' : 'Enregistrer la page'}</button></div>`;
+  const box = appBody.querySelector('.ambs');
+  Object.keys(AMBIANCES).forEach(key => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'amb'; b.dataset.amb = key;
+    b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', String(A.ambiance === key));
+    b.appendChild(ambPreview(key));
+    const t = document.createElement('div');
+    t.innerHTML = `<b>${esc(AMBIANCES[key].nom)}${A.ambiance === key && custom ? '<span class="perso">personnalisée</span>' : ''}</b><span>${esc(AMBIANCES[key].desc)}</span>`;
+    b.appendChild(t); box.appendChild(b);
+  });
+}
+function appChanged(msg){
+  dirty = true; appMsg = msg + ' Enregistrez pour conserver ce choix.';
+  refresh(); renderDrawer();
+}
+appBody.addEventListener('click', e => {
+  const a = e.target.closest('[data-amb]');
+  if (a){
+    const raw = appRaw(); Object.keys(raw).forEach(k => delete raw[k]); raw.ambiance = a.dataset.amb;
+    appChanged(`Ambiance « ${AMBIANCES[raw.ambiance].nom} » appliquée.`);
+    appBody.querySelector(`[data-amb="${raw.ambiance}"]`)?.focus(); return;
+  }
+  if (e.target.closest('#app-save')) savePage().then(() => { appMsg = dirty ? appMsg : 'Enregistré.'; renderDrawer(); });
+});
+appBody.addEventListener('change', e => {
+  const k = e.target.dataset && e.target.dataset.app; if (!k) return;
+  const raw = appRaw(), base = AMBIANCES[appResolved().ambiance];
+  if (!raw.ambiance) raw.ambiance = appResolved().ambiance;
+  if (e.target.value === base[k]) delete raw[k]; else raw[k] = e.target.value;
+  appChanged(`${APP_OPTS[k].label.split(' (')[0]} : ${optName(k, e.target.value)}.`);
+  document.getElementById('app-' + k)?.focus();
+});
+function setDrawer(open){
+  drawer.hidden = !open; btnApp.setAttribute('aria-expanded', String(open));
+  if (open){ appMsg = ''; renderDrawer(); document.getElementById('app-close').focus(); } else btnApp.focus();
+}
+btnApp.addEventListener('click', () => setDrawer(drawer.hidden));
+document.getElementById('app-close').addEventListener('click', () => setDrawer(false));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !drawer.hidden) setDrawer(false); });
+
+if (FOREST){
+  btnBack.addEventListener('click', showForest);
+  document.getElementById('btn-save').textContent = 'Enregistrer la forêt';
+  btnRemove.hidden = false;
+  btnRemove.addEventListener('click', e => {
+    const b = e.currentTarget;
+    if (!b.classList.contains('armed')){ arm(b, 'Confirmer : retirer ce projet'); return; }
+    FOREST.projets.splice(cur, 1); dirty = true;
+    b.classList.remove('armed'); b.textContent = 'Retirer de la forêt';
+    fstatus('Projet retiré. Enregistrez la forêt pour conserver ce changement.');
+    showForest();
+  });
+  fsvg.addEventListener('click', e => { const t = e.target.closest('.ftree'); if (t) openProject(Number(t.dataset.i)); });
+  fsvg.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ const t = e.target.closest('.ftree'); if (t){ e.preventDefault(); openProject(Number(t.dataset.i)); } } });
+  fpanel.addEventListener('click', e => {
+    const h = e.target.closest('[data-hide], [data-show]');
+    if (h){
+      const i = Number(h.dataset.hide ?? h.dataset.show), pr = FOREST.projets[i].projet;
+      if (h.dataset.hide !== undefined) pr.masque = true; else delete pr.masque;
+      dirty = true;
+      fstatus(`« ${pr.titre} » ${pr.masque ? 'masqué' : 'réaffiché'}. Enregistrez la forêt pour conserver ce choix.`);
+      drawForest(); return;
+    }
+    const b = e.target.closest('[data-open]'); if (b) openProject(Number(b.dataset.open));
+  });
+  fpanel.addEventListener('toggle', e => { if (e.target.classList && e.target.classList.contains('fhidden')) fOpenHidden = e.target.open; }, true);
+  const fstage = document.getElementById('fstage');
+  function fshow(t, evt){
+    const m = metrics(FOREST.projets[Number(t.dataset.i)]), p = m.c.projet;
+    ftip.innerHTML = `<span class="kind" style="font-size:11.5px;color:var(--muted)"><i style="background:${m.autumn ? 'var(--au1)' : 'var(--leaf)'}"></i>${m.autumn ? 'Projet achevé ou en sommeil' : 'Projet en cours'}</span>
+      <b>${esc(p.titre)}</b><span class="m">${esc(p.porteur || '')}${p.porteur ? ' · ' : ''}${esc(m.years)}<br>${m.nbr} projet${m.nbr > 1 ? 's' : ''} dérivé${m.nbr > 1 ? 's' : ''} · ${m.art} publication${m.art > 1 ? 's' : ''} · ${m.com} communication${m.com > 1 ? 's' : ''}<br>${m.nfin} financement${m.nfin > 1 ? 's' : ''} · ${m.sta} stagiaire${m.sta > 1 ? 's' : ''} · ${m.per} recrutement${m.per > 1 ? 's' : ''}</span>`;
+    ftip.hidden = false;
+    const sr = fstage.getBoundingClientRect(), tr = t.getBoundingClientRect();
+    let x = evt && evt.clientX ? evt.clientX - sr.left : tr.left + tr.width/2 - sr.left, y = evt && evt.clientY ? evt.clientY - sr.top : tr.top - sr.top + 40;
+    const tw = ftip.offsetWidth, th = ftip.offsetHeight;
+    let left = x + 14, top = y - th - 12;
+    if (left + tw > sr.width) left = x - tw - 14; if (left < 0) left = 4; if (top < 0) top = y + 18;
+    ftip.style.left = left + 'px'; ftip.style.top = top + 'px';
+  }
+  fsvg.addEventListener('pointermove', e => { const t = e.target.closest('.ftree'); if (t) fshow(t, e); else ftip.hidden = true; });
+  fsvg.addEventListener('pointerleave', () => { ftip.hidden = true; });
+  fsvg.addEventListener('focusin', e => { const t = e.target.closest('.ftree'); if (t) fshow(t); });
+  fsvg.addEventListener('focusout', () => { ftip.hidden = true; });
+  document.getElementById('btn-fsave').addEventListener('click', savePage);
+  document.getElementById('btn-fnew').addEventListener('click', () => {
+    FOREST.projets.push(normalize({projet:{titre:'Nouveau projet', porteur:'Plateforme Neuraxess', debut:(new Date().getFullYear()) + '-01', maj:today(), resume:''}}));
+    dirty = true; openProject(FOREST.projets.length - 1); setEditing(true);
+  });
+  document.getElementById('ffile-in').addEventListener('change', e => {
+    const files = [...(e.target.files || [])]; if (!files.length) return;
+    Promise.all(files.map(f => f.text().then(txt => {
+      let src = txt;
+      if (/<script|<html/i.test(txt)){
+        const m = txt.match(/<script type="application\/json" id="projet">([\s\S]*?)<\/script>/);
+        if (!m) throw new Error(`« ${f.name} » ne contient pas de données d'arbre`);
+        src = m[1];
+      }
+      const parsed = JSON.parse(src);
+      return Array.isArray(parsed.projets) ? parsed.projets : [parsed];
+    }))).then(groups => {
+      let added = 0, replaced = 0;
+      groups.flat().forEach(raw => {
+        const pd = normalize(raw), t = String(pd.projet.titre || '').trim().toLowerCase();
+        const j = FOREST.projets.findIndex(x => String(x.projet.titre || '').trim().toLowerCase() === t);
+        if (j >= 0 && t){ FOREST.projets[j] = pd; replaced++; } else { FOREST.projets.push(pd); added++; }
+      });
+      dirty = true;
+      fstatus(`${added} projet${added > 1 ? 's' : ''} ajouté${added > 1 ? 's' : ''}${replaced ? `, ${replaced} mis à jour` : ''}. Enregistrez la forêt pour conserver ces changements.`);
+      drawForest();
+    }).catch(err => { fstatus(`Import impossible : ${err.message}.`); drawForest(); })
+      .finally(() => { e.target.value = ''; });
+  });
+  showForest();
+} else {
+  refresh();
+}
+})();
+</script>
